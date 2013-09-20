@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" ng-app="breach" style="height: 100%">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <title>New Tab</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/lib/normalize-2.1.2.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="/css/fonts.css"/>
+    <link rel="stylesheet" href="/css/main.css"/> 
+  
+  </head>
+
+  <body style="height: 90%; 
+               background-color: hsl(228, 14%, 85%);">
+    <div style="position: absolute; 
+                width: 95%;
+                padding: 0;
+                margin: 0;
+                top:20%; text-align: center;
+                color: hsl(228, 7%, 15%);
+                ">
+      <div style="font-size: 2.5em;
+                  text-shadow: 0px 1px 1px hsl(228, 14%, 75%);
+                  font-weight: 200;
+                  letter-spacing: -1px;">
+        <span style="opacity:0.6">ExoBrowser: Exp.1:</span>
+        Stacked Navigation
+      </div>
+      <div id="learn_more" style="cursor: pointer;
+                                  margin-top: 20px;
+                                  color: #333;
+                                  font-weight: 800;
+                                  font-size: 1.5em;">
+        Learn More &amp; Shortcuts
+      </div>
+      <center>
+        <div style="margin-top: 50px;" id="slides">
+        </div>
+      </center>
+    </div>
+
+    <!-- <a href="test.html" style="color: #ccc;">test</a> -->
+
+    <script src="/lib/jquery-2.0.3.min.js"></script>
+    <script>
+      $('#learn_more').click(function() {
+        var html = '';
+        html += '<div style="width: 576px; height: 420px; background-color: #222">'
+        html += '<iframe src="http://slid.es/stanislaspolu/exo_browser-exp1/embed"';
+        html += '        width="576" height="420"';
+        html += '        scrolling="no" frameborder="0">';
+        html += '</iframe>';
+        html += '</div>';
+        $('#slides').html(html);
+        $('#learn_more').remove();
+      });
+    </script>
+  </body>
+</html>

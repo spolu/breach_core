@@ -1,0 +1,95 @@
+.box {
+  background-color: hsl(228, 7%, 95%);
+  background: -webkit-gradient(radial, 
+                               100 36,
+                               0,
+                               100 -40,
+                               120,
+                               from(hsl(0, 0%, 98%)),
+                               to(hsl(0, 0%, 95%))),
+              hsl(0, 0%, 95%);
+  border-bottom: 1px solid hsl(228, 14%, 75%);
+  color: black;
+  height: 34px;
+  width: 100%;
+}
+
+
+.box > a.button {
+  display: block;
+
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  top: 4px;
+
+  border: 1px solid hsl(228, 14%, 95%);
+  text-align: center;
+  border-radius: 2px;
+
+  background-size: cover;
+
+  cursor: pointer;
+  opacity: 0.3;
+}
+
+.box > a.button.active {
+  opacity: 1.0;
+}
+
+.box > a.button.active:hover {
+  border: 1px solid hsl(228, 14%, 80%);
+}
+
+.box > a.button.back {
+  left: 5px;
+  background-image: url('/box/img/arrow.png');
+}
+.box > a.button.forward {
+  left: 35px;
+  background-image: url('/box/img/arrow.png');
+  -webkit-transform: scaleX(-1);
+}
+
+
+.box > form > input,
+.box > form > input:focus {
+  position: absolute;
+  top: 3px;
+  height: 25px;
+  left: 66px;
+  right: 3px;
+
+  line-height: 20px;
+  color: hsl(200, 0%, 40%);
+  background-color: hsl(200, 0%, 100%);
+  border: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .3), 
+              0 1px 0 rgba(255, 255, 255, .3);
+  outline: none !important;
+  border-radius: 2px;
+  padding-left: 5px;
+  font-size: 0.8;
+  font-weight: 500;
+}
+
+.box > .label {
+  position: absolute;
+
+  top: 9px;
+  right: 10px;
+
+  background-color: hsl(228, 30%, 50%);
+  border-radius: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-bottom: 1px;
+
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, .4);
+
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color:white;
+}
+

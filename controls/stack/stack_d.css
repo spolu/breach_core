@@ -1,0 +1,88 @@
+.stack {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  overflow: hidden;
+  background: -webkit-linear-gradient(top, 
+                                      hsl(220, 12%, 10%), 
+                                      hsl(220, 12%, 20%));
+}
+
+
+.stack .page {
+  color: white;
+  background-color: hsl(228, 14%, 14%);
+  padding-top: 2px;
+  height: 32px;
+  line-height: 14px;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  border-bottom: 1px solid hsl(228, 14%, 18%);
+  cursor: pointer;
+}
+
+.stack .page:hover {
+  background-color: hsl(228, 14%, 16%);
+  border-bottom: 1px solid hsl(228, 14%, 20%);
+}
+
+.stack .page.active {
+  box-shadow: inset 1px -1px 0px hsl(228, 70%, 50%);
+}
+
+
+.stack .page > .favicon {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin-top: 4px;
+  margin-right: 5px;
+  background-color: hsl(228, 7%, 90%);
+  border: 1px solid hsl(228, 14%, 12%);
+  border-radius: 3px;
+  background-size: cover;
+}
+
+.stack .page > .content {
+  vertical-align: top;
+  display: inline-block;
+  width: 190px;
+}
+
+.stack .page > .content .title {
+  font-weight: 700;
+  font-size: 0.9em;
+  margin-top: 7px;
+  letter-spacing: -1px;
+}
+
+.stack .page > .content .url {
+  font-size: 0.8em;
+  opacity: 0.7;
+  letter-spacing: -1px;
+}
+
+.stack .page > .pin {
+  display: inline-block;
+  height: 13px;
+  width: 13px;
+  margin-bottom: 5px;
+
+  background-color: hsl(228, 14%, 80%);
+  background-image: url('/stack/img/pin_black.png');
+  background-size: 11px 11px;
+  background-position: 1px 1px;
+  background-repeat: no-repeat;
+
+  border-radius: 6px;
+  opacity: 0.5;
+}
+
+.stack .page.pinned > .pin {
+  opacity: 0.9;
+  background-color: hsl(24, 100%, 60%);
+  background-image: url('/stack/img/pin_white.png');
+}
