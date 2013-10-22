@@ -1,3 +1,12 @@
+>>> v0.1
+
+TODO(spolu): Keyboard shortcuts MacOSX
+TODO(spolu): More conventional Keyboard shortcuts
+
+>>> v0.3
+
+TODO(spolu): Design Distributed Storage
+
 
 + OTHER
 
@@ -16,3 +25,4 @@ DONE:
 
 TODO(spolu): CookieStore
 TODO(spolu): :exit
+TODO(spolu): NProgress
