@@ -1,24 +1,30 @@
-+ SHOWSTOPPER ALPHA RELEASE EXP1:
+>>> v0.1
 
-TODO(spolu): Stack Search through /
-TODO(spolu): :exit
+TODO(spolu): Box get emptied while pages are loading (#3)
 
-TODO(spolu): Net (Cookies) API
-TODO(spolu): Add --expose-gc to node flags?
+>>> v0.3
+
+TODO(spolu): Design Distributed Storage
+
 
 + OTHER
 
-TODO(spolu): If needed, Stack Search content
-TODO(spolu): Find in page through / and stack search ?
+TODO(spolu): Box Completion
+TODO(spolu): Stack Search based on url/title + content
 TODO(spolu): Scriptable Box user I/F
 TODO(spolu): Hover Controls
 TODO(spolu): Inspector ?
 TODO(spolu): Flash ?
 TODO(spolu): Proper profiles
+
++ DONE: 
+
+>>> v0.1
+
 TODO(spolu): Sessions
-
-
-// STACK SEARCH
-
-- add filtering to next/prev event
-- add show first result
+TODO(spolu): Basic local CookieStore
+TODO(spolu): :exit
+TODO(spolu): NProgress
+TODO(spolu): Keyboard shortcuts MacOSX
+TODO(spolu): More conventional Keyboard shortcuts
+TODO(spolu): Design (flatter + lighter)

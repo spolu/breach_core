@@ -21,6 +21,7 @@ angular.module('breach.directives').controller('BoxCtrl',
     var MODE_FIND_IN_PAGE = 1 << 1;
 
     var _input = jQuery($element).find('input');
+    $scope.loading = false;
 
     $scope.$watch('state', function(state) {
       if(state) {
@@ -30,6 +31,16 @@ angular.module('breach.directives').controller('BoxCtrl',
         $scope.mode = state.mode;
         $scope.value = state.value;
         $scope.last = $scope.value; 
+
+        if(state.loading && !$scope.loading) {
+          NProgress.start();
+          $scope.loading = true;
+        }
+        if(!state.loading) {
+          NProgress.done();
+          $scope.loading = false;
+        }
+        
         switch($scope.mode) {
           case MODE_FIND_IN_PAGE: {
             $scope.label = 'in page';

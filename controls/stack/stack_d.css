@@ -30,7 +30,8 @@
 }
 
 .stack .page.active {
-  box-shadow: inset 1px -1px 0px hsl(228, 70%, 50%);
+  background-color: hsl(228, 14%, 6%);
+  border-bottom: 1px solid hsl(228, 14%, 20%);
 }
 
 
@@ -49,14 +50,15 @@
 .stack .page > .content {
   vertical-align: top;
   display: inline-block;
-  width: 190px;
+  width: 140px;
 }
 
 .stack .page > .content .title {
-  font-weight: 700;
-  font-size: 0.9em;
+  font-weight: 100;
+  font-size: 0.8em;
   margin-top: 7px;
-  letter-spacing: -1px;
+  opacity: 0.8;
+  text-shadow: 0px 0px 3px hsl(0, 0%, 0%);
 }
 
 .stack .page > .content .url {
@@ -65,24 +67,5 @@
   letter-spacing: -1px;
 }
 
-.stack .page > .pin {
-  display: inline-block;
-  height: 13px;
-  width: 13px;
-  margin-bottom: 5px;
-
-  background-color: hsl(228, 14%, 80%);
-  background-image: url('/stack/img/pin_black.png');
-  background-size: 11px 11px;
-  background-position: 1px 1px;
-  background-repeat: no-repeat;
-
-  border-radius: 6px;
-  opacity: 0.5;
-}
-
-.stack .page.pinned > .pin {
-  opacity: 0.9;
-  background-color: hsl(24, 100%, 60%);
-  background-image: url('/stack/img/pin_white.png');
+.stack .page.pinned {
 }
