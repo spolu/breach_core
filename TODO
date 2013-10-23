@@ -1,7 +1,6 @@
 >>> v0.1
 
 TODO(spolu): Box get emptied while pages are loading (#3)
-TODO(spolu): Design (flatter + lighter)
 
 >>> v0.3
 
@@ -28,3 +27,4 @@ TODO(spolu): :exit
 TODO(spolu): NProgress
 TODO(spolu): Keyboard shortcuts MacOSX
 TODO(spolu): More conventional Keyboard shortcuts
+TODO(spolu): Design (flatter + lighter)
