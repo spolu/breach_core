@@ -1,6 +1,6 @@
 >>> v0.1
 
-TODO(spolu): Bug: Box get emptied while pages are loading
+TODO(spolu): Box get emptied while pages are loading (#3)
 TODO(spolu): Design (flatter + lighter)
 
 >>> v0.3
@@ -10,6 +10,7 @@ TODO(spolu): Design Distributed Storage
 
 + OTHER
 
+TODO(spolu): Box Completion
 TODO(spolu): Stack Search based on url/title + content
 TODO(spolu): Scriptable Box user I/F
 TODO(spolu): Hover Controls
