@@ -43,12 +43,12 @@ angular.module('breach.directives').controller('BoxCtrl',
         
         switch($scope.mode) {
           case MODE_FIND_IN_PAGE: {
-            $scope.label = 'in page';
+            $scope.in_page = true;
             break;
           }
           case MODE_NORMAL: 
           default: {
-            $scope.label = null;
+            $scope.in_page = false;
             break;
           }
         }
