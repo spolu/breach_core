@@ -1,5 +1,5 @@
 {
-  "name": "Breach",
+  "name": "breach",
   "version": "0.1.0",
   "main": "./index.js",
   "dependencies": {

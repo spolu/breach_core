@@ -1,5 +1,5 @@
 /*
- * ExoBrowser: app.js [box]
+ * Breach: app.js [box]
  *
  * (c) Copyright Stanislas Polu 2013. All rights reserved.
  *
