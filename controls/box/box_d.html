@@ -1,14 +1,7 @@
 <div class="box">
-  <a class="button back" 
-     ng-disabled="!can_go_back"
-     ng-class="{active: can_go_back}" 
-     ng-click="back()"></a>
-  <a class="button forward" 
-     ng-disabled="!can_go_forward"
-     ng-class="{active: can_go_forward}"
-     ng-click="forward()"></a>
   <form ng-submit="submit($event)">
     <input type="text"
+           ng-class="{ 'find': mode == 2 }"
            ng-model="value" autofocus></input>
   </form>
   <div class="label" ng-show="label">
