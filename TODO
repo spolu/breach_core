@@ -1,18 +1,31 @@
+>>> v0.1
+
+TODO(spolu): Box get emptied while pages are loading (#3)
+TODO(spolu): Find in Page feedback
+
+>>> v0.3
+
+TODO(spolu): Design Distributed Storage
+
 
 + OTHER
 
-TODO(spolu): If needed, Stack Search content
-TODO(spolu): Find in page through / and stack search ?
+TODO(spolu): Box Completion
+TODO(spolu): Stack Search based on url/title + content
 TODO(spolu): Scriptable Box user I/F
 TODO(spolu): Hover Controls
 TODO(spolu): Inspector ?
 TODO(spolu): Flash ?
 TODO(spolu): Proper profiles
-TODO(spolu): Sessions
 
-DONE: 
++ DONE: 
 
 >>> v0.1
 
-TODO(spolu): CookieStore
+TODO(spolu): Sessions
+TODO(spolu): Basic local CookieStore
 TODO(spolu): :exit
+TODO(spolu): NProgress
+TODO(spolu): Keyboard shortcuts MacOSX
+TODO(spolu): More conventional Keyboard shortcuts
+TODO(spolu): Design (flatter + lighter)
