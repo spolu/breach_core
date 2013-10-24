@@ -1,15 +1,16 @@
 >>> v0.1
 
-TODO(spolu): Box get emptied while pages are loading (#3)
 TODO(spolu): Find in Page feedback
+TODO(spolu): Keyboard shortcuts on New Tab Page
 
 >>> v0.3
 
 TODO(spolu): Design Distributed Storage
 
 
-+ OTHER
++ LATER
 
+TODO(spolu): Navigation State on stack active element click
 TODO(spolu): Box Completion
 TODO(spolu): Stack Search based on url/title + content
 TODO(spolu): Scriptable Box user I/F
@@ -29,3 +30,4 @@ TODO(spolu): NProgress
 TODO(spolu): Keyboard shortcuts MacOSX
 TODO(spolu): More conventional Keyboard shortcuts
 TODO(spolu): Design (flatter + lighter)
+TODO(spolu): Box get emptied while pages are loading (#3)
