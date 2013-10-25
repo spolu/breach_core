@@ -30,6 +30,7 @@ function StackTopCtrl($scope, $location, $rootScope, $window, $timeout,
 
   _socket.on('pages', function(pages) {
     $scope.pages = pages;
+    //console.log(JSON.stringify(pages, null, 2));
   });
 }
 
