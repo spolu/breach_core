@@ -1,7 +1,9 @@
->>> v0.1
+>>> v0.1.4
 
-TODO(spolu): Find in Page feedback
+TODO(spolu): Navigation Update URL unchanged
+TODO(spolu): Favicon Correct Impl
 TODO(spolu): Keyboard shortcuts on New Tab Page
+TODO(spolu): Close tab go to latest better
 
 >>> v0.3
 
@@ -31,3 +33,8 @@ TODO(spolu): Keyboard shortcuts MacOSX
 TODO(spolu): More conventional Keyboard shortcuts
 TODO(spolu): Design (flatter + lighter)
 TODO(spolu): Box get emptied while pages are loading (#3)
+
+>>> v0.1.4
+
+TODO(spolu): Connect to free port (multiple instances)
+TODO(spolu): Find in Page feedback Impl
