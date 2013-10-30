@@ -104,6 +104,7 @@ pre .template_comment,
 pre .pi,
 pre .doctype {
   color: hsl(200, 100%, 90%);
+  font-weight: 800;
 }
 
 pre .xml .css,
