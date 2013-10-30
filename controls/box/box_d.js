@@ -31,6 +31,7 @@ angular.module('breach.directives').controller('BoxCtrl',
         $scope.mode = state.mode;
         $scope.value = state.value;
         $scope.last = $scope.value; 
+        $scope.mode_args = state.mode_args;
 
         if(state.loading && !$scope.loading) {
           NProgress.start();
@@ -125,6 +126,15 @@ angular.module('breach.directives').controller('BoxCtrl',
     };
     $scope.forward = function() {
       _socket.emit('box_forward');
+    };
+
+    $scope.find_match = function() {
+      if($scope.mode === MODE_FIND_IN_PAGE) {
+        if($scope.value.length > 0) {
+          return $scope.mode_args.matches;
+        }
+      }
+      return null;
     };
   });
 

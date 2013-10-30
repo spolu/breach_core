@@ -75,3 +75,10 @@
   background-color: hsla(100, 0%, 90%, 1);
 }
 
+.box > form > input.find.match {
+  background-color: hsla(100, 40%, 90%, 1);
+}
+.box > form > input.find.fail {
+  background-color: hsla(0, 40%, 90%, 1);
+}
+

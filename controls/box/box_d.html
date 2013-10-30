@@ -1,7 +1,9 @@
 <div class="box">
   <form ng-submit="submit($event)">
     <input type="text"
-           ng-class="{ 'find': mode == 2 }"
+           ng-class="{ 'find': mode == 2,
+                       'match': find_match() > 0,
+                       'fail': find_match() == 0 }"
            ng-model="value" autofocus></input>
   </form>
   <div class="label" ng-show="label">
