@@ -9,6 +9,7 @@ pre code {
   display: block; padding: 0.5em;
   background: #3F3F3F;
   color: #DCDCDC;
+  font-weight: 800;
 }
 
 pre .keyword,
