@@ -1,0 +1,35 @@
+body {
+  font: 13.34px "Source Sans Pro", Gadget, sans-serif;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body a {
+}
+
+div.block {
+  position: absolute;
+  top: 200px;
+  right: 80px;
+}
+
+div.title {
+  color: white;
+  font-size: 3.5em;
+  font-weight: 700;
+  letter-spacing: -1px;
+  text-shadow: 0px 0px 1px rgba(0,0,0,0.7);
+}
+
+div.footer {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+div.tagline {
+  color: white;
+  font-size: 1.5em;
+  font-weight: 200;
+  font-style: italic;
+}
