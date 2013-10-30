@@ -38,21 +38,31 @@
 
         <section>
           <h3>Embedding Node.JS on top of a Rendering Engine</h3>
-          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px; text-align:center;">
+          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 #  +---------------+       +-------------------+       +-------------------+  #
-#  |               |       |        JS         |       |        JS         |  #
+#  |               |       |      JS CODE      |       |      JS CODE      |  #
 #  |      C++      |       +-------------------+       +-------------------+  #
 #  |               |          |  +-------------+       +--------+ +--------+  #
 #  |               |  ==>     |  |     C++     |  ==>  | NodeJS | |  C++   |  #
 #  +---------------+          |  +-------------+       +--------+ +--------+  #
 #  +------+ +------+       +----------+ +------+       +----------+ +------+  #
-#  |  V8  | |  WK  |       |    V8    | |  WK  |       |    V8    | |  WK  |  #
+#  |  JS  | | HTML |       |    JS    | | HTML |       |    JS    | | HTML |  #
 #  +------+ +------+       +----------+ +------+       +----------+ +------+  #
           </code></pre>
           <blockquote>
-            5,343 C++ implementation files.<br/>
-            1,449,451 lines of C++ code 
+            5,343 .cpp files<br/>
+            1,449,451 LoC
           </blockquote>
+        </section>
+
+        <section>
+          <h3>Available Technologies</h3>
+          <ul>
+            <li>Webkit (Cocoa) / WebKitGtk / QtWebkit</li>
+            <li>Raw WebKit</li>
+            <li>Firefox (XPCOM)</li>
+            <li>Chromium Content API</li>
+          </ul>
         </section>
 
         <section>
@@ -61,8 +71,32 @@
         </section>
 
         <section>
+          <h3>Chromium Content API</h3>
+          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+// WebContents is the core class in content/. A WebContents renders web content
+// (usually HTML) in a rectangular area.
+//
+// Instantiating one is simple:
+//   scoped_ptr<content::WebContents> web_contents(
+//       content::WebContents::Create(
+//           content::WebContents::CreateParams(browser_context)));
+//   gfx::NativeView view = web_contents->GetView()->GetNativeView();
+//   // |view| is an HWND, NSView*, GtkWidget*, etc.; insert it into the view
+//   // hierarchy wherever it needs to go.
+//
+// That's it; go to your kitchen, grab a scone, and chill. WebContents will do
+// all the multi-process stuff behind the scenes. More details are at
+// http://www.chromium.org/developers/design-documents/multi-process-architecture .
+          </code></pre>
+        </section>
+
+        <section>
+          <img src="assets/process.png">
+        </section>
+
+        <section>
           <h3>ExoBrowser Architecture</h3>
-          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px; text-align:center;">
+          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 #                (Platform)                     (Browser Implementation)  #
 #                  +-----+ +-----+ +-------+                              #
 #                  | GTK | | Win | | Cocoa |                              #
@@ -77,10 +111,6 @@
 #  +--------+  +----+ +------------------+     +-----------------------+  #
 #                                                                         #
           </code></pre>
-        </section>
-
-        <section>
-          <img src="assets/process.png">
         </section>
 
         <section>
@@ -107,307 +137,27 @@ NodeThread::PostTask(
         </section>
 
 
-
-
-
-
-
-
-
-
-
         <section>
-          <h3>Chromium Architecture</h3>
-          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;text-align:center;">
-#  (Platform)          |   (Browser Implementation)  #
-#  +----------------+  |  +-----------------------+  #
-#  |  Content API   +-----+     Chrome (C++)      |  #
-#  +----+-----------+  |  +-----------------------+  #
-#       |              |     |       |        |      #
-#  +----+---+  +----+  |  +-----+ +-----+ +-------+  #
-#  | Webkit +--+ v8 |  |  | GTK | | Win | | Cocoa |  #
-#  +--------+  +----+  |  +-----+ +-----+ +-------+  #
-#                      |                             #
+          <h3>BOOM Chocapic!</h3>
+          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+$ ./exo_browser --raw
+> var api = require('exo_browser');
+> var b = api.exo_browser({});
+> var f = api.exo_frame({ url: 'http://parijs.org' });
+> b.add_page(f);
+> b.show_page(f);
+> f.load_url('http://google.com');
+
+> var c = api.exo_frame({ url: 'http://breach.cc' });
+> b.set_control(api.TOP_CONTROL, c);
+> b.set_control_dimension(api.TOP_CONTROL, 40);
           </code></pre>
         </section>
 
-
-
-
-
-
-
         <section>
-          <h3>The Reality of your Startup</h3>
-          <ul>
-            <li>Limited Money <q>(No Money at All)</q></li>
-            <li>Limited Team <q>(No One at All)</q></li>
-            <li>Limited Customer <q>(No Customer at All)</q></li>
-          </ul>
+          <h3>What's Next?</h3>
+          <a href="http://breach.cc">Breach.cc</a>
         </section>
-
-        <section>
-          <ul>
-            <li> <h5 class="feedback">Feedback</h5> </li>
-            <li> <h5 class="team">Team</h5> </li>
-            <li> <h5 class="focus">Focus</h5> </li>
-            <li> <h5 class="tools">Tools</h5> </li>
-          </ul>
-        </section>
-
-        <section>
-          <img src="assets/revenue.png">
-        </section>
-
-        <section> <!-- BUILDING TELEPORTD -->
-          <section>
-            <h3>"The closest thing you'll get to teleportation"<h3>
-          </section>
-
-          <section>
-            <h3>Building Teleportd (The App)</h3>
-            <h4>2 Founders / 2-3 Months</h4>
-            <div class="prism">
-              <ul>
-                <li>
-                  <h5 class="feedback">Feedback</h5>
-                  TestFlight feedback is probably biased!
-                </li>
-                <li>
-                  <h5 class="team">Team</h5>
-                  Small, Efficient, Driven<br/>
-                  Pre-Launch Equation:
-                  <blockquote>
-                    No Customer + No Usage = No Problem
-                  </blockquote>
-                </li>
-                <li>
-                  <h5 class="focus">Focus</h5>
-                  Total & Absolute, driven by Vision
-                </li>
-                <li>
-                  <h5 class="tools">Tools</h5>
-                  Gmail, git
-                </li>
-              </ul>
-            </div>
-          </section>
-        </section>
-
-        <section> <!-- GROWING TELEPORTD -->
-          <section>
-            <a href="http://thenextweb.com/apps/2011/10/10/teleportd-lets-you-search-photos-shared-on-twitter-instagram-and-more-in-real-time/">"Teleportd is free and available now for iPhone in the App Store"</a>
-            <a href="https://plus.google.com/+Scobleizer/posts/1TunJDKGz3T">"Two new real-time iOS apps that are mind-blowing to watch"</a>
-          </section>
-
-          <section>
-            <h3>Growing Teleportd (The App)</h3>
-            <h4>2 Founders / 3 Months</h4>
-            <div class="prism">
-              <ul>
-                <li>
-                  <h5 class="feedback">Feedback</h5>
-                  Users <i>"just checking out"</i> <q>(30-40k of them)</q>
-                  <blockquote>
-                    No Traction <=> No Feedback
-                  </blockquote>
-                </li>
-                <li>
-                  <h5 class="team">Team</h5>
-                  <b>/!\</b> Violent communication shifts from growth to product
-                </li>
-                <li>
-                  <h5 class="focus">Focus</h5>
-                  Move along if it does not go Supernova
-                </li>
-                <li>
-                  <h5 class="tools">Tools</h5>
-                  Gmail, git
-                </li>
-              </ul>
-            </div>
-          </section>
-        </section>
-
-        <section> <!-- Vision Pivot -->
-          <section>
-            <h3>Vision Pivot</h3>
-          </section>
-
-          <section>
-            <h3>Teleportd API &amp; Capsules</h3>
-            <h4>2 Founders + 2 Tech / 6 Months</h4>
-            <div class="prism">
-              <ul>
-                <li>
-                  <h5 class="feedback">Feedback</h5>
-                  2 Employes -> 2 new PoVs
-                </li>
-                <li>
-                  <h5 class="team">Team</h5>
-                  Communication Formalizes<br/>
-                  But Cus Dev Lacking
-                </li>
-                <li>
-                  <h5 class="focus">Focus</h5>
-                  B2B Feedback loops are longer!<br/>
-                  Free Cycles Theorem:
-                  <blockquote>
-                    All free cycles in a small team will eventually be consumed
-                  </blockquote>
-                </li>
-                <li>
-                  <h5 class="tools">Tools</h5>
-                  Gmail, Github, Paper(SUM)
-                </li>
-              </ul>
-            </div>
-          </section>
-        </section>
-
-        <section> <!-- FEATURES LIMBO -->
-          <section>
-            <h3>Feature Limbo &amp; Focus Experiment</h3>
-            <q>
-              How would I feel if a new startup was to launch with subset X of my features for subset Y of my customers
-            </q>
-          </section>
-
-          <section>
-            <h3>Nitrogram v0</h3>
-            <h4>2 Founders + 2 Tech + 1 Biz + 1 Content / 3 Months</h4>
-            <div class="prism">
-              <ul>
-                <li>
-                  <h5 class="feedback">Feedback</h5>
-                  Do they Pay with $$$?
-                </li>
-                <li>
-                  <h5 class="team">Team</h5>
-                  Running 2 products is bad! <q>Split-Brain</q>
-                </li>
-                <li>
-                  <h5 class="focus">Focus</h5>
-                  Product is slow and fails - Need to scale up!
-                </li>
-                <li>
-                  <h5 class="tools">Tools</h5>
-                  Trello (SUM), Drive (Important Numbers)
-                </li>
-              </ul>
-            </div>
-          </section>
-        </section>
-
-        <section> <!-- 100% Nitrogram -->
-          <section>
-            <h3>Focus 100% of the Team on Nitrogram</h3>
-          </section>
-
-          <section>
-            <h3>Nitrogram v1</h3>
-            <h4>2 Founders + 2 Tech + 1 Biz + 1 Growth + 1 Content / 3 Months</h4>
-            <div class="prism">
-              <ul>
-                <li>
-                  <h5 class="feedback">Feedback</h5>
-                  Do they keep paying?
-                </li>
-                <li>
-                  <h5 class="team">Team</h5>
-                  Biz sells v0 - Tech builds v1
-                </li>
-                <li>
-                  <h5 class="focus">Focus</h5>
-                  Invested time in a proper backend + proper design<br/>
-                  Specification was EZ!
-                </li>
-                <li>
-                  <h5 class="tools">Tools</h5>
-                  Daily Tech Emails, Balsamiq
-                </li>
-              </ul>
-            </div>
-          </section>
-        </section>
-       <section> <!-- Focus -->
-          <section>
-            <h3>Focus 100% of the Team on 1 Feature</h3>
-            <q>
-	          Even on 1 platform, we were doing too much.
-	        </q>
-          </section>
-          <section>
-            <h3>Nitrogram => Analytics</h3>
-            <h4>2 Founders + 2 Tech + 2 Biz + 1 Growth + 1 Content / 3 Months</h4>
-            <div class="prism">
-              <ul>
-                <li>
-                  <h5 class="feedback">Feedback</h5>
-                  Too many features, very complex UI,<br/>
-				  addressing too many customers,<br/>
-				  who started complaining...
-                </li>
-                <li>
-                  <h5 class="team">Team</h5>
-                  Customer interviews 
-                  <q>
-	                <a href="http://fr.slideshare.net/andreasklinger/actionable-customer-development">
-	                  (Know how here)
-	                </a>
-	              </q>
-                </li>
-                <li>
-                  <h5 class="focus">Focus</h5>
-                  Do one thing well. Remove the others.
-                </li>
-                <li>
-                  <h5 class="tools">Tools</h5>
-                  Skype and meetings!
-                </li>
-              </ul>
-            </div>
-          </section>
-        </section>
-        <section> <!-- Optimization -->
-          <section>
-            <h3>Focus 100% of the Team on Metrics</h3>
-            <q>
-	          Finally the traditional startup stuff!
-	        </q>
-          </section>
-          <section>
-            <h3>Nitrogram Analytics Only</h3>
-            <h4>2 Founders + 3 Tech + 2 Biz + 1 Growth + 1 Content / 3 Months</h4>
-            <div class="prism">
-              <ul>
-                <li>
-                  <h5 class="feedback">Feedback</h5>
-                  Our customers behavior
-                </li>
-                <li>
-                  <h5 class="team">Team</h5>
-                  Metrics and quality driven
-                </li>
-                <li>
-                  <h5 class="focus">Focus</h5>
-                  In-app experience: activation, retention, revenues,<br>
-                  Streamline operations
-                </li>
-                <li>
-                  <h5 class="tools">Tools</h5>
-                  Mixpanel
-                </li>
-              </ul>
-            </div>
-          </section>
-        </section>
-
-        <section>
-          <h3>Blueprints</h3>
-          <img src="assets/blueprints.png" width="75%">
-        </section>
-
 
 
       </div> <!-- /slides -->
