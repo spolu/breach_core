@@ -8,7 +8,6 @@
  * @log:
  * 2013-08-12 spolu   Creation
  */
-
 'use strict';
 
 angular.module('breach.services').

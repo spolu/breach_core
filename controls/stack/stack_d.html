@@ -3,8 +3,9 @@
        class="page" 
        ng-click="select_page(page)"
        ng-class="{ pinned: page.pinned, active: page.active }">
-    <div class="favicon" 
-         style="background-image: url({{page.favicon}});"></div>
+    <div class="favicon">
+      <favicon url="page.favicon"></favicon>
+    </div>
     <div class="content">
        <div class="title">{{page.title|truncate:23}}</div>
      </div>
