@@ -7,10 +7,11 @@ body {
 body a {
 }
 
-div.block {
-  position: absolute;
-  top: 200px;
-  right: 80px;
+.tagline {
+  color: white;
+  font-size: 1.5em;
+  font-weight: 200;
+  font-style: italic;
 }
 
 div.title {
@@ -21,15 +22,37 @@ div.title {
   text-shadow: 0px 0px 1px rgba(0,0,0,0.7);
 }
 
-div.footer {
+div.block {
+  position: absolute;
+  top: 200px;
+  right: 80px;
+}
+
+div.footer.left {
   position: absolute;
   bottom: 20px;
   left: 20px;
 }
 
-div.tagline {
-  color: white;
-  font-size: 1.5em;
-  font-weight: 200;
-  font-style: italic;
+div.footer.right {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
+
+a.link {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: white;
+  text-decoration: none !important;
+  margin-left: 10px;
+}
+
+a.link:link,
+a.link:visited,
+a.link:hover,
+a.link:active {
+  text-decoration: none;
+  color: white;
+}
+

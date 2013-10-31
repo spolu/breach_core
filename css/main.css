@@ -14,20 +14,29 @@ html, body { height: 100%; }
 
 body {
   background-color: #FFF;
-  font: 13.34px Helvetica, Arial, sans-serif;
+  font: 13.34px "Source Sans Pro", Gadget, sans-serif;
   font-size: small;
   text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 100%; }
+  font-size: 100%; 
+  color: hsl(200, 30%, 30%);
+}
 
 h1 { margin-bottom: 1em; }
 p { margin: 1em 0; }
 
-a         { color: #00a; }
-a:hover   { color: #000; }
-a:visited { color: #a0a; }
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+a         { color: #333; }
+a:hover   { color: #333; }
+a:visited { color: #333; }
 
 /*****************************************************************************/
 /*
@@ -69,13 +78,13 @@ ul.posts span {
 }
 
 .site .header h1.title {
+  font-size: 1.2em;
   display: inline-block;
   margin-bottom: 2em;
+  color: #333;
+  margin-right: 1.5em;
 }
 
-.site .header h1.title a {
-  color: #a00;
-}
 
 .site .header h1.title a:hover {
   color: #000;
