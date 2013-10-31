@@ -35,16 +35,12 @@
 }
 
 
-.stack .page > .favicon {
+.stack .page > div.favicon {
   display: inline-block;
   height: 20px;
   width: 20px;
-  margin-top: 4px;
+  margin-top: 5px;
   margin-right: 5px;
-  background-color: hsl(228, 7%, 90%);
-  border: 1px solid hsl(228, 14%, 12%);
-  border-radius: 3px;
-  background-size: cover;
 }
 
 .stack .page > .content {
