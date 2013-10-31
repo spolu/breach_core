@@ -32,8 +32,8 @@ angular.module('breach.directives').controller('StackCtrl',
           });
         }
         p.url = p.url || { hostname: '', href: '' };
-        p.title = p.title || '';
-        p.favicon = p.favicon || ''
+        p.title = p.title || (p.loading ? 'Loading...' : '');
+        p.favicon = p.favicon || '';
       });
     });
 
