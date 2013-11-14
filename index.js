@@ -6,8 +6,9 @@
  * @author: spolu
  *
  * @log:
- * 2013-08-11 spolu   Creation
+ * 2013-11-14 spolu   FMA refactoring
  * 2013-09-06 spolu   Exp1 process.exit on session kill
+ * 2013-08-11 spolu   Creation
  */
 var express = require('express');
 var http = require('http');
@@ -44,33 +45,18 @@ var bootstrap = function(port) {
 (function() {
   /* App Configuration */
   app.configure(function() {
-    app.use('/', express.static(__dirname + '/controls'));
+    app.use('/', express.static(__dirname + '/static'));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
   });
 
-  /* TODO(spolu): use the next free port */
   var http_srv = http.createServer(app).listen(0, '127.0.0.1');
-
-  var io = require('socket.io').listen(http_srv, {
-    'log level': 1
-  });
 
   http_srv.on('listening', function() {
     var port = http_srv.address().port;
     factory.log().out('HTTP Server started on `http://127.0.0.1:' + port + '`');
     bootstrap(port);
-  });
-
-  io.sockets.on('connection', function (socket) {
-    socket.on('handshake', function (name) {
-      var name_r = /^(br-[0-9]+)_(.*)$/;
-      var name_m = name_r.exec(name);
-      if(name_m && sessions[name_m[1]]) {
-        sessions[name_m[1]].handshake(name, socket);
-      }
-    });
   });
 })();
 
