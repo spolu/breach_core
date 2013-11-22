@@ -32,9 +32,15 @@ var bootstrap = function(port) {
   var s = require('./lib/session.js').session({ 
     base_url: 'http://127.0.0.1:' + port
   })
-  sessions[s.name()] = s;
+  sessions[s.session_id()] = s;
+  s.init(function(err) {
+    if(err) {
+      factory.fatal(err);
+    }
+    /* The session is ready. */
+  });
   s.on('kill', function() {
-    delete sessions[s.name()];
+    delete sessions[s.session_id()];
     if(global.gc) global.gc();
     /* TODO(spolu): For now as we have only one session, let's kill the */
     /* process once we get here.                                        */
