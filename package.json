@@ -10,7 +10,6 @@
     "socket.io": "0.9.x",
     "nedb": "0.8.x",
     "octonode": "0.3.x",
-    "tar": "0.1.x",
     "fs-extra": "0.8.x",
     "npm": "1.3.x"
   }
