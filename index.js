@@ -17,7 +17,6 @@ var common = require('./lib/common.js');
 var factory = common.factory;
 var app = express();
 
-
 var sessions = {};
 
 //
@@ -35,7 +34,7 @@ var bootstrap = function(port) {
   sessions[s.session_id()] = s;
   s.init(function(err) {
     if(err) {
-      factory.fatal(err);
+      common.fatal(err);
     }
     /* The session is ready. */
   });

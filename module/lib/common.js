@@ -185,22 +185,6 @@ exports.error = function(msg, name) {
   return err;
 };
 
-// ### fatal
-//
-// Prints out the error and exits the process while killing all sub processes
-// ```
-// @err {error}
-// ```
-exports.fatal = function(err) {
-  exports.factory.log().error(err);
-  try {
-    process.kill('-' + process.pid);
-  }
-  finally {
-    process.exit(1);
-  }
-};
-
 /******************************************************************************/
 /* FACTORY */
 /******************************************************************************/
