@@ -1,0 +1,11 @@
+NOTES(spolu)
+
+- session state overlay should be a module
+- Hooks in startup process?
+- Hooks in cookie storage? 
+- Module should advertise their interfaces?
+- How does module collaborate to provide an interface?
+- Existing examples?
+
+- advertise `id`
+- rpc_call + reconciliation
