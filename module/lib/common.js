@@ -170,115 +170,88 @@ exports.zpad = function(str, length) {
   return exports.lpad(str, length, '0');
 };
 
-// ### error
+
+/******************************************************************************/
+/* LOGGING AND ERROR REPORTING */
+/******************************************************************************/
+
+var log = function(str, debug, error) {
+  var pre = '[' + new Date().toISOString() + '] ';
+  //pre += (my.name ? '{' + my.name.toUpperCase() + '} ' : '');
+  pre += (debug ? 'DEBUG: ' : '');
+  str.toString().split('\n').forEach(function(line) {
+    if(error)
+      console.error(pre + line)
+    else if(debug)
+      util.debug(pre + line);
+    else 
+      console.log(pre + line);
+  });
+};
+
+exports.DEBUG = false;
+
+// ### log
+//
+// Loging helpers. Object based on the `log` function including 4 logging
+// functions: `out`, `error`, `debug`, `info`
+// ```
+// @str {string|error} the string or error to log
+// ```
+exports.log = {
+  out: function(str) {
+    log(str);
+  },
+  error: function(err) {
+    if(typeof err === 'object') {
+      log('*********************************************', false, true);
+      log('ERROR: ' + err.message);
+      log('*********************************************', false, true);
+      log(err.stack);
+      log('---------------------------------------------', false, true);
+    }
+    else {
+      log('*********************************************', false, true);
+      log('ERROR: ' + JSON.stringify(err));
+      log('*********************************************', false, true);
+      log('---------------------------------------------', false, true);
+    }
+  },
+  debug: function(str) {
+    if(exports.DEBUG)
+      log(str, true);
+  },
+  info: function(str) {
+    util.print(str + '\n');
+  }
+};
+
+// ### fatal
+//
+// Prints out the error and exits the process while killing all sub processes
+// ```
+// @err {error}
+// ```
+exports.fatal = function(err) {
+  exports.log.error(err);
+  try {
+    process.kill('-' + process.pid);
+  }
+  finally {
+    process.exit(1);
+  }
+};
+
+// ### err
 //
 // Generates a proper error with name set
 // ```
 // @msg  {string} the error message
 // @name {string} the error name
 // ```
-exports.error = function(msg, name) {
+exports.err = function(msg, name) {
   var err = new Error(msg);
-  if(name) {
-    err.name = name;
-  }
+  err.name = name || 'CommonError';
   return err;
 };
-
-/******************************************************************************/
-/* FACTORY */
-/******************************************************************************/
-
-// ## factory
-//
-// Base class to build static factories
-// ```
-// @spec { logging, debug, name }
-// ```
-var factory = function(spec, my) {
-  var _super = {};
-  my = my || {};
-
-  //
-  // #### _private members_
-  //
-  my.LOGGING = spec.logging || true;
-  my.DEBUG = spec.debug || false;
-  my.name = spec.name;
-
-  // 
-  // #### _private methods_
-  //
-  var log;          /* log(str); */
-
-  //
-  // #### _that_
-  //
-  var that = new events.EventEmitter();
-
-
-  // ### log
-  //
-  // Log helper function for `my.log` object implementation
-  // ```
-  // @str {string} the string to log
-  // @debug {boolean} is it debug
-  // @error {boolean} is it error
-  // ```
-  log = function(str, debug, error) {
-    if(!my.LOGGING) return;
-    var pre = '[' + new Date().toISOString() + '] ';
-    pre += (my.name ? '{' + my.name.toUpperCase() + '} ' : '');
-    pre += (debug ? 'DEBUG: ' : '');
-    str.toString().split('\n').forEach(function(line) {
-      if(error)
-        console.error(pre + line)
-      else if(debug)
-        util.debug(pre + line);
-      else 
-        console.log(pre + line);
-    });
-  };
-
-  // ### log object
-  //
-  // Log object exposed by the factory with `out`, `error`, `debug` methods
-  my.log = {
-    out: function(str) {
-      log(str);
-    },
-    error: function(err) {
-      if(typeof err === 'object') {
-        log('*********************************************', false, true);
-        log('ERROR: ' + err.message);
-        log('*********************************************', false, true);
-        log(err.stack);
-        log('---------------------------------------------', false, true);
-      }
-      else {
-        log('*********************************************', false, true);
-        log('ERROR: ' + JSON.stringify(err));
-        log('*********************************************', false, true);
-        log('---------------------------------------------', false, true);
-      }
-    },
-    debug: function(str) {
-      if(my.DEBUG)
-        log(str, true);
-    },
-    info: function(str) {
-      util.print(str + '\n');
-    }
-  };
-
-  exports.getter(that, 'log', my, 'log');
-
-  exports.setter(that, 'debug', my, 'DEBUG');
-  exports.setter(that, 'logging', my, 'LOGGING');
-  exports.setter(that, 'name', my, 'name');
-
-  return that;
-};
-
-exports.factory = factory({});
 
