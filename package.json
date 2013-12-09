@@ -1,5 +1,5 @@
 {
-  "name": "breach-core",
+  "name": "breach_core",
   "version": "0.2.1",
   "main": "./index.js",
   "dependencies": {
