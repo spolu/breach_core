@@ -1,0 +1,64 @@
+
+h5 {
+  margin-bottom: 0 !important;
+  margin-bottom: 0.1em !important;
+  margin-top: 0.8em !important;
+  font-size: 1.2em !important;
+}
+
+ul {
+}
+
+li {
+  list-style-type: none;
+  font-size: 0.7em !important;
+  width: 100%;
+}
+
+h4 {
+  color: #555 !important;
+}
+
+h5.feedback {
+  color: #00ac6b;
+}
+
+h5.team {
+  color: #7673d9;
+}
+
+h5.focus {
+  color: #ff9500;
+}
+
+h5.tools {
+  color: #333;
+}
+
+q {
+  color: #666;
+}
+
+.prism blockquote {
+  background-color: white;
+  font-size: 0.7em;
+  text-align: center;
+  color: #555;
+  line-height: 1em !important;
+}
+
+.intro blockquote {
+  background-color: white;
+  font-size: 0.7em;
+  text-align: center;
+  color: #555;
+  line-height: 1em !important;
+}
+
+.intro .quote {
+  width: 80%;
+  font-size: 0.5em;
+  text-align: right;
+  margin-bottom: 20px;
+  font-style: italic;
+}
