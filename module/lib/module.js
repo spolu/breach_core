@@ -11,7 +11,6 @@
 var events = require('events');
 
 var common = require('./common.js');
-var factory = common.factory;
 
 // ## module_proxy
 //

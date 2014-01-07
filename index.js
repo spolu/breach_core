@@ -14,15 +14,11 @@ var express = require('express');
 var http = require('http');
 var common = require('./lib/common.js');
 
-var factory = common.factory;
 var app = express();
 
 var sessions = {};
 
-//
-// ### init
-//
-factory.log().out('Starting...');
+common.log.out('Starting...');
 
 //
 // ### bootstrap
@@ -60,7 +56,7 @@ var bootstrap = function(port) {
 
   http_srv.on('listening', function() {
     var port = http_srv.address().port;
-    factory.log().out('HTTP Server started on `http://127.0.0.1:' + port + '`');
+    common.log.out('HTTP Server started on `http://127.0.0.1:' + port + '`');
     bootstrap(port);
   });
 })();
