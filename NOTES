@@ -9,3 +9,20 @@ NOTES(spolu)
 
 - advertise `id`
 - rpc_call + reconciliation
+
+
+CORE_MODULE
+> maintains a list of frames for a given browser window
+
+
+CORE_MODULE has notion of identity
+
+> until no identity requires login at startup
+> this identity is exposed and can be used by other modules
+> the core_module drives the notion of users and sessions
+
+CORE_MODULE has no notion of identity
+
+> mod_session on which other modules depend
+> mod_stack / mod_tabs based solely on core module
+> windows and sessions are driven by mod_session?
