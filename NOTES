@@ -1,0 +1,71 @@
+/******************************************************************************/
+/* TODO */
+/******************************************************************************/
+
+>>>v0.x<<
+
+TODO(spolu): FMA: Module retrieval (local)
+TODO(spolu): FMA: Module management API
+TODO(spolu): FMA: Module compatibility (IPC protocol)
+TODO(spolu): Remove factory -> Common
+TODO(spolu): Run a module from Command Line (Dev)
+TODO(spolu): Command Line interface for module Management (Dev)
+TODO(spolu): Expose core API and Implement Stack as a module
+TODO(spolu): Basic Web Interface for Modules (Install, Remove)
+TODO(spolu): Hooks to show Module Mgt Page from Special URL
+
+
+DONE: 
+
+>>v0.2<<
+- Rename repo into `breach_core`
+- ExoBrowser: Run nodeJS only
+- ExoBrowser: Simplify ShowPage/ShowControl Semantics
+
+>>>v0.1.4<<
+- Connect to free port (multiple instances)
+- Find in Page feedback Impl
+
+>>v0.1<<
+- Sessions
+- Basic local CookieStore
+- :exit
+- NProgress
+- Keyboard shortcuts MacOSX
+- More conventional Keyboard shortcuts
+- Design (flatter + lighter)
+- Box get emptied while pages are loading (#3)
+
+
+/******************************************************************************/
+/* MODULES WORK */
+/******************************************************************************/
+
+TODO(spolu): Session State Overlay
+TODO(spolu): Close tab go to latest better
+TODO(spolu): Keyboard shortcuts on New Tab Page
+TODO(spolu): Favicon Correct Impl
+TODO(spolu): Navigation Update URL unchanged
+TODO(spolu): Navigation State on stack active element click
+TODO(spolu): Box Completion
+TODO(spolu): Stack Search based on url/title + content
+TODO(spolu): Scriptable Box user I/F
+TODO(spolu): Hover Controls
+TODO(spolu): Inspector ?
+TODO(spolu): Flash ?
+TODO(spolu): Proper profiles
+
+/******************************************************************************/
+/* FMA MODULE DEFINITION */
+/******************************************************************************/
+
+breach module install gihub.com/breach/mod_test
+breach module list
+breach module update github.com/breadh/mod_test | [num]
+breach module remove github.com/breach/mod_test | [num]
+
+Module Definition:
+
+github.com/breach/mod_test
+~/src/breach/mod_stack
+
