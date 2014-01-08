@@ -3,7 +3,7 @@
   "version": "0.2.1",
   "main": "./index.js",
   "dependencies": {
-    "exo_browser": "0.4.x",
+    "exo_browser": "0.5.x",
     "async": "0.2.x",
     "mkdirp": "0.3.x",
     "express": "3.0.x",
