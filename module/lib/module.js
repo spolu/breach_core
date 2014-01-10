@@ -336,7 +336,7 @@ var module = function(spec, my) {
 
   // ### module
   //
-  // Creates ore retrieve the module proxy singleton
+  // Creates or retrieve the module proxy singleton
   // ```
   // @module_id {string} the module id
   // ```

@@ -62,3 +62,7 @@ var bootstrap = function(port) {
   });
 })();
 
+// SAFETY NET (kills the process and the spawns)
+process.on('uncaughtException', function (err) {
+  common.fatal(err);
+});
