@@ -14,7 +14,6 @@ var express = require('express');
 var http = require('http');
 var common = require('./lib/common.js');
 
-var app = express();
 
 var sessions = {};
 
@@ -44,6 +43,8 @@ var bootstrap = function(port) {
 };
 
 (function() {
+  var app = express();
+
   /* App Configuration */
   app.configure(function() {
     app.use('/', express.static(__dirname + '/static'));
