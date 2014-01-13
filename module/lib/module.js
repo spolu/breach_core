@@ -16,14 +16,14 @@ var common = require('./common.js');
 //
 // ```
 // @extends events.EventEmitter
-// @spec { module_id, send_message }
+// @spec { name, send_message }
 // ```
 var module_proxy = function(spec, my) {
   var _super = {};
   my = my || {};
   spec = spec || {};
 
-  my.module_id = spec.module_id || 'INVALID';
+  my.name = spec.name || 'INVALID';
   my.send_message = spec.send_message;
   
   my.rpc_calls = {};
@@ -79,7 +79,7 @@ var module_proxy = function(spec, my) {
       hdr: {
         typ: 'rpc_call'
       },
-      dst: my.module_id,
+      dst: my.name,
       prc: name,
       arg: args
     };
@@ -127,7 +127,7 @@ var module = function(spec, my) {
   var expose;         /* expose(name, proc(args, cb_(err, res))); */
   var remove;         /* remove(name); */
 
-  var module;         /* module(module_id); */
+  var module;         /* module(name); */
 
   //
   // #### _private_
@@ -176,9 +176,12 @@ var module = function(spec, my) {
       case 'rpc_call': {
         /* This is an helper function to reply to an `rpc_call` message. It */
         /* setps up the headers and store the error or result.              */
-        var rcp_reply = function(err, result) {
+        var rpc_reply = function(err, result) {
           msg.oid = msg.hdr.mid;
+          delete msg.hdr.mid;
           msg.hdr.typ = 'rpc_reply';
+          msg.dst = msg.hdr.src;
+          delete msg.hdr.src;
           if(err) {
             msg.err = {
               nme: err.name,
@@ -192,7 +195,7 @@ var module = function(spec, my) {
         };
 
         if(my.procedures[msg.prc]) {
-          my.procedures[msg.prc](msg.arg, rpc_reply);
+          my.procedures[msg.prc](msg.hdr.src, msg.arg, rpc_reply);
         }
         else {
           rpc_reply(common.error('Procedure unknown: `' + msg.prc,
@@ -254,6 +257,10 @@ var module = function(spec, my) {
     process.on('message', function(msg) {
       handle_message(msg);
     });
+
+    process.nextTick(function() {
+      that.emit('internal:ready', {});
+    });
   };
 
   /****************************************************************************/
@@ -281,7 +288,7 @@ var module = function(spec, my) {
   //
   // Registers for remove events from a given module for a given type
   // ```
-  // @source  {string} a regexp string to test against module_ids [optional]
+  // @source  {string} a regexp string to test against module names [optional]
   // @type    {string} a regexp string to test against event type [optional]
   // @returns {number} registration id
   // ```
@@ -338,16 +345,16 @@ var module = function(spec, my) {
   //
   // Creates or retrieve the module proxy singleton
   // ```
-  // @module_id {string} the module id
+  // @name {string} the module name
   // ```
-  module = function(module_id) {
-    if(!my.proxies[module_id]) {
-      my.proxies[module_id] = module_proxy({
-        module_id: module_id,
+  module = function(name) {
+    if(!my.proxies[name]) {
+      my.proxies[name] = module_proxy({
+        name: name,
         send_message: send_message
       });
     }
-    return my.proxies[module_id];
+    return my.proxies[name];
   };
 
   common.method(that, 'emit', emit, _super);

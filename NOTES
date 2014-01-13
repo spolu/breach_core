@@ -4,19 +4,21 @@
 
 >>>v0.x<<
 
-TODO(spolu): FMA: Module retrieval (local)
-TODO(spolu): FMA: Module management API
+TODO(spolu): FMA: Add running status to module list
+TODO(spolu): Expose core API and Implement Stack as a module
 TODO(spolu): FMA: Module compatibility (IPC protocol)
 TODO(spolu): Run a module from Command Line (Dev)
-TODO(spolu): Command Line interface for module Management (Dev)
-TODO(spolu): Expose core API and Implement Stack as a module
 TODO(spolu): Basic Web Interface for Modules (Install, Remove)
 TODO(spolu): Hooks to show Module Mgt Page from Special URL
+TODO(spolu): Command Line interface for module Management (Dev)
 
 
 DONE: 
 
 >>v0.2<<
+- FMA: Name-based communication for modules
+- FMA: Module management API
+- FMA: Module retrieval (local)
 - Remove factory -> common
 - ExoBrowser: Run nodeJS only
 - ExoBrowser: Simplify ShowPage/ShowControl Semantics
@@ -63,18 +65,17 @@ A module is identified by its location. Module may be:
 - local: `local:~/src/breach/mod_stack`
 - retrieved from github: `github:breach/mod_test#v0.5.2`
 
-The branch part of github modules is optional and is automatically remplaced
-by #master if not specified.
+The branch part of github modules is optional and is automatically replaced
+by latest version or #master if not specified.
 
 breach --module install github:breach/mod_test#v0.2.1
 breach --module remove github:breach/mod_test
 breach --module list
 breach --module info github.com/breach/mod_test
 
-Module Definition:
+Then modules are referenced by names. Two modules with the same name cannot
+be installed at the same time.
 
-
-Modules are either github based or local
 
 /******************************************************************************/
 /* NOTES(spolu) */
@@ -92,15 +93,6 @@ Modules are either github based or local
 
 CORE_MODULE
 > maintains a list of frames for a given browser window
+> has a notion of identity
+> exposes distributed storage
 
-CORE_MODULE has notion of identity
-
-> until no identity requires login at startup
-> this identity is exposed and can be used by other modules
-> the core_module drives the notion of users and sessions
-
-CORE_MODULE has no notion of identity
-
-> mod_session on which other modules depend
-> mod_stack / mod_tabs based solely on core module
-> windows and sessions are driven by mod_session?

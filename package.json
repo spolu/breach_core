@@ -1,6 +1,6 @@
 {
   "name": "breach_core",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "main": "./index.js",
   "dependencies": {
     "exo_browser": "0.5.x",
