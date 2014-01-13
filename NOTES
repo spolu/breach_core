@@ -4,9 +4,7 @@
 
 >>>v0.x<<
 
-TODO(spolu): FMA: Add running status to module list
 TODO(spolu): Expose core API and Implement Stack as a module
-TODO(spolu): FMA: Module compatibility (IPC protocol)
 TODO(spolu): Run a module from Command Line (Dev)
 TODO(spolu): Basic Web Interface for Modules (Install, Remove)
 TODO(spolu): Hooks to show Module Mgt Page from Special URL
@@ -16,9 +14,12 @@ TODO(spolu): Command Line interface for module Management (Dev)
 DONE: 
 
 >>v0.2<<
-- FMA: Name-based communication for modules
-- FMA: Module management API
-- FMA: Module retrieval (local)
+- FMA 
+ + Core RPC-CALL Broadcast
+ + Name-based communication for modules
+ + Module management API
+ + Module retrieval (local)
+ + Add running status to module list
 - Remove factory -> common
 - ExoBrowser: Run nodeJS only
 - ExoBrowser: Simplify ShowPage/ShowControl Semantics

@@ -70,17 +70,17 @@ var module_proxy = function(spec, my) {
   // `send_message` method. When the reply is received, `rpc_reply` will be
   // triggered, and eventually the callback called
   // ```
-  // @hame {string} the procedure name
+  // @proc {string} the procedure name
   // @args {object} serializable JSON arguments
   // @cb_  {function(err, res)} the callback when the rpc completes
   // ```
-  call = function(name, args, cb_) {
+  call = function(proc, args, cb_) {
     var msg = {
       hdr: {
         typ: 'rpc_call'
       },
       dst: my.name,
-      prc: name,
+      prc: proc,
       arg: args
     };
     var mid = my.send_message(msg);
@@ -177,16 +177,11 @@ var module = function(spec, my) {
         /* This is an helper function to reply to an `rpc_call` message. It */
         /* setps up the headers and store the error or result.              */
         var rpc_reply = function(err, result) {
-          msg.oid = msg.hdr.mid;
-          delete msg.hdr.mid;
+          msg.oid = msg.hdr.mid; delete msg.hdr.mid;
           msg.hdr.typ = 'rpc_reply';
-          msg.dst = msg.hdr.src;
-          delete msg.hdr.src;
+          msg.dst = msg.hdr.src; delete msg.hdr.src;
           if(err) {
-            msg.err = {
-              nme: err.name,
-              msg: err.message
-            };
+            msg.err = { nme: err.name, msg: err.message };
           }
           else {
             msg.res = result;
