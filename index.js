@@ -1,15 +1,15 @@
 /*
  * Breach: index.js
  *
- * (c) Copyright Stanislas Polu 2014. All rights reserved.
+ * Copyright (c) 2014, Stanislas Polu. All rights reserved.
  *
  * @author: spolu
  *
  * @log:
- * 2014-01-17 spolu   Removed express, exposed module
- * 2013-11-14 spolu   FMA refactoring
- * 2013-09-06 spolu   Exp1 process.exit on session kill
- * 2013-08-11 spolu   Creation
+ * - 2014-01-17 spolu   Removed express, exposed module
+ * - 2013-11-14 spolu   FMA refactoring
+ * - 2013-09-06 spolu   Exp1 process.exit on session kill
+ * - 2013-08-11 spolu   Creation
  */
 var common = require('./lib/common.js');
 
