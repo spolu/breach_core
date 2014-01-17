@@ -1,7 +1,7 @@
 /*
  * Breach: module.js
  *
- * (c) Copyright Stanislas Polu 2013. All rights reserved.
+ * Copyright (c) 2014, Stanislas Polu. All rights reserved.
  *
  * @author: spolu
  *

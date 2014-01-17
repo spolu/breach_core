@@ -5,10 +5,8 @@
 >>>v0.x<<
 
 TODO(spolu): Expose core API and Implement Stack as a module
-TODO(spolu): Run a module from Command Line (Dev)
 TODO(spolu): Basic Web Interface for Modules (Install, Remove)
 TODO(spolu): Hooks to show Module Mgt Page from Special URL
-TODO(spolu): Command Line interface for module Management (Dev)
 
 
 DONE: 
@@ -20,9 +18,10 @@ DONE:
  + Module management API
  + Module retrieval (local)
  + Add running status to module list
+ + Command Line interface for module Management (Dev)
 - Remove factory -> common
 - ExoBrowser: Run nodeJS only
-- ExoBrowser: Simplify ShowPage/ShowControl Semantics
+- ExoBrowser: Merge 1700 and fix DevTools
 - Rename repo into `breach_core`
 
 >>>v0.1.4<<

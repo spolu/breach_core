@@ -1,66 +1,136 @@
 /*
  * Breach: index.js
  *
- * (c) Copyright Stanislas Polu 2013. All rights reserved.
+ * (c) Copyright Stanislas Polu 2014. All rights reserved.
  *
  * @author: spolu
  *
  * @log:
+ * 2014-01-17 spolu   Removed express, exposed module
  * 2013-11-14 spolu   FMA refactoring
  * 2013-09-06 spolu   Exp1 process.exit on session kill
  * 2013-08-11 spolu   Creation
  */
-var express = require('express');
-var http = require('http');
 var common = require('./lib/common.js');
 
 
-var sessions = {};
-
-common.log.out('Starting...');
-
+/******************************************************************************/
+/* HELPSERS */
+/******************************************************************************/
+// ### create_session
 //
-// ### bootstrap
-//
-var bootstrap = function(port) {
-  var s = require('./lib/session.js').session({ 
-    base_url: 'http://127.0.0.1:' + port
-  })
-  sessions[s.session_id()] = s;
-  s.init(function(err) {
-    if(err) {
-      common.fatal(err);
-    }
-    /* The session is ready. */
-  });
+// Creates a session and inits it before returning it
+// ```
+// @cb_ {function(err, session)} asynchronous callback
+// ```
+var create_session = function(cb_) {
+  var s = require('./lib/session.js').session({})
+  s.init(cb_);
   s.on('kill', function() {
-    delete sessions[s.session_id()];
-    if(global.gc) global.gc();
-    /* TODO(spolu): For now as we have only one session, let's kill the */
-    /* process once we get here.                                        */
     process.exit(0);
   });
 };
 
-(function() {
-  var app = express();
 
-  /* App Configuration */
-  app.configure(function() {
-    app.use('/', express.static(__dirname + '/static'));
-    app.use(express.bodyParser());
-    app.use(express.methodOverride());
-    app.use(app.router);
+/******************************************************************************/
+/* MAIN RUN MODES */
+/******************************************************************************/
+// ### breach_start
+//
+// Starts breach and its modules for the local session
+var breach_start = function() {
+  common.log.out('Starting...');
+
+  create_session(function(err, s) {
+    if(err) {
+      common.fatal(err);
+    }
+    s.run_modules();
   });
+};
 
-  var http_srv = http.createServer(app).listen(0, '127.0.0.1');
+// ### breach_module
+//
+// Creates the local session and exposes the module manager API
+var breach_module = function() {
+  var args = process.argv.slice(3);
 
-  http_srv.on('listening', function() {
-    var port = http_srv.address().port;
-    common.log.out('HTTP Server started on `http://127.0.0.1:' + port + '`');
-    bootstrap(port);
+  var usage = function() {
+    common.log.out('Usage:');
+    common.log.out('  breach module list');
+    common.log.out('  breach module add    [path]');
+    common.log.out('  breach module remove [path]');
+    common.log.out('  breach module info   [path]');
+    process.exit(1);
+  }
+
+  if(args.length === 0) {
+    return usage();
+  }
+
+  create_session(function(err, s) {
+    if(err) {
+      common.fatal(err);
+    }
+
+    switch(args[0]) {
+      case 'list': {
+        s.module_manager().list(function(err, list) {
+          if(err) { 
+            common.fatal(err);
+          }
+          list.forEach(function(m) {
+            console.log(m.path + ' ' + m.name + ' ' + m.version + ' ' + m.active);
+          });
+          process.exit(0);
+        });
+        break;
+      }
+      case 'add': {
+        if(!args[1]) {
+          return usage();
+        }
+        s.module_manager().add(args[1], function(err) {
+          if(err) { 
+            common.fatal(err);
+          }
+          console.log('OK');
+          process.exit(0);
+        });
+        break;
+      }
+      case 'remove': {
+        if(!args[1]) {
+          return usage();
+        }
+        s.module_manager().remove(args[1], function(err) {
+          if(err) { 
+            common.fatal(err);
+          }
+          console.log('OK');
+          process.exit(0);
+        });
+        break;
+      }
+      default: {
+        usage();
+        break;
+      }
+    }
   });
-})();
+};
+
+
+/******************************************************************************/
+/* INITIALIZATION */
+/******************************************************************************/
+if(process.argv[2] === 'module') {
+  breach_module();
+}
+else {
+  breach_start();
+}
+
 
 // SAFETY NET (kills the process and the spawns)
 process.on('uncaughtException', function (err) {

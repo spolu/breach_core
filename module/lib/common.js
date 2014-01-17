@@ -1,7 +1,7 @@
 /**
  * Breach: common.js
  *
- * Copyright (c) 2013, Stanislas Polu. All rights reserved.
+ * Copyright (c) 2014, Stanislas Polu. All rights reserved.
  *
  * @author: spolu
  *
