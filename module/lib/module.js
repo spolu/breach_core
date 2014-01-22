@@ -158,7 +158,7 @@ var module = function(spec, my) {
       /* We ignore the message. */
       return;
     }
-    console.log('HANDLE MSG: ' + JSON.stringify(msg));
+    //console.log('HANDLE MSG: ' + JSON.stringify(msg));
 
     switch(msg.hdr.typ) {
       /* `event` messages are received when the module actually registered    */
@@ -193,8 +193,8 @@ var module = function(spec, my) {
           my.procedures[msg.prc](msg.hdr.src, msg.arg, rpc_reply);
         }
         else {
-          rpc_reply(common.error('Procedure unknown: `' + msg.prc,
-                                 'ProcedureUnknown'));
+          rpc_reply(common.err('Procedure unknown: `' + msg.prc,
+                               'ProcedureUnknown'));
         }
         break;
       }
@@ -204,7 +204,7 @@ var module = function(spec, my) {
         if(my.proxies[msg.hdr.src]) {
           var err = null;
           if(msg.err) {
-            err = common.error(msg.err.msg, msg.err.name);
+            err = common.err(msg.err.msg, msg.err.name);
           }
           my.proxies[msg.hdr.src].rpc_reply(msg.oid, err, msg.res);
         }
