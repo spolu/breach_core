@@ -1,0 +1,98 @@
+/******************************************************************************/
+/* TODO */
+/******************************************************************************/
+
+>>>v0.x<<
+
+TODO(spolu): Expose core API and Implement Stack as a module
+TODO(spolu): Basic Web Interface for Modules (Install, Remove)
+TODO(spolu): Hooks to show Module Mgt Page from Special URL
+
+
+DONE: 
+
+>>v0.2<<
+- FMA 
+ + Core RPC-CALL Broadcast
+ + Name-based communication for modules
+ + Module management API
+ + Module retrieval (local)
+ + Add running status to module list
+ + Command Line interface for module Management (Dev)
+- Remove factory -> common
+- ExoBrowser: Run nodeJS only
+- ExoBrowser: Merge 1700 and fix DevTools
+- Rename repo into `breach_core`
+
+>>>v0.1.4<<
+- Connect to free port (multiple instances)
+- Find in Page feedback Impl
+
+>>v0.1<<
+- Sessions
+- Basic local CookieStore
+- :exit
+- NProgress
+- Keyboard shortcuts MacOSX
+- More conventional Keyboard shortcuts
+- Design (flatter + lighter)
+- Box get emptied while pages are loading (#3)
+
+
+/******************************************************************************/
+/* MODULES WORK */
+/******************************************************************************/
+
+TODO(spolu): Session State Overlay
+TODO(spolu): Close tab go to latest better
+TODO(spolu): Keyboard shortcuts on New Tab Page
+TODO(spolu): Favicon Correct Impl
+TODO(spolu): Navigation Update URL unchanged
+TODO(spolu): Navigation State on stack active element click
+TODO(spolu): Box Completion
+TODO(spolu): Stack Search based on url/title + content
+TODO(spolu): Scriptable Box user I/F
+TODO(spolu): Hover Controls
+TODO(spolu): Inspector ?
+TODO(spolu): Flash ?
+TODO(spolu): Proper profiles
+
+/******************************************************************************/
+/* FMA MODULE DEFINITION */
+/******************************************************************************/
+
+A module is identified by its location. Module may be:
+- local: `local:~/src/breach/mod_stack`
+- retrieved from github: `github:breach/mod_test#v0.5.2`
+
+The branch part of github modules is optional and is automatically replaced
+by latest version or #master if not specified.
+
+breach --module install github:breach/mod_test#v0.2.1
+breach --module remove github:breach/mod_test
+breach --module list
+breach --module info github.com/breach/mod_test
+
+Then modules are referenced by names. Two modules with the same name cannot
+be installed at the same time.
+
+
+/******************************************************************************/
+/* NOTES(spolu) */
+/******************************************************************************/
+
+- session state overlay should be a module
+- Hooks in startup process?
+- Hooks in cookie storage? 
+- Module should advertise their interfaces?
+- How does module collaborate to provide an interface?
+- Existing examples?
+
+- advertise `id`
+- rpc_call + reconciliation
+
+CORE_MODULE
+> maintains a list of frames for a given browser window
+> has a notion of identity
+> exposes distributed storage
+
