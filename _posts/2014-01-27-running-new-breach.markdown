@@ -5,9 +5,10 @@ date:   2014-01-27 12:27:00
 ---
 
 Breach is now based on a modular architecture. The core of breach has no UI to
-interact with and only allows to add modules to run with. The first module being
-coded is `breach/mod_stack` to provide stack based navigation. Here are the 
-insttructions to run it:
+interact with. The UI is delegated to modules that can be added and run to
+provide basic functionalities such as navigation bar, tabbed browsing, etc... 
+The first module being coded is `breach/mod_stack` to provide stack based 
+navigation. Here are the insttructions to run it:
 
 1. Download and Extract the ExoBrowser:
 [Linux](https://s3-eu-west-1.amazonaws.com/exobrowser/v0.5.1700/exo_browser-v0.5.1700-linux-x64.tar.gz) -
