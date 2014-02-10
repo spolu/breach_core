@@ -124,7 +124,7 @@ var module = function(spec, my) {
   var register;       /* register(source, type); */
   var unregister;     /* register(rid); */
 
-  var expose;         /* expose(name, proc(args, cb_(err, res))); */
+  var expose;         /* expose(name, proc(src, args, cb_(err, res))); */
   var remove;         /* remove(name); */
 
   var module;         /* module(name); */
@@ -242,10 +242,10 @@ var module = function(spec, my) {
   init = function() {
     /* Dummy `init` and `kill` procedures that should be overritten by the */
     /* module implementation.                                              */
-    that.expose('init', function(args, cb_) {
+    that.expose('init', function(src, args, cb_) {
       return cb_();
     });
-    that.expose('kill', function(args, cb_) {
+    that.expose('kill', function(src, args, cb_) {
       return cb_();
     });
 
