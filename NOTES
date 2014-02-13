@@ -4,7 +4,6 @@
 
 >>>v0.x<<
 
-TODO(spolu): Expose core API and Implement Stack as a module
 TODO(spolu): Basic Web Interface for Modules (Install, Remove)
 TODO(spolu): Hooks to show Module Mgt Page from Special URL
 
@@ -12,6 +11,7 @@ TODO(spolu): Hooks to show Module Mgt Page from Special URL
 DONE: 
 
 >>v0.2<<
+- Expose core API and Implement Stack as a module
 - FMA 
  + Core RPC-CALL Broadcast
  + Name-based communication for modules
@@ -43,19 +43,10 @@ DONE:
 /* MODULES WORK */
 /******************************************************************************/
 
-TODO(spolu): Session State Overlay
-TODO(spolu): Close tab go to latest better
-TODO(spolu): Keyboard shortcuts on New Tab Page
-TODO(spolu): Favicon Correct Impl
-TODO(spolu): Navigation Update URL unchanged
-TODO(spolu): Navigation State on stack active element click
-TODO(spolu): Box Completion
-TODO(spolu): Stack Search based on url/title + content
-TODO(spolu): Scriptable Box user I/F
-TODO(spolu): Hover Controls
+TODO(spolu): Authentication
+TODO(spolu): Distributed Storage
 TODO(spolu): Inspector ?
 TODO(spolu): Flash ?
-TODO(spolu): Proper profiles
 
 /******************************************************************************/
 /* FMA MODULE DEFINITION */
@@ -81,7 +72,6 @@ be installed at the same time.
 /* NOTES(spolu) */
 /******************************************************************************/
 
-- session state overlay should be a module
 - Hooks in startup process?
 - Hooks in cookie storage? 
 - Module should advertise their interfaces?
