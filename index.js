@@ -42,7 +42,6 @@ var breach_start = function() {
   common.log.out('Starting...');
 
   var args = process.argv;
-  console.log(JSON.stringify(args, null, 2));
   args.forEach(function(a) {
     if(a === '--debug') {
       common.DEBUG = true;
