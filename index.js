@@ -41,6 +41,20 @@ var create_session = function(cb_) {
 var breach_start = function() {
   common.log.out('Starting...');
 
+  var args = process.argv;
+  console.log(JSON.stringify(args, null, 2));
+  args.forEach(function(a) {
+    if(a === '--debug') {
+      common.DEBUG = true;
+    }
+    if(a === '--msg-log') {
+      common.MSG_LOG = true;
+    }
+    if(a === '--msg-dump') {
+      common.MSG_DUMP = true;
+    }
+  });
+
   create_session(function(err, s) {
     if(err) {
       common.fatal(err);
