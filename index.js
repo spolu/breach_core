@@ -27,6 +27,7 @@ var create_session = function(cb_) {
   var s = require('./lib/session.js').session({})
   s.init(cb_);
   s.on('kill', function() {
+    console.log('DEV SESSION KILLED: Exiting.');
     process.exit(0);
   });
 };
