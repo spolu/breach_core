@@ -11,8 +11,9 @@
  * - 2013-09-06 spolu   Exp1 process.exit on session kill
  * - 2013-08-11 spolu   Creation
  */
-var common = require('./lib/common.js');
+"use strict"
 
+var common = require('./lib/common.js');
 
 /******************************************************************************/
 /* HELPSERS */

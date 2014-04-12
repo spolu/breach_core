@@ -4,6 +4,7 @@
   "main": "./index.js",
   "dependencies": {
     "exo_browser": "0.5.x",
+    "gig.fs": "0.1.x",
     "async": "0.2.x",
     "mkdirp": "0.3.x",
     "nedb": "0.8.x",
