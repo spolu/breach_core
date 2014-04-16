@@ -4,8 +4,11 @@
 
 >>>v0.x<<<
 
-TODO(spolu): Integrate GiG.fs
-TODO(spolu): Two phase initialization for modules (`init`, then `start`)
+TODO(spolu): Integrate GiG.fs w/ `module_manager`
+TODO(spolu): Alpha startup window (out of session) (enter URL/Master)
+TODO(spolu): Onboarding (Networked, no module yet)
+TODO(spolu): InMemory Sessions (default modules?)
+//TODO(spolu): Two phase initialization for modules (`init`, then `start`)
 TODO(spolu): Basic Web Interface for Modules (Install, Remove)
 TODO(spolu): Basic Web Interface for Session Management (when not logged)
 TODO(spolu): Core API for Session Management

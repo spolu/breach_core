@@ -60,10 +60,12 @@ var breach_start = function() {
   });
 
   var table_url = 'http://alpha.breach.cc:3999/user/1/';
+  table_url = 'http://localhost:3999/user/1/';
   var master = 'foobar';
   var timeout = 60 * 60 * 1000;
   var session_token = '';
   var session_manager = null;
+  var session_id = null;
 
   async.series([
     function(cb_) {
@@ -96,14 +98,36 @@ var breach_start = function() {
           return cb_(err);
         }
         console.log(sessions);
-        return cb_();
+        if(Object.keys(sessions).length === 0) {
+          session_manager.new_session(false, 'Test Session', function(err, session) {
+            if(err) {
+              return cb_(err);
+            }
+            session_id = session.session_id();
+            return cb_();
+          });
+        }
+        else {
+          session_manager.open_session(Object.keys(sessions)[0], function(err, session) {
+            if(err) {
+              return cb_(err);
+            }
+            session_id = session.session_id();
+            return cb_();
+          });
+        }
       });
-    }
+    },
   ], function(err) {
     if(err) {
       common.log.error(err);
     }
-    process.exit(0);
+    /*
+    setTimeout(function() {
+      session_manager.destroy_session(session_id, function() {});
+    }, 2000);
+    */
+    //process.exit(0);
   });
 
 
