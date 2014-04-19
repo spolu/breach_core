@@ -4,22 +4,20 @@
 
 >>>v0.x<<<
 
-TODO(spolu): Basic Web Interface for Modules (Install, Remove)
-TODO(spolu): Hooks to show Module Mgt Page from Special URL
-
-TODO(spolu): Alpha startup window (out of session) (enter URL/Master)
-TODO(spolu): Basic Web Interface for Session Management (when not logged)
+TODO(spolu): Alpha Login Manager (out of session) (enter URL/Master)
+TODO(spolu): Session Management (when not logged)
 
 TODO(spolu): Onboarding (Networked, no module yet)
 TODO(spolu): InMemory Sessions (default modules?)
-//TODO(spolu): Two phase initialization for modules (`init`, then `start`)
-TODO(spolu): Core API for Session Management
-TODO(spolu): Login Manager (Auto Login, UI)
+TODO(spolu): Two phase initialization for modules (`init`, then `start`)
+TODO(spolu): Session Management API (to expose to modules)
+TODO(spolu): Full-featured Login Manager (Auto Login, UI)
 
 
 DONE: 
 
 >>v0.3<<
+- Basic Web Interface for Modules (Install, Remove)
 - Splash Screen (loading state + link to module manager)
 - `core_ui` for all things UI-related of `core` (serving pages)
 - Integrate GiG.fs w/ `module_manager`

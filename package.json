@@ -1,17 +1,21 @@
 {
   "name": "breach_core",
-  "version": "0.3.1",
+  "version": "0.3.4",
   "main": "./index.js",
   "dependencies": {
     "exo_browser": "0.5.x",
     "gig.fs": "0.1.x",
-    "async": "0.2.x",
+    "async": "0.7.x",
     "mkdirp": "0.3.x",
-    "octonode": "0.3.x",
+    "octonode": "0.6.x",
     "fs-extra": "0.8.x",
-    "npm": "1.3.x",
+    "npm": "1.4.x",
     "semver": "2.2.x",
     "tar": "0.1.x",
-    "request": "2.34.x"
+    "request": "2.34.x",
+    "express": "4.0.x",
+    "body-parser": "1.0.x",
+    "method-override": "1.0.x",
+    "socket.io": "0.9.x"
   }
 }
