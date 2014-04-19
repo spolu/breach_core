@@ -32,8 +32,7 @@ function ModuleManagerTopCtrl($scope, $location, $rootScope, $window, $timeout,
 
   $scope.add = function() {
     _module.add($scope.add_path).then(function(data) {
-      console.log(data);
-      $scope.add_path = null;
+      location.reload();
     });
   };
 
