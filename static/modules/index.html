@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" ng-app="breach">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <title>Breach::ModuleManagement</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/lib/normalize-2.1.2.css" rel="stylesheet"/>
+  </head>
+
+  <body ng-controller="ModuleManagerTopCtrl">
+
+    <table border="1">
+      <tr ng-repeat="m in modules">
+        <td>{{m.type}}</td>
+        <td>{{m.name}}</td>
+        <td>{{m.version}}</td>
+        <td>{{m.owner}}</td>
+        <td>{{m.tag}}</td>
+        <td>{{m.path}}</td>
+        <td>{{m.running ? 'running' : 'stopped'}}</td>
+        <td>
+          <a href="" ng-click="kill(m.path)" ng-show="m.running">kill</a>
+          <a href="" ng-click="run(m.path)" ng-hide="m.running">run</a>
+        </td>
+        <td>
+          <a href="" ng-click="remove(m.path)">remove</a>
+        </td>
+        <td>{{m.out}}</td>
+      </tr>
+    </table>
+
+    <br><br/>
+
+    <form ng-submit="add()">
+      Add Module: 
+      <input type="text" ng-model="add_path">
+      <input type="submit" value="add">
+    </form>
+
+    <!-- Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/lib/angular-1.2.9.min.js"></script>
+    <script src="/lib/jquery-2.1.0.min.js"></script>
+
+    <script src="app.js"></script>
+
+    <!-- Filters -->
+    <script src="/js/filters.js"></script>
+
+    <!-- Services -->
+    <script src="/js/bind_s.js"></script>
+    <script src="/js/req_s.js"></script>
+    <script src="/js/socket_s.js"></script>
+    <script src="/js/module_s.js"></script>
+
+  </body>
+</html>
+
+
