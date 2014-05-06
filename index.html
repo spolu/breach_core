@@ -20,6 +20,16 @@ title: "Breach"
           <input type="submit" value="Join forces">
         </form>
       </div>
+      <div class="tweet">
+        <a href="https://twitter.com/share" 
+           class="twitter-share-button" 
+           data-url="http://breach.cc"
+           data-count="none"
+           data-related="BreachBrowser"
+           data-text="I just joined forces to build the next generation browser: "
+           data-lang="en">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </div>
     </div>
   </div>
 </div>
@@ -28,13 +38,22 @@ title: "Breach"
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
   $(function() {
+    var finalize = function() {
+      $('div.signup').css({
+        display: 'none'
+      });
+      $('div.tweet').css({
+        display: 'block',
+      });
+    };
+
     $('.signup form').submit(function(e) {
       e.preventDefault();
 
       var email = $('.signup #email').val().toLowerCase();
       var email_r = /^[a-z0-9\.\_\-\+\%]+@[a-z0-9\.\-]+\.[a-z]{2,}$/;
       if(email_r.exec(email)) {
-        
+        finalize();
       }
     });
   });

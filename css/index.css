@@ -64,6 +64,7 @@ body a {
 .subgroup {
   margin-left: 60px;
   margin-top: 50px;
+  margin-bottom: 100px;
 }
 
 @media (max-width: 767px){
@@ -75,7 +76,6 @@ body a {
 .signup {
   text-align: left;
   margin-top: 5px;
-  margin-bottom: 100px;
 }
 
 @media (max-width: 767px){
@@ -108,6 +108,12 @@ body a {
   color: #03a1ff;
   margin-left: 10px;
   cursor: pointer;
+}
+
+.tweet {
+  margin-top: 60px;
+  margin-left: -60px;
+  display: none;
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
