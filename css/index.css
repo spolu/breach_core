@@ -118,7 +118,7 @@ body a {
 
 @media (max-width: 767px){
   .tweet {
-    margin-left: 10px;
+    margin-left: 0px;
   }
 }
 
