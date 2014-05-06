@@ -7,42 +7,112 @@ body {
 body a {
 }
 
+.hero {
+  text-align: center;
+  width: 100%;
+  margin-top: 180px;
+  opacity: 0;
+  transition: opacity 2s;
+  vertical-align: top;
+}
+
+.group {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.hero .logo {
+  background-image: url('/assets/breach_logo.png');
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero .title {
+  background-image: url('/assets/breach_title.png');
+  width: 200px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .tagline {
+  margin-top: 20px;
   color: white;
   font-size: 1.5em;
-  font-weight: 200;
-  font-style: italic;
+  font-weight: 300;
+  text-align: center;
 }
 
-div.title {
+.subgroup {
+  margin-left: 60px;
+  margin-top: 60px;
+}
+
+.cta {
+  margin-left: 2px;
   color: white;
-  font-size: 3.5em;
-  font-weight: 700;
-  letter-spacing: -1px;
-  text-shadow: 0px 0px 1px rgba(0,0,0,0.7);
+  font-size: 1.2em;
+  font-weight: 300;
+  text-align: left;
+  transition: margin-top 1s, opacity 1s;
 }
 
-div.block {
-  position: absolute;
-  top: 200px;
-  right: 80px;
+
+.signup {
+  text-align: left;
+  margin-top: 5px;
 }
 
-div.footer.left {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+.signup input[type=email] {
+  border-radius: 1px;
+  background-color: #aee1ff;
+  padding: 10px;
+  border: none;
+  outline-style: none;
+  color: white;
+  color: #03a1ff;
+  width: 200px;
+}
+
+.signup input[type=submit] {
+  border-radius: 1px;
+  background: white;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  color: #03a1ff;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: #03a1ff;
+  opacity: 0.7;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #03a1ff;
+  opacity: 0.7;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #03a1ff;
+  opacity: 0.7;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #03a1ff;
+  opacity: 0.7;
 }
 
 div.footer.right {
   position: absolute;
   bottom: 20px;
   right: 20px;
+  font-weight: 300;
+  font-size: 1.2em;
 }
 
 a.link {
-  font-weight: bold;
-  font-size: 1.5em;
   color: white;
   text-decoration: none !important;
   margin-left: 10px;

@@ -3,21 +3,36 @@ layout: index
 title: "Breach"
 ---
 
-<div class="block">
-  <div class="title">Breach</div>
-  <div class="tagline">
-    Browser for the PowerUser<br/>
-    Entirely written in Javascript. Free. Hackable.
+<div class="hero">
+  <div class="group">
+    <div class="logo"></div>
+    <div class="title"></div>
+  </div>
+  <div class="group" style="margin-left: 50px;">
+    <div class="tagline">
+      We are a group of enthusiastic developers &amp; designers, <br/>
+      joining forces to build the browser we've always wanted.
+    </div>
+    <!--
+    <div class="subgroup">
+      <div class="signup">
+        <input type="email" placeholder="Enter your Email">
+        <input type="submit" value="Join forces">
+      </div>
+    </div>
+    -->
   </div>
 </div>
 
-<div class="footer left">
-  <span class="tagline">
-    Download Pre-Alpha v0.1.4.1599 
-  </span>
-  <a href="http://bit.ly/19Strsw" class="link">linux-x64</a>
-  <a href="http://bit.ly/Hghz9Q" class="link">osx-ia32</a>
-</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+  $(function() {
+    $('.hero').css({
+      "opacity": 1
+    });
+  });
+</script>
 
 <div class="footer right">
   <a href="/blog" class="link">Blog</a>
