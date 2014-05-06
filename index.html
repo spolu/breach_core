@@ -53,7 +53,13 @@ title: "Breach"
       var email = $('.signup #email').val().toLowerCase();
       var email_r = /^[a-z0-9\.\_\-\+\%]+@[a-z0-9\.\-]+\.[a-z]{2,}$/;
       if(email_r.exec(email)) {
-        finalize();
+        var HOST = 'data.breach.cc';
+        var url = 'http://' + HOST + ':4000/auth/join?email=' + 
+                  encodeURIComponent(email) + '&callback=?';
+        $.getJSON(url, function(data) {
+          console.log(data);
+          finalize();
+        });
       }
     });
   });
