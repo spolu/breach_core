@@ -8,19 +8,19 @@ title: "Breach"
     <div class="logo"></div>
     <div class="title"></div>
   </div>
-  <div class="group" style="margin-left: 50px;">
+  <div class="group right">
     <div class="tagline">
       We are a group of enthusiastic developers &amp; designers, <br/>
       joining forces to build the browser we've always wanted.
     </div>
-    <!--
     <div class="subgroup">
       <div class="signup">
-        <input type="email" placeholder="Enter your Email">
-        <input type="submit" value="Join forces">
+        <form>
+          <input type="email" id="email" placeholder="Enter your Email">
+          <input type="submit" value="Join forces">
+        </form>
       </div>
     </div>
-    -->
   </div>
 </div>
 
@@ -28,8 +28,14 @@ title: "Breach"
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
   $(function() {
-    $('.hero').css({
-      "opacity": 1
+    $('.signup form').submit(function(e) {
+      e.preventDefault();
+
+      var email = $('.signup #email').val().toLowerCase();
+      var email_r = /^[a-z0-9\.\_\-\+\%]+@[a-z0-9\.\-]+\.[a-z]{2,}$/;
+      if(email_r.exec(email)) {
+        
+      }
     });
   });
 </script>

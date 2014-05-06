@@ -11,8 +11,6 @@ body a {
   text-align: center;
   width: 100%;
   margin-top: 180px;
-  opacity: 0;
-  transition: opacity 2s;
   vertical-align: top;
 }
 
@@ -20,6 +18,13 @@ body a {
   display: inline-block;
   vertical-align: top;
 }
+
+@media (max-width: 767px){
+  .group {
+    display: block;
+  }
+}
+
 
 .hero .logo {
   background-image: url('/assets/breach_logo.png');
@@ -37,6 +42,17 @@ body a {
   margin-right: auto;
 }
 
+.group.right {
+  margin-left: 50px;
+}
+
+@media (max-width: 767px){
+  .group.right {
+    padding: 20px;
+    margin-left: 0px;
+  }
+}
+
 .tagline {
   margin-top: 20px;
   color: white;
@@ -47,22 +63,29 @@ body a {
 
 .subgroup {
   margin-left: 60px;
-  margin-top: 60px;
+  margin-top: 50px;
 }
 
-.cta {
-  margin-left: 2px;
-  color: white;
-  font-size: 1.2em;
-  font-weight: 300;
-  text-align: left;
-  transition: margin-top 1s, opacity 1s;
+@media (max-width: 767px){
+  .subgroup {
+    margin-left: 0px;
+  }
 }
-
 
 .signup {
   text-align: left;
   margin-top: 5px;
+  margin-bottom: 100px;
+}
+
+@media (max-width: 767px){
+  .signup {
+    text-align: center;
+  }
+}
+
+.signup input {
+  margin-top: 10px;
 }
 
 .signup input[type=email] {
@@ -110,6 +133,13 @@ div.footer.right {
   right: 20px;
   font-weight: 300;
   font-size: 1.2em;
+}
+
+@media (max-width: 767px){
+  div.footer.right {
+    top: 20px;
+    left: 20px;
+  }
 }
 
 a.link {
