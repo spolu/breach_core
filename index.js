@@ -6,6 +6,7 @@
  * @author: spolu
  *
  * @log:
+ * - 2014-05-14 spolu   [GiG.fs 0.2.x] local only
  * - 2014-04-17 spolu   Removed monolithic session
  * - 2014-04-15 spolu   Try outs with session_manager
  * - 2014-01-17 spolu   Removed express, exposed module
@@ -45,12 +46,26 @@ var breach_start = function() {
     }
   });
 
-  // http://localhost:3999/user/1/
-  // foobar
-  require('./lib/login_manager').login_manager({}).init(function(err) {
+  var session_manager = require('./lib/session_manager.js').session_manager({
+    off_the_record: false
+  });
+  async.waterfall([
+    session_manager.init,
+    session_manager.list_sessions,
+    function(sessions, cb_) {
+      if(Object.keys(sessions).length === 0) {
+        session_manager.new_session(false, 'Alpha Session', cb_);
+      }
+      else {
+        return cb_(null, Object.keys(sessions)[0]);
+      }
+    },
+    session_manager.open_session
+  ], function(err) {
     if(err) {
-      common.log.error(err);
+      common.fatal(err);
     }
+    common.log.out('Startup Complete');
   });
 };
 

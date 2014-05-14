@@ -4,19 +4,18 @@
 
 >>>v0.x<<<
 
-TODO(spolu): Alpha Login Manager (out of session) (enter URL/Master)
 TODO(spolu): Session Management (when not logged)
 
 TODO(spolu): Onboarding (Networked, no module yet)
 TODO(spolu): InMemory Sessions (default modules?)
 TODO(spolu): Two phase initialization for modules (`init`, then `start`)
 TODO(spolu): Session Management API (to expose to modules)
-TODO(spolu): Full-featured Login Manager (Auto Login, UI)
 
 
 DONE: 
 
 >>v0.3<<
+- GiG.fs 0.3x integration / local table only (alpha)
 - Basic Web Interface for Modules (Install, Remove)
 - Splash Screen (loading state + link to module manager)
 - `core_ui` for all things UI-related of `core` (serving pages)
