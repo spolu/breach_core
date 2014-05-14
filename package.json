@@ -3,8 +3,8 @@
   "version": "0.3.4",
   "main": "./index.js",
   "dependencies": {
-    "exo_browser": "0.5.x",
-    "gig.fs": "0.1.x",
+    "exo_browser": "0.6.x",
+    "gig.fs": "0.2.x",
     "async": "0.7.x",
     "mkdirp": "0.3.x",
     "octonode": "0.6.x",
