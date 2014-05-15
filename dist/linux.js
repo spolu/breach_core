@@ -47,21 +47,21 @@ async.series([
 
   /* Create tmp dist path and copy local module there. */
   function(cb_) {
-    mkdirp(tmp_dist_path, cb_);
+    mkdirp(path.join(tmp_dist_path, '__AUTO_UPDATE_BUNDLE__'), cb_);
   },
   function(cb_) {
     fs.copy(module_path, 
-            path.join(tmp_dist_path, 'breach_core'), cb_);
+            path.join(tmp_dist_path, '__AUTO_UPDATE_BUNDLE__', 'breach_core'), cb_);
   },
   function(cb_) {
-    mkdirp(path.join(tmp_dist_path, 'exo_browser'), cb_);
+    mkdirp(path.join(tmp_dist_path, '__AUTO_UPDATE_BUNDLE__', 'exo_browser'), cb_);
   },
 
   /* Extract exo_browser in dist path */
   function(cb_) {
     var tar = require('child_process').spawn('tar', 
       ['xfz', process.argv[2], 
-       '-C', path.join(tmp_dist_path, 'exo_browser'),
+       '-C', path.join(tmp_dist_path, '__AUTO_UPDATE_BUNDLE__', 'exo_browser'),
        '--strip', '1']);
     tar.stdout.on('data', function (data) {
       console.log('stdout: ' + data);
