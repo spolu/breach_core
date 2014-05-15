@@ -31,7 +31,8 @@ var async = require('async');
 //
 // Starts breach and its modules for the local session
 var breach_start = function() {
-  common.log.out('Starting...');
+  common.log.out('[Breach v' + require('./package.json').version + 
+                 '] Starting...');
 
   var args = process.argv;
   args.forEach(function(a) {
