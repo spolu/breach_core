@@ -1579,7 +1579,7 @@ h2, h4 {
     width: 960px;
     margin: 0 auto;
     position: relative;
-    height: 720px;
+    height: 743px;
     counter-reset: layers;
     z-index: 4; }
     #tech .explanation article {
@@ -1654,7 +1654,7 @@ h2, h4 {
           display: block;
           border-left: 2px solid #c9d0d5; }
         #tech .explanation article:nth-child(1) div:after {
-          top: 202px;
+          top: 194px;
           background: #c9d0d5; }
     #tech .explanation article:nth-child(2) {
       position: absolute;
@@ -1674,14 +1674,14 @@ h2, h4 {
             background: #325d88; }
         #tech .explanation article:nth-child(2) div:before {
           content: "";
-          height: 390px;
+          height: 384px;
           width: 160px;
           position: absolute;
           display: block;
           border-left: 2px solid #29abe1;
           border-bottom: 2px solid #29abe1; }
         #tech .explanation article:nth-child(2) div:after {
-          top: 390px;
+          top: 384px;
           left: 184px;
           margin-top: -8px;
           background: #29abe1; }
@@ -2013,7 +2013,7 @@ h2, h4 {
       -moz-align-content: flex-start;
       -moz-align-items: center; }
       #features .col-4-12 img {
-        width: 33%;
+        width: 175px;
         height: auto; }
       #features .col-4-12 div {
         flex: 1 1 auto;

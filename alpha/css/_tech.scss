@@ -24,7 +24,7 @@
     width: 960px;
     margin: 0 auto;
     position: relative;
-    height: 720px;
+    height: 743px;
     counter-reset: layers;
     z-index: 4;
 
@@ -121,7 +121,7 @@
           border-left: 2px solid #c9d0d5;
         }
         &:after {
-          top: 202px;
+          top: 194px;
           background: #c9d0d5;
         }
       }
@@ -152,7 +152,7 @@
 
         &:before {
           content: "";
-          height: 390px;
+          height: 384px;
           width: 160px;
           position: absolute;
           display: block;
@@ -160,7 +160,7 @@
           border-bottom: 2px solid #29abe1;
         }
         &:after {
-          top: 390px;
+          top: 384px;
           left: 184px;
           margin-top: -8px;
           background: #29abe1;
