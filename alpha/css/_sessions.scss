@@ -1,0 +1,49 @@
+#sessions {
+  padding: 4em 0 0 0;
+	h3, h4 {
+    font-weight: 400;
+    color: #3e3f3a;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  h4 {
+    margin: 1em auto 2em;
+  }
+
+  .multisessions {
+    height: 386px;
+    display: block;
+    margin: 0 auto 4em;
+  }
+
+  article {
+    background: #f8f5f0;
+    padding: 2em 0 4em;
+
+    div {
+      @include display-flex;
+      @include flex-props(row wrap, space-between, space-between, flex-start);
+      width: 960px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.2em;
+
+      img {
+        height: 92px;
+        display: block;
+        margin: 0 auto 1em;
+      }
+    }
+  }
+
+  .notice {
+    background: #80bc01;
+    color: #fff;
+    text-align: center;
+    font-size: 1.2em;
+    margin: 0;
+    padding: .6em 0;
+    font-weight: normal;
+  }
+}

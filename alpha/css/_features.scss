@@ -1,0 +1,20 @@
+#features {
+	@include display-flex;
+	@include flex-props(row wrap, space-between, space-between, flex-start);
+
+	width: 960px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 4em 0;
+
+	h5 {
+		font-size: 1.6em;
+		color: #000;
+		margin: 0;
+	}
+
+	img {
+		height: 80px;
+		margin-bottom: 1em;
+	}
+}

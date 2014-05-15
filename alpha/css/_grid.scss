@@ -1,0 +1,6 @@
+@for $cols from 1 to 13 {
+	.col-#{$cols}-12 {
+		width: $cols*80px;
+		padding: 0 20px;
+	}
+}

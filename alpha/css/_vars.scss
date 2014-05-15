@@ -1,0 +1,28 @@
+@mixin flex($val) {
+	flex: $val;
+	-webkit-flex: $val;
+	-moz-flex: $val;
+}
+
+@mixin display-flex {
+	display: flex;
+	display: -webkit-flex;
+	-moz-display: flex;
+}
+
+@mixin flex-props($flow, $justify, $content, $items) {
+	flex-flow: $flow;
+	justify-content: $justify;
+	align-content: $content;
+	align-items: $items;
+
+	-webkit-flex-flow: $flow;
+	-webkit-justify-content: $justify;
+	-webkit-align-content: $content;
+	-webkit-align-items: $items;
+
+	-moz-flex-flow: $flow;
+	-moz-justify-content: $justify;
+	-moz-align-content: $content;
+	-moz-align-items: $items;
+}

@@ -1,0 +1,89 @@
+#hero {
+	background: url(../images/hero.jpg) no-repeat bottom center #3e3f3a;
+  color: #fff;
+  text-align: center;
+
+	#logo {
+		width: 150px;
+		display: block;
+
+		img {
+			width: 150px;
+		}
+	}
+
+	header {
+		@include display-flex;
+		@include flex-props(row wrap, space-between, space-between, center);
+    width: 960px;
+    margin: 0 auto;
+    padding: 10px 0 0 0;
+
+    li {
+      list-style: none;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: bold;
+      vertical-align: middle;
+      position: relative;
+      margin-left: 15px;
+      text-align: left;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-left: 60px;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        transition: .15s opacity ease-in-out;
+        -moz-transition: .15s opacity ease-in-out;
+        -webkit-transition: .15s opacity ease-in-out;
+
+        &.fa-github:before {
+          position: absolute;
+          right: 100%;
+          margin-right: 10px;
+          bottom: 3px;
+          font-size: 36px;
+        }
+        &.fa-github:after {
+          content: "Fork me!";
+          display: block;
+          color: #80bc01;
+          font-size: 12px;
+          line-height: 10px;
+        }
+        &:hover {
+          opacity: .6;
+        }
+      }
+    }
+	}
+
+  h1 {
+    font-size: 2.4em;
+    font-weight: 400;
+  }
+
+  h2 {
+    font-size: 1.6em;
+    font-weight: normal;
+    margin-bottom: 2em;
+  }
+
+  figure {
+    width: 760px;
+    margin: 0 auto;
+
+    img {
+      display: block;
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
