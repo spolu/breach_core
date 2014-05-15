@@ -1,4 +1,4 @@
-EXO_BROWSER = "default"
+EXO_BROWSER = "__DUMMY__"
 
 clean:
 	rm -rf node_modules
