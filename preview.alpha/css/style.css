@@ -1559,11 +1559,11 @@ h2, h4 {
 
 #tech {
   background: #f8f5f0;
-  padding: 4em 0;
+  padding: 2em 0 4em 0;
   position: relative; }
   #tech h3, #tech h4 {
     font-weight: 400;
-    margin: 0;
+    margin-bottom: 0;
     color: #3e3f3a; }
   #tech h4 {
     margin: 1em 0 2em; }
