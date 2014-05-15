@@ -46,6 +46,8 @@ var breach_start = function() {
     }
   });
 
+  var auto_updater = require('./lib/auto_updater.js').auto_updater({}).init();
+
   var session_manager = require('./lib/session_manager.js').session_manager({
     off_the_record: false
   });
