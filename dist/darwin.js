@@ -89,6 +89,21 @@ async.series([
                       'Breach.app', 'Contents', 'Resources', 'shell'), cb_);
   },
 
+  /* Update app.icns */
+  function(cb_) {
+    fs.remove(path.join(tmp_dist_path, 
+                        'Breach.app', 'Contents', 'Resources', 'app.icns'), cb_);
+  },
+  function(cb_) {
+    fs.rename(path.join(tmp_dist_path, 
+                        'Breach.app', 'Contents', 'Resources', 
+                        'shell', 'breach.icns'), 
+              path.join(tmp_dist_path, 
+                        'Breach.app', 'Contents', 'Resources', 
+                        'app.icns'),
+                        cb_);
+  },
+
   /* Final copy. */
   function(cb_) {
     mkdirp(out_path, cb_);
