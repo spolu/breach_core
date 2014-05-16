@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# this bash wrapper is used by the auto-udpate mechanism to restart the entire
+# process after the update was installed. It makes sure that:
+# - we wait for the older process to shutdown entirely
+# - we disable quarantine of the newly downloaded package
+
 destination=$1
 
 # Wait until all processes from within the bundle are closed

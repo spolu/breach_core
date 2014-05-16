@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 export SRC_DIR=$(cd "$(dirname "$0")"; pwd)
 
