@@ -1,9 +1,14 @@
-### Breach: A Browser for the Power-User
+### Breach: A Browser for the HTML5 Era
 
-- **Free** Open-source, and Free.
-- **Modular** Fully modular. Build the browser you need out of modules.
-- **Hackable** Lets users easily change or extend the behaviour of their browser
+**Modular** 
+Everything in the browser is a module, a web-app running in its own process.
+Construct your own browsing experience by selecting the right modules for you.
 
-### Credits
-Icon courtesy of (@helloseim)[http://twitter.com/helloseim] (http://cherryseim.com/)
-http://dribbble.com/shots/1129764-Safari-iOS7-Icon-Remix
+**Hackable**
+Want vertical tabs? Write some JS & CSS! Customised autocomplete engine? JS!
+Every behavior is programmatic and exposed through APIs.
+
+**OpenSource**
+The entire technological stack is opensource.
+Modify existing modules and create your owns to extend the behavior of Breach.
+
