@@ -85,3 +85,7 @@ breach_start();
 process.on('uncaughtException', function (err) {
   common.fatal(err);
 });
+
+process.on('SIGINT', function() {
+  common.exit(0);
+});
