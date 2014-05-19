@@ -1,7 +1,12 @@
 {
   "name": "breach_core",
-  "version": "0.3.4",
-  "main": "./index.js",
+  "description": "Breach Core Module",
+  "author": {
+    "name": "Stanislas Polu",
+    "email": "polu.stanislas@gmail.com",
+    "url": "http://github.com/spolu" 
+  },
+  "version": "0.3.6-alpha.2",
   "dependencies": {
     "exo_browser": "0.6.x",
     "gig.fs": "0.2.x",
@@ -17,5 +22,22 @@
     "body-parser": "1.0.x",
     "method-override": "1.0.x",
     "socket.io": "0.9.x"
+  },
+  "repository" : { 
+    "type" :  "git",
+    "url" :   "http://github.com/breach/breach_core.git" 
+  },
+  "bugs": {
+    "url": "https://github.com/breach/breach_core/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/breach/breach_core/raw/master/LICENSE"
+    }
+  ],
+  "main": "./index.js",
+  "auto_update": {
+    "url": "https://data.breach.cc/update"
   }
 }

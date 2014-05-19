@@ -31,7 +31,8 @@ var async = require('async');
 //
 // Starts breach and its modules for the local session
 var breach_start = function() {
-  common.log.out('Starting...');
+  common.log.out('[Breach v' + require('./package.json').version + 
+                 '] Starting...');
 
   var args = process.argv;
   args.forEach(function(a) {
@@ -46,21 +47,24 @@ var breach_start = function() {
     }
   });
 
-  var session_manager = require('./lib/session_manager.js').session_manager({
+  common.auto_updater = require('./lib/auto_updater.js').auto_updater({});
+  common.auto_updater.init();
+
+  common.session_manager = require('./lib/session_manager.js').session_manager({
     off_the_record: false
   });
   async.waterfall([
-    session_manager.init,
-    session_manager.list_sessions,
+    common.session_manager.init,
+    common.session_manager.list_sessions,
     function(sessions, cb_) {
       if(Object.keys(sessions).length === 0) {
-        session_manager.new_session(false, 'Alpha Session', cb_);
+        common.session_manager.new_session(false, 'Alpha Session', cb_);
       }
       else {
         return cb_(null, Object.keys(sessions)[0]);
       }
     },
-    session_manager.open_session
+    common.session_manager.open_session
   ], function(err) {
     if(err) {
       common.fatal(err);
@@ -80,4 +84,8 @@ breach_start();
 // SAFETY NET (kills the process and the spawns)
 process.on('uncaughtException', function (err) {
   common.fatal(err);
+});
+
+process.on('SIGINT', function() {
+  common.exit(0);
 });
