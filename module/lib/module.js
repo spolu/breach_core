@@ -204,7 +204,7 @@ var module = function(spec, my) {
         if(my.proxies[msg.hdr.src]) {
           var err = null;
           if(msg.err) {
-            err = common.err(msg.err.msg, msg.err.name);
+            err = common.err(msg.err.msg, msg.err.nme);
           }
           my.proxies[msg.hdr.src].rpc_reply(msg.oid, err, msg.res);
         }
