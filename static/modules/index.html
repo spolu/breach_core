@@ -10,35 +10,44 @@
     <link rel="stylesheet" href="/lib/normalize-2.1.2.css" rel="stylesheet"/>
   </head>
 
-  <body ng-controller="ModuleManagerTopCtrl">
+  <body ng-controller="ModuleManagerTopCtrl"
+        style="background-color: hsl(0, 0%, 40%);
+               color: white;
+               font-size: 14px;
+               text-align: center;
+               font-family: Courier;">
 
-    <table border="1">
-      <tr ng-repeat="m in modules">
-        <td>{{m.type}}</td>
-        <td>{{m.name}}</td>
-        <td>{{m.version}}</td>
-        <td>{{m.owner}}</td>
-        <td>{{m.tag}}</td>
-        <td>{{m.path}}</td>
-        <td>{{m.running ? 'running' : 'stopped'}}</td>
-        <td>
-          <a href="" ng-click="kill(m.path)" ng-show="m.running">kill</a>
-          <a href="" ng-click="run(m.path)" ng-hide="m.running">run</a>
-        </td>
-        <td>
-          <a href="" ng-click="remove(m.path)">remove</a>
-        </td>
-        <td>{{m.out}}</td>
-      </tr>
-    </table>
+    <div style="display:inline-block;
+                text-align: left;
+                margin-top: 20px;">
+      <div style="margin-top: 10px;">Modules:</div>
+      <table border="1" style="background-color: hsl(0, 0%, 60%);
+                               color: black;">
+        <tr ng-repeat="m in modules">
+          <td>{{m.type}}</td>
+          <td><b>{{m.name}}</b></td>
+          <td>{{m.version}}</td>
+          <td>{{m.owner}}</td>
+          <td>{{m.tag}}</td>
+          <td>{{m.path}}</td>
+          <td>{{m.running ? 'running' : 'stopped'}}</td>
+          <td>
+            <a href="" ng-click="kill(m.path)" ng-show="m.running">kill</a>
+            <a href="" ng-click="run(m.path)" ng-hide="m.running">run</a>
+          </td>
+          <td>
+            <a href="" ng-click="remove(m.path)">remove</a>
+          </td>
+          <td>console</td>
+        </tr>
+      </table>
 
-    <br><br/>
-
-    <form ng-submit="add()">
-      Add Module: 
-      <input type="text" ng-model="add_path">
-      <input type="submit" value="add">
-    </form>
+      <form ng-submit="install()">
+        <div style="margin-top: 10px;">New Module:</div>
+        <input type="text" ng-model="install_path">
+        <input type="submit" value="Install">
+      </form>
+    </div>
 
     <!-- Scripts -->
     <script src="/socket.io/socket.io.js"></script>
@@ -54,7 +63,7 @@
     <script src="/js/bind_s.js"></script>
     <script src="/js/req_s.js"></script>
     <script src="/js/socket_s.js"></script>
-    <script src="/js/module_s.js"></script>
+    <script src="/js/modules_s.js"></script>
 
   </body>
 </html>

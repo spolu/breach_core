@@ -12,3 +12,9 @@ Every behavior is programmatic and exposed through APIs.
 The entire technological stack is opensource.
 Modify existing modules and create your owns to extend the behavior of Breach.
 
+
+### Getting Involved
+
+- Homepage: [http://breach.cc](http://breach.cc)
+- Mailing list: [breach-dev@googlegroups.com](https://groups.google.com/d/forum/breach-dev)
+- IRC Channel: #breach on Freenode

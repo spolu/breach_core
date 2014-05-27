@@ -6,6 +6,7 @@
  * @author: spolu
  *
  * @log:
+ * - 2014-05-23 spolu  Use socket.io
  * - 2014-04-17 spolu  Creation
  */
 'use strict';
@@ -22,33 +23,37 @@ angular.module('breach', ['breach.services',
 // Initializations goes here as well as global objects
 //
 function ModuleManagerTopCtrl($scope, $location, $rootScope, $window, $timeout,
-                              _socket, _bind, _module) {
+                              _socket, _bind, _modules) {
 
-  _bind($scope, 'modules', 
-        _module.list().then(function(data) {
-    //console.log(data);
-    return data;
-  }));
+  /* Handhsaking */
+  _socket.emit('handshake', 'modules');
 
-  $scope.add = function() {
-    _module.add($scope.add_path).then(function(data) {
-      location.reload();
+  _socket.on('state', function(state) {
+    $scope.modules = state.modules;
+    console.log('========================================');
+    console.log(JSON.stringify(state, null, 2));
+    console.log('----------------------------------------');
+  });
+
+  $scope.install = function() {
+    _modules.add_install($scope.install_path).then(function(data) {
+      console.log('OK');
     });
   };
 
   $scope.remove = function(path) {
-    _module.remove(path).then(function(data) {
+    _modules.remove(path).then(function(data) {
       location.reload();
     });
   };
 
   $scope.kill = function(path) {
-    _module.kill(path).then(function(data) {
+    _modules.kill(path).then(function(data) {
       location.reload();
     });
   };
   $scope.run = function(path) {
-    _module.run(path).then(function(data) {
+    _modules.run(path).then(function(data) {
       location.reload();
     });
   };
