@@ -132,6 +132,54 @@ async.series([
       }
       return cb_();
     });
+  },
+
+  /* Generate sha1sum. */
+  function(cb_) {
+    var sha1sum = require('child_process').spawn('sha1sum', 
+      [base_name + '.tar.gz'], {
+      cwd: out_path
+    });
+    var out = fs.createWriteStream(path.join(out_path, 
+                                             base_name + '.tar.gz.sha1sum'));
+    sha1sum.stdout.on('data', function(data) {
+      out.write(data);
+    });
+    sha1sum.stderr.on('data', function(data) {
+      console.log('stderr: ' + data);
+    });
+    sha1sum.on('close', function(code) {
+      out.end();
+      if(code !== 0) {
+        return cb_(common.err('`sha1sum` failed with code: ' + code,
+                              'auto_updater:failed_sha1sum'));
+
+      }
+      return cb_();
+    });
+  },
+
+  /* Generate signature.                                        */
+  /* Warning: `breach` private key required for actual release. */
+  function(cb_) {
+    var gpg = require('child_process').spawn('gpg', 
+      ['--armor', '--clearsign', base_name + '.tar.gz.sha1sum'], {
+      cwd: out_path
+    });
+    gpg.stdout.on('data', function(data) {
+      console.log('stdout: ' + data);
+    });
+    gpg.stderr.on('data', function(data) {
+      console.log('stderr: ' + data);
+    });
+    gpg.on('close', function(code) {
+      if(code !== 0) {
+        return cb_(common.err('`gpg` failed with code: ' + code,
+                              'auto_updater:failed_gpg'));
+
+      }
+      return cb_();
+    });
   }
 
 ], function(err) {
