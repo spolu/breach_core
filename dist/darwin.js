@@ -136,8 +136,8 @@ async.series([
 
   /* Generate sha1sum. */
   function(cb_) {
-    var sha1sum = require('child_process').spawn('sha1sum', 
-      [base_name + '.tar.gz'], {
+    var sha1sum = require('child_process').spawn('shasum', 
+      ['--algorithm', '1', base_name + '.tar.gz'], {
       cwd: out_path
     });
     var out = fs.createWriteStream(path.join(out_path, 
