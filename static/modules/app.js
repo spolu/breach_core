@@ -97,6 +97,11 @@ function ModuleManagerTopCtrl($scope, $location, $rootScope, $window, $timeout,
     ], function(err) {
     });
   };
+
+  $scope.auto_update_install = function() {
+    _modules.auto_update_install().then(function(data) {
+    });
+  };
 }
 
 angular.module('breach.directives', []);

@@ -38,6 +38,9 @@ angular.module('breach.services').
       kill: function(path) {
         return _req.post('/modules/kill', { path: path });
       },
+      auto_update_install: function() {
+        return _req.post('/modules/auto_update_install', {});
+      },
     };
 
     return _modules;
