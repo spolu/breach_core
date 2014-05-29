@@ -6,6 +6,7 @@
  * @author: spolu
  *
  * @log:
+ * - 2014-05-27 spolu  Enhance semantics to cover add/install/run
  * - 2014-04-17 spolu  Creation
  */
 'use strict'
@@ -22,14 +23,14 @@ angular.module('breach.services').
       add: function(path) {
         return _req.post('/modules/add', { path: path });
       },
-      add_install: function(path) {
-        return _req.post('/modules/add_install', { path: path });
+      install: function(path) {
+        return _req.post('/modules/install', { path: path });
       },
       remove: function(path) {
         return _req.post('/modules/remove', { path: path });
       },
-      install: function(path) {
-        return _req.post('/modules/install', { path: path });
+      update: function(path) {
+        return _req.post('/modules/update', { path: path });
       },
       run: function(path) {
         return _req.post('/modules/run', { path: path });

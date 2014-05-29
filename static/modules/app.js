@@ -33,28 +33,68 @@ function ModuleManagerTopCtrl($scope, $location, $rootScope, $window, $timeout,
     console.log('========================================');
     console.log(JSON.stringify(state, null, 2));
     console.log('----------------------------------------');
+    $scope.modules_no_update = true;
+    $scope.modules.forEach(function(m) {
+      if(m.need_restart) {
+        $scope.no_update = false;
+      }
+    })
+    $scope.auto_update = state.auto_update;
   });
 
   $scope.install = function() {
-    _modules.add_install($scope.install_path).then(function(data) {
-      console.log('OK');
+    async.waterfall([
+      function(cb_) {
+        _modules.add($scope.install_path).then(function(data) {
+          return cb_(null, data.module);
+        });
+      },
+      function(module, cb_) {
+        _modules.install(module.path).then(function(data) {
+          return cb_(null, data.module);
+        });
+      },
+      function(module, cb_) {
+        _modules.run(module.path).then(function(data) {
+          return cb_(null, data.module);
+        });
+      }
+    ], function(err) {
     });
   };
 
   $scope.remove = function(path) {
     _modules.remove(path).then(function(data) {
-      location.reload();
+    });
+  };
+
+  $scope.update = function(path) {
+    _modules.update(path).then(function(data) {
     });
   };
 
   $scope.kill = function(path) {
     _modules.kill(path).then(function(data) {
-      location.reload();
     });
   };
   $scope.run = function(path) {
     _modules.run(path).then(function(data) {
-      location.reload();
+    });
+  };
+
+  $scope.restart = function(path) {
+    async.series([
+      function(cb_) {
+        _modules.kill(path).then(function(data) {
+          return cb_();
+        });
+      },
+      function(cb_) {
+        _modules.run(path).then(function(data) {
+          return cb_();
+        });
+      },
+    ], function(err) {
     });
   };
 }

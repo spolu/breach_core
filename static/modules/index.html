@@ -20,20 +20,43 @@
     <div style="display:inline-block;
                 text-align: left;
                 margin-top: 20px;">
-      <div style="margin-top: 10px;">Modules:</div>
-      <table border="1" style="background-color: hsl(0, 0%, 60%);
+
+      <div style="margin-top: 10px;">Breach:</div>
+      <table border="1" 
+             ng-cloak
+             style="background-color: hsl(0, 0%, 60%);
                                color: black;">
-        <tr ng-repeat="m in modules">
+        <tr>
+          <td>Breach</td>
+          <td>{{auto_update.version}}</td>
+          <td>running</td>
+        </tr>
+      </table>
+
+      <div style="margin-top: 10px;">Modules:</div>
+      <table border="1" 
+             ng-cloak
+             style="background-color: hsl(0, 0%, 60%);
+                               color: black;">
+        <tr ng-repeat="m in modules" ng-cloak>
           <td>{{m.type}}</td>
           <td><b>{{m.name}}</b></td>
           <td>{{m.version}}</td>
           <td>{{m.owner}}</td>
           <td>{{m.tag}}</td>
-          <td>{{m.path}}</td>
-          <td>{{m.running ? 'running' : 'stopped'}}</td>
+          <td>{{m.installing ? 
+                 'installing' : 
+                 (m.running ? 'running' : 'stopped')}}</td>
           <td>
             <a href="" ng-click="kill(m.path)" ng-show="m.running">kill</a>
             <a href="" ng-click="run(m.path)" ng-hide="m.running">run</a>
+          </td>
+          <td>
+            <a href="" ng-click="update(m.path)" 
+                       ng-hide="m.need_restart">update</a>
+            <a href="" ng-click="restart(m.path)" 
+                       style="color: orange; font-weight: bold;"
+                       ng-show="m.need_restart">restart</a>
           </td>
           <td>
             <a href="" ng-click="remove(m.path)">remove</a>
@@ -42,17 +65,69 @@
         </tr>
       </table>
 
-      <form ng-submit="install()">
-        <div style="margin-top: 10px;">New Module:</div>
+      <form ng-submit="install()" style="margin-top: 10px;">
         <input type="text" ng-model="install_path">
         <input type="submit" value="Install">
       </form>
+
+      <div style="margin-top: 10px;">Module updates:</div>
+      <table border="1" 
+             ng-cloak
+             style="background-color: hsl(0, 0%, 60%);
+                               color: black;">
+        <tr ng-repeat="m in modules | filter: { need_restart: true }" ng-cloak>
+          <td><b>{{m.name}}</b> was updated and needs restart</td>
+          <td>
+            <a href="" ng-click="restart(m.path)" 
+                       style="color: orange; font-weight: bold;"
+                       ng-show="m.need_restart">restart</a>
+          </td>
+        </tr>
+        <tr ng-show="modules_no_update">
+          <td>
+            All modules are up to date
+          </td>
+        </tr>
+      </table>
+
+      <div style="margin-top: 10px;">
+        Breach updates:
+      </div>
+      <table border="1" 
+             ng-cloak
+             style="background-color: hsl(0, 0%, 60%);
+                               color: black;">
+        <tr ng-hide="auto_update.update_ready || auto_update.update_available">
+          <td>Breach v{{auto_update.version}} is up to date</td>
+        </tr>
+        <tr ng-show="auto_update.update_available">
+          <td>
+            Breach v{{auto_update.update.version}} is available but 
+            <span style="font-weight: bold; color: hsl(0, 70%, 50%);">
+              could not be installed
+            </span>
+          </td>
+        </tr>
+        <tr ng-show="auto_update.update_ready">
+          <td>Breach v{{auto_update.update.version}} is ready to be installed</td>
+          <td>
+            <a href="" ng-click="auto_update_install()" 
+                       style="color: orange; font-weight: bold;">Install &amp; Restart</a>
+          </td>
+        </tr>
+        <tr ng-show="no_update">
+          <td>
+            All modules are up to date
+          </td>
+        </tr>
+      </table>
     </div>
 
     <!-- Scripts -->
     <script src="/socket.io/socket.io.js"></script>
     <script src="/lib/angular-1.2.9.min.js"></script>
     <script src="/lib/jquery-2.1.0.min.js"></script>
+    <script src="/lib/async-0.9.0.min.js"></script>
 
     <script src="app.js"></script>
 
