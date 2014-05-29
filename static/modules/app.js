@@ -6,6 +6,7 @@
  * @author: spolu
  *
  * @log:
+ * - 2014-05-23 spolu  Use socket.io
  * - 2014-04-17 spolu  Creation
  */
 'use strict';
@@ -22,34 +23,83 @@ angular.module('breach', ['breach.services',
 // Initializations goes here as well as global objects
 //
 function ModuleManagerTopCtrl($scope, $location, $rootScope, $window, $timeout,
-                              _socket, _bind, _module) {
+                              _socket, _bind, _modules) {
 
-  _bind($scope, 'modules', 
-        _module.list().then(function(data) {
-    //console.log(data);
-    return data;
-  }));
+  /* Handhsaking */
+  _socket.emit('handshake', 'modules');
 
-  $scope.add = function() {
-    _module.add($scope.add_path).then(function(data) {
-      location.reload();
+  _socket.on('state', function(state) {
+    $scope.modules = state.modules;
+    //console.log('========================================');
+    //console.log(JSON.stringify(state, null, 2));
+    //console.log('----------------------------------------');
+    $scope.modules_no_update = true;
+    $scope.modules.forEach(function(m) {
+      if(m.need_restart) {
+        $scope.modules_no_update = false;
+      }
+    })
+    $scope.auto_update = state.auto_update;
+  });
+
+  $scope.install = function() {
+    async.waterfall([
+      function(cb_) {
+        _modules.add($scope.install_path).then(function(data) {
+          return cb_(null, data.module);
+        });
+      },
+      function(module, cb_) {
+        _modules.install(module.path).then(function(data) {
+          return cb_(null, data.module);
+        });
+      },
+      function(module, cb_) {
+        _modules.run(module.path).then(function(data) {
+          return cb_(null, data.module);
+        });
+      }
+    ], function(err) {
     });
   };
 
   $scope.remove = function(path) {
-    _module.remove(path).then(function(data) {
-      location.reload();
+    _modules.remove(path).then(function(data) {
+    });
+  };
+
+  $scope.update = function(path) {
+    _modules.update(path).then(function(data) {
     });
   };
 
   $scope.kill = function(path) {
-    _module.kill(path).then(function(data) {
-      location.reload();
+    _modules.kill(path).then(function(data) {
     });
   };
   $scope.run = function(path) {
-    _module.run(path).then(function(data) {
-      location.reload();
+    _modules.run(path).then(function(data) {
+    });
+  };
+
+  $scope.restart = function(path) {
+    async.series([
+      function(cb_) {
+        _modules.kill(path).then(function(data) {
+          return cb_();
+        });
+      },
+      function(cb_) {
+        _modules.run(path).then(function(data) {
+          return cb_();
+        });
+      },
+    ], function(err) {
+    });
+  };
+
+  $scope.auto_update_install = function() {
+    _modules.auto_update_install().then(function(data) {
     });
   };
 }

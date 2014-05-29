@@ -10,24 +10,27 @@
     <link rel="stylesheet" href="/lib/normalize-2.1.2.css" rel="stylesheet"/>
   </head>
 
-  <body style="background-color: hsl(0, 0%, 100%);
+  <body style="background-color: hsl(0, 0%, 40%);
                font-family: Courier;">
-    <div style="position:absolute; 
-                top: 45%; 
-                width: 100%; 
-                text-align: center;">
-      <span id="state">
-        Loading...
-      </span>
-    </div>
+    <div class="logo"
+         style="background-size: cover;
+                background-image: url('/assets/breach.png');
+                position: absolute;
+                top: 45%;
+                left: 50%;
+                width: 50px;
+                height: 50px;"></div>
     <div style="position:absolute; 
                 bottom: 20px; 
                 width: 100%; 
                 text-align: right;"
          id="admin">
-      <a style="dispay:block;
+      <a style="dispay: block;
+                color: white;
+                font-size: 0.8em;
+                text-decoration: none;
                 margin-right: 20px;"
-                href="/modules">Modules Management</a>
+                href="/modules">&gt;&gt; modules</a>
     </div>
 
     <!-- Scripts -->
@@ -38,7 +41,7 @@
       var socket = io.connect();
       socket.emit('handshake', 'splash');
       socket.on('ready', function(evt) {
-        $('#state').html('Ready!');
+        //$('#state').html('Ready!');
       });
     </script>
   </body>
