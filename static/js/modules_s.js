@@ -6,6 +6,7 @@
  * @author: spolu
  *
  * @log:
+ * - 2014-05-29 spolu  Support for modules output
  * - 2014-05-27 spolu  Enhance semantics to cover add/install/run
  * - 2014-04-17 spolu  Creation
  */
@@ -32,15 +33,15 @@ angular.module('breach.services').
       update: function(path) {
         return _req.post('/modules/update', { path: path });
       },
+      output: function(path) {
+        return _req.post('/modules/output', { path: path });
+      },
       run: function(path) {
         return _req.post('/modules/run', { path: path });
       },
       kill: function(path) {
         return _req.post('/modules/kill', { path: path });
-      },
-      auto_update_install: function() {
-        return _req.post('/modules/auto_update_install', {});
-      },
+      }
     };
 
     return _modules;

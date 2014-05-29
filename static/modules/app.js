@@ -6,6 +6,7 @@
  * @author: spolu
  *
  * @log:
+ * - 2014-05-29 spolu  Support for modules output
  * - 2014-05-23 spolu  Use socket.io
  * - 2014-04-17 spolu  Creation
  */
@@ -23,7 +24,7 @@ angular.module('breach', ['breach.services',
 // Initializations goes here as well as global objects
 //
 function ModuleManagerTopCtrl($scope, $location, $rootScope, $window, $timeout,
-                              _socket, _bind, _modules) {
+                              $sce, _socket, _bind, _modules) {
 
   /* Handhsaking */
   _socket.emit('handshake', 'modules');
@@ -73,6 +74,12 @@ function ModuleManagerTopCtrl($scope, $location, $rootScope, $window, $timeout,
     });
   };
 
+  $scope.output = function(path) {
+    _modules.output(path).then(function(data) {
+      $scope.raw_output = $sce.trustAsHtml(data.output.replace(/\n/g, '<br>'));
+    });
+  };
+
   $scope.kill = function(path) {
     _modules.kill(path).then(function(data) {
     });
@@ -98,8 +105,8 @@ function ModuleManagerTopCtrl($scope, $location, $rootScope, $window, $timeout,
     });
   };
 
-  $scope.auto_update_install = function() {
-    _modules.auto_update_install().then(function(data) {
+  $scope.install_breach = function() {
+    _req.post('/about/install_breach', {}).then(function(data) {
     });
   };
 }
