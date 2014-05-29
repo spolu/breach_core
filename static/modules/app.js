@@ -30,13 +30,13 @@ function ModuleManagerTopCtrl($scope, $location, $rootScope, $window, $timeout,
 
   _socket.on('state', function(state) {
     $scope.modules = state.modules;
-    console.log('========================================');
-    console.log(JSON.stringify(state, null, 2));
-    console.log('----------------------------------------');
+    //console.log('========================================');
+    //console.log(JSON.stringify(state, null, 2));
+    //console.log('----------------------------------------');
     $scope.modules_no_update = true;
     $scope.modules.forEach(function(m) {
       if(m.need_restart) {
-        $scope.no_update = false;
+        $scope.modules_no_update = false;
       }
     })
     $scope.auto_update = state.auto_update;

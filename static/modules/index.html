@@ -55,7 +55,7 @@
             <a href="" ng-click="update(m.path)" 
                        ng-hide="m.need_restart">update</a>
             <a href="" ng-click="restart(m.path)" 
-                       style="color: orange; font-weight: bold;"
+                       style="color: orange;"
                        ng-show="m.need_restart">restart</a>
           </td>
           <td>
@@ -79,7 +79,7 @@
           <td><b>{{m.name}}</b> was updated and needs restart</td>
           <td>
             <a href="" ng-click="restart(m.path)" 
-                       style="color: orange; font-weight: bold;"
+                       style="color: orange;"
                        ng-show="m.need_restart">restart</a>
           </td>
         </tr>
@@ -103,7 +103,7 @@
         <tr ng-show="auto_update.update_available">
           <td>
             Breach v{{auto_update.update.version}} is available but 
-            <span style="font-weight: bold; color: hsl(0, 70%, 50%);">
+            <span style="color: hsl(0, 80%, 40%);">
               could not be installed
             </span>
           </td>
@@ -113,11 +113,6 @@
           <td>
             <a href="" ng-click="auto_update_install()" 
                        style="color: orange; font-weight: bold;">Install &amp; Restart</a>
-          </td>
-        </tr>
-        <tr ng-show="no_update">
-          <td>
-            All modules are up to date
           </td>
         </tr>
       </table>
