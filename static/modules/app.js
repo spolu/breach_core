@@ -6,6 +6,7 @@
  * @author: spolu
  *
  * @log:
+ * - 2014-06-02 spolu  Fix install/restart action
  * - 2014-05-29 spolu  Support for modules output
  * - 2014-05-23 spolu  Use socket.io
  * - 2014-04-17 spolu  Creation
@@ -24,7 +25,7 @@ angular.module('breach', ['breach.services',
 // Initializations goes here as well as global objects
 //
 function ModuleManagerTopCtrl($scope, $location, $rootScope, $window, $timeout,
-                              $sce, _socket, _bind, _modules) {
+                              $sce, _socket, _bind, _modules, _req) {
 
   /* Handhsaking */
   _socket.emit('handshake', 'modules');
