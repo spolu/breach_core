@@ -8,8 +8,9 @@
  * @log:
  * 2013-12-02 spolu   Creation
  */
-var events = require('events');
+"use strict"
 
+var events = require('events');
 var common = require('./common.js');
 
 // ## module_proxy
@@ -111,6 +112,8 @@ var module = function(spec, my) {
   var _super = {};
   my = my || {};
   spec = spec || {};
+
+  my.VERSION = require('./../package.json').version;
 
   my.proxies = {};
   my.procedures = {};
@@ -229,6 +232,7 @@ var module = function(spec, my) {
     }
     var mid = ++my.message_id;
     msg.hdr.mid = mid;
+    msg.hdr.ver = my.VERSION;
     process.send(msg);
     return mid;
   };
@@ -254,7 +258,9 @@ var module = function(spec, my) {
     });
 
     process.nextTick(function() {
-      that.emit('internal:ready', {});
+      that.emit('internal:ready', {
+        ver: my.VERSION
+      });
     });
   };
 

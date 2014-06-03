@@ -62,7 +62,7 @@
             <a href="" ng-click="remove(m.path)">remove</a>
           </td>
           <td>
-            <a href="" ng-click="output(m.path)">output</a>
+            <a href="" ng-click="output(m)">output</a>
           </td>
         </tr>
       </table>
@@ -119,6 +119,13 @@
         </tr>
       </table>
 
+      <div style="margin-top: 20px;">
+        You can add `local:` or remote `github:` modules with the Install <br/>
+        input above. The modules available for now are:<br/>
+        <div>- github:breach/mod_stack</div>
+        <div>- github:breach/mod_box</div>
+      </div>
+
       <div style="margin-top: 20px;
                   background-color: hsl(0, 0%, 10%);
                   border: 1px solid grey;
@@ -127,13 +134,6 @@
                   ng-show="raw_output"
                   ng-bind-html="raw_output">
         {{raw_output}}
-      </div>
-
-      <div style="margin-top: 20px;">
-        You can add `local:` or remote `github:` modules with the Install <br/>
-        input above. The modules available for now are:<br/>
-        <div>- github:breach/mod_stack</div>
-        <div>- github:breach/mod_box</div>
       </div>
 
     </div>

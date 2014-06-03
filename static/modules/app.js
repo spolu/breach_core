@@ -75,8 +75,9 @@ function ModuleManagerTopCtrl($scope, $location, $rootScope, $window, $timeout,
     });
   };
 
-  $scope.output = function(path) {
-    _modules.output(path).then(function(data) {
+  $scope.output = function(module) {
+    console.log(module);
+    _modules.output(module.path).then(function(data) {
       $scope.raw_output = $sce.trustAsHtml(data.output.replace(/\n/g, '<br>'));
     });
   };
