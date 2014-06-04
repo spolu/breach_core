@@ -6,12 +6,13 @@
  * @author: spolu
  *
  * @log:
- * - 2013-13-15 spolu   Creation
+ * - 2014-06-02 spolu   Added `exit` method
+ * - 2013-12-15 spolu   Creation
  */
+"use strict";
+
 var util = require('util');
 var events = require('events');
-
-"use strict";
 
 /******************************************************************************/
 /* CROCKFORD */
@@ -226,6 +227,21 @@ exports.log = {
   }
 };
 
+// ### exit
+//
+// Makes sure to kill all subprocesses
+// ``
+// @code {number} exit code
+// ```
+exports.exit = function(code) {
+  try {
+    process.kill('-' + process.pid);
+  }
+  finally {
+    process.exit(code);
+  }
+};
+
 // ### fatal
 //
 // Prints out the error and exits the process while killing all sub processes
@@ -234,12 +250,7 @@ exports.log = {
 // ```
 exports.fatal = function(err) {
   exports.log.error(err);
-  try {
-    process.kill('-' + process.pid);
-  }
-  finally {
-    process.exit(1);
-  }
+  exports.exit(1);
 };
 
 // ### err
