@@ -53,9 +53,11 @@ async.series([
 
   /* Extract exo_browser in dist path */
   function(cb_) {
+    common.log.out('Creating `tmp_dist_path`: ' + tmp_dist_path);
     mkdirp(tmp_dist_path, cb_);
   },
   function(cb_) {
+    common.log.out('Extracting ExoBrowser: ' + process.argv[3]);
     var tar = require('child_process').spawn('tar', 
       ['xfz', process.argv[3], '-C', tmp_dist_path, '--strip', '1']);
     tar.stdout.on('data', function (data) {
@@ -80,6 +82,7 @@ async.series([
 
   /* Swap shell/ with content of breach_core/. */
   function(cb_) {
+    common.log.out('Injecting `breach_core` as `shell`');
     fs.remove(path.join(tmp_dist_path, 
                         'Breach.app', 'Contents', 'Resources', 'shell'), cb_);
   },
@@ -91,6 +94,7 @@ async.series([
 
   /* Update app.icns */
   function(cb_) {
+    common.log.out('Updating `app.icns`');
     fs.remove(path.join(tmp_dist_path, 
                         'Breach.app', 'Contents', 'Resources', 'app.icns'), cb_);
   },
@@ -104,7 +108,34 @@ async.series([
                         cb_);
   },
 
-  /* Final copy. */
+  /* Update Info.plist */
+  function(cb_) {
+    common.log.out('Updating `Info.plist`');
+    var info_path = path.join(tmp_dist_path, 
+                              'Breach.app', 'Contents', 'Info.plist');
+    var sed = require('child_process').spawn('sed', 
+      ['-i', '', 's/ExoBrowser/Breach/g',  info_path]);
+    sed.stdout.on('data', function (data) {
+      console.log('stdout: ' + data);
+    });
+    sed.stderr.on('data', function (data) {
+      console.log('stderr: ' + data);
+    });
+    sed.on('close', function (code) {
+      if(code !== 0) {
+        return cb_(common.err('Sed replacement failed with code: ' + code,
+                              'auto_updater:failed_replacement'));
+
+      }
+      return cb_();
+    });
+  },
+  function(cb_) {
+    fs.rename(path.join(tmp_dist_path, 'Breach.app', 'Contents', 'MacOs', 'ExoBrowser'),
+              path.join(tmp_dist_path, 'Breach.app', 'Contents', 'MacOs', 'Breach'), cb_)
+  },
+
+  /* copy. */
   function(cb_) {
     mkdirp(out_path, cb_);
   },
@@ -112,8 +143,9 @@ async.series([
     fs.rename(tmp_dist_path, out_dist_path, cb_);
   },
 
-  /* Final tar */
+  /* tar. */
   function(cb_) {
+    common.log.out('Compressing Breach: ' + base_name + '.tar.gz');
     var tar = require('child_process').spawn('tar', 
       ['cfz', base_name + '.tar.gz', base_name], {
       cwd: out_path
@@ -136,6 +168,7 @@ async.series([
 
   /* Generate sha1sum. */
   function(cb_) {
+    common.log.out('Hash generation: ' + base_name + '.tar.gz.sha1sum');
     var sha1sum = require('child_process').spawn('shasum', 
       ['--algorithm', '1', base_name + '.tar.gz'], {
       cwd: out_path
@@ -162,6 +195,7 @@ async.series([
   /* Generate signature.                                        */
   /* Warning: `breach` private key required for actual release. */
   function(cb_) {
+    common.log.out('Signature generation: ' + base_name + '.tar.gz.sha1sum.asc');
     var gpg = require('child_process').spawn('gpg', 
       ['--armor', '--clearsign', base_name + '.tar.gz.sha1sum'], {
       cwd: out_path
