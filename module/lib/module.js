@@ -76,6 +76,10 @@ var module_proxy = function(spec, my) {
   // @cb_  {function(err, res)} the callback when the rpc completes
   // ```
   call = function(proc, args, cb_) {
+    if(my.name === 'INVALID' || my.name === '__ALL__') {
+      return cb_(common.err('Cannot use `call` on the wildcard proxy',
+                            'breach_module:call_on_wildcard'));
+    }
     var msg = {
       hdr: {
         typ: 'rpc_call'
@@ -172,6 +176,9 @@ var module = function(spec, my) {
         if(my.proxies[msg.hdr.src]) {
           my.proxies[msg.hdr.src].emit(msg.typ, msg.evt);
         }
+        else if(my.proxies['__ALL__']) {
+          my.proxies['__ALL__'].emit(msg.typ, msg.evt);
+        }
         break;
       }
       /* `rpc_call` messages are received when an other module wants to call  */
@@ -197,7 +204,7 @@ var module = function(spec, my) {
         }
         else {
           rpc_reply(common.err('Procedure unknown: `' + msg.prc,
-                               'ProcedureUnknown'));
+                               'breach_module:procedure_unknown'));
         }
         break;
       }
@@ -349,6 +356,9 @@ var module = function(spec, my) {
   // @name {string} the module name
   // ```
   module = function(name) {
+    if(!name) {
+      name = '__ALL__';
+    }
     if(!my.proxies[name]) {
       my.proxies[name] = module_proxy({
         name: name,
