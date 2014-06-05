@@ -7,15 +7,13 @@
     <title>Breach::ModuleManagement</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/lib/normalize-2.1.2.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../lib/normalize-2.1.2.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/fonts.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/main.css" rel="stylesheet"/>
   </head>
 
   <body ng-controller="ModuleManagerTopCtrl"
-        style="background-color: hsl(0, 0%, 40%);
-               color: white;
-               font-size: 14px;
-               text-align: center;
-               font-family: Courier;">
+        style="text-align: center;">
 
     <div style="display:inline-block;
                 text-align: left;
@@ -25,7 +23,8 @@
       <table border="1" 
              ng-cloak
              style="background-color: hsl(0, 0%, 60%);
-                               color: black;">
+                    font-family: Courier;
+                    color: black;">
         <tr>
           <td>Breach</td>
           <td>{{auto_update.version}}</td>
@@ -37,7 +36,8 @@
       <table border="1" 
              ng-cloak
              style="background-color: hsl(0, 0%, 60%);
-                               color: black;">
+                    font-family: Courier;
+                    color: black;">
         <tr ng-repeat="m in modules" ng-cloak>
           <td>{{m.type}}</td>
           <td><b>{{m.name}}</b></td>
@@ -67,16 +67,12 @@
         </tr>
       </table>
 
-      <form ng-submit="install()" style="margin-top: 10px;">
-        <input type="text" ng-model="install_path">
-        <input type="submit" value="Install">
-      </form>
-
       <div style="margin-top: 10px;">Module updates:</div>
       <table border="1" 
              ng-cloak
              style="background-color: hsl(0, 0%, 60%);
-                               color: black;">
+                    font-family: Courier;
+                    color: black;">
         <tr ng-repeat="m in modules | filter: { need_restart: true }" ng-cloak>
           <td><b>{{m.name}}</b> was updated and needs restart</td>
           <td>
@@ -92,13 +88,12 @@
         </tr>
       </table>
 
-      <div style="margin-top: 10px;">
-        Breach updates:
-      </div>
+      <div style="margin-top: 10px;">Breach updates:</div>
       <table border="1" 
              ng-cloak
              style="background-color: hsl(0, 0%, 60%);
-                               color: black;">
+                    font-family: Courier;
+                    color: black;">
         <tr ng-hide="auto_update.update_ready || auto_update.update_available">
           <td>Breach v{{auto_update.version}} is up to date</td>
         </tr>
@@ -119,11 +114,17 @@
         </tr>
       </table>
 
-      <div style="margin-top: 20px;">
+      <div style="margin-top: 10px;">Install Modules:</div>
+      <form ng-submit="install()">
+        <input type="text" ng-model="install_path">
+        <input type="submit" value="Install">
+      </form>
+
+      <div style="margin-top: 10px;">
         You can add `local:` or remote `github:` modules with the Install <br/>
         input above. The modules available for now are:<br/>
-        <div>- github:breach/mod_stack</div>
-        <div>- github:breach/mod_box</div>
+        <div style="color: hsl(72, 4%, 60%);">&nbsp;github:breach/mod_stack</div>
+        <div style="color: hsl(72, 4%, 60%);">&nbsp;github:breach/mod_box</div>
       </div>
 
       <div style="margin-top: 20px;

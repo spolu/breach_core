@@ -1,0 +1,10 @@
+html {
+  font-family: 'Gotham Rounded';
+  font-weight: 200;
+  font-size: 12px;
+  color: hsl(72, 4%, 90%);
+}
+
+body {
+  background-color: hsl(72, 4%, 24%);
+}
