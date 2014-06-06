@@ -54,6 +54,7 @@ async.series([
 
   /* Create tmp dist path and copy local module there. */
   function(cb_) {
+    common.log.out('Creating `tmp_dist_path`: ' + tmp_dist_path);
     mkdirp(path.join(tmp_dist_path, '__AUTO_UPDATE_BUNDLE__'), cb_);
   },
   function(cb_) {
@@ -66,6 +67,7 @@ async.series([
 
   /* Extract exo_browser in dist path */
   function(cb_) {
+    common.log.out('Extracting ExoBrowser: ' + process.argv[3]);
     var tar = require('child_process').spawn('tar', 
       ['xfz', process.argv[3], 
        '-C', path.join(tmp_dist_path, '__AUTO_UPDATE_BUNDLE__', 'exo_browser'),
@@ -88,6 +90,7 @@ async.series([
 
   /* Copy linux wrapper. */
   function(cb_) {
+    common.log.out('Injecting `linux_wrapper` and `breach`');
     fs.copy(path.join(__dirname, './linux_wrapper.sh'), 
             path.join(tmp_dist_path, 'breach'), cb_);
   },
@@ -95,7 +98,7 @@ async.series([
     fs.chmod(path.join(tmp_dist_path, 'breach'), '755', cb_);
   },
 
-  /* Final copy. */
+  /* copy. */
   function(cb_) {
     mkdirp(out_path, cb_);
   },
@@ -103,8 +106,9 @@ async.series([
     fs.rename(tmp_dist_path, out_dist_path, cb_);
   },
 
-  /* Final tar */
+  /* tar */
   function(cb_) {
+    common.log.out('Compressing Breach: ' + base_name + '.tar.gz');
     var tar = require('child_process').spawn('tar', 
       ['cfz', base_name + '.tar.gz', base_name], {
       cwd: out_path
@@ -127,6 +131,7 @@ async.series([
 
   /* Generate sha1sum. */
   function(cb_) {
+    common.log.out('Hash generation: ' + base_name + '.tar.gz.sha1sum');
     var sha1sum = require('child_process').spawn('sha1sum', 
       [base_name + '.tar.gz'], {
       cwd: out_path
@@ -153,6 +158,7 @@ async.series([
   /* Generate signature.                                        */
   /* Warning: `breach` private key required for actual release. */
   function(cb_) {
+    common.log.out('Signature generation: ' + base_name + '.tar.gz.sha1sum.asc');
     var gpg = require('child_process').spawn('gpg', 
       ['--armor', '--clearsign', base_name + '.tar.gz.sha1sum'], {
       cwd: out_path
