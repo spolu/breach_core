@@ -6,6 +6,7 @@
  * @author: spolu
  *
  * @log:
+ * - 2014-06-06 spolu  Enhanced modules output
  * - 2014-06-02 spolu  Fix install/restart action
  * - 2014-05-29 spolu  Support for modules output
  * - 2014-05-23 spolu  Use socket.io
@@ -72,12 +73,6 @@ function ModuleManagerTopCtrl($scope, $location, $rootScope, $window, $timeout,
 
   $scope.update = function(path) {
     _modules.update(path).then(function(data) {
-    });
-  };
-
-  $scope.output = function(module) {
-    _modules.output(module.path).then(function(data) {
-      $scope.raw_output = $sce.trustAsHtml(data.output.replace(/\n/g, '<br>'));
     });
   };
 

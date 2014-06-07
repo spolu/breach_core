@@ -33,9 +33,6 @@ angular.module('breach.services').
       update: function(path) {
         return _req.post('/modules/update', { path: path });
       },
-      output: function(path) {
-        return _req.post('/modules/output', { path: path });
-      },
       run: function(path) {
         return _req.post('/modules/run', { path: path });
       },
