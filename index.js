@@ -52,7 +52,7 @@ var breach_start = function() {
   /*
   var fs = require('fs');
   var util = require('util');
-  var stdout = fs.createWriteStream('/Users/spolu/breach.stdout.log', { flags: 'a' })
+  var stdout = fs.createWriteStream('/Users/spolu/breach.stdout', { flags: 'a' })
   var fun = console.log;
   console.log = function(d) {
     stdout.write(util.format(d) + '\n');
