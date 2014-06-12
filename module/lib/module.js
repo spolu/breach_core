@@ -176,7 +176,7 @@ var module = function(spec, my) {
         if(my.proxies[msg.hdr.src]) {
           my.proxies[msg.hdr.src].emit(msg.typ, msg.evt);
         }
-        else if(my.proxies['__ALL__']) {
+        if(my.proxies['__ALL__']) {
           my.proxies['__ALL__'].emit(msg.typ, msg.evt);
         }
         break;
