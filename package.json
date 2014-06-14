@@ -17,7 +17,7 @@
     "npm": "1.4.x",
     "semver": "2.2.x",
     "tar": "0.1.x",
-    "request": "2.34.x",
+    "request": "2.36.x",
     "express": "4.0.x",
     "body-parser": "1.0.x",
     "method-override": "1.0.x",
