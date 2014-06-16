@@ -49,6 +49,7 @@ var breach_start = function() {
 
   /* TODO(spolu): Useful for debugging on OSX. Maybe integrate it in */
   /* module_manager.                                                 */
+  /*
   var fs = require('fs');
   var util = require('util');
   var stdout = fs.createWriteStream('/Users/spolu/breach.stdout', { flags: 'a' })
@@ -57,6 +58,7 @@ var breach_start = function() {
     stdout.write(util.format(d) + '\n');
     fun(d);
   };
+  */
 
   common.auto_updater = require('./lib/auto_updater.js').auto_updater({});
   common.auto_updater.init();
