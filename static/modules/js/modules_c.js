@@ -1,16 +1,12 @@
 /*
- * Breach: [module] app.js
+ * Breach: [module] modules_c.js
  *
  * Copyright (c) 2014, Stanislas Polu. All rights reserved.
  *
  * @author: spolu
  *
  * @log:
- * - 2014-06-06 spolu  Enhanced modules output
- * - 2014-06-02 spolu  Fix install/restart action
- * - 2014-05-29 spolu  Support for modules output
- * - 2014-05-23 spolu  Use socket.io
- * - 2014-04-17 spolu  Creation
+ * - 2014-06-17 spolu  Creation
  */
 'use strict';
 
@@ -22,29 +18,38 @@ angular.module('breach', ['breach.services',
                           'breach.filters']);
 
 //
-// ### ModuleManagerTopCtrl
-// Initializations goes here as well as global objects
+// ### ModulesCtrl
+// Controller to manage modules display
 //
-function ModuleManagerTopCtrl($scope, $location, $rootScope, $window, $timeout,
-                              $sce, _socket, _bind, _modules, _req) {
+function ModulesCtrl($scope, $location, $rootScope, $window, $timeout, $sce, 
+                     _bind, _modules, _req) {
 
+  /****************************************************************************/
+  /* INITIALIZATION                                                           */
+  /****************************************************************************/
   /* Handhsaking */
-  _socket.emit('handshake', 'modules');
+  var socket = io.connect();
+  socket.emit('handshake', 'modules');
 
-  _socket.on('state', function(state) {
-    $scope.modules = state.modules;
-    //console.log('========================================');
-    //console.log(JSON.stringify(state, null, 2));
-    //console.log('----------------------------------------');
-    $scope.modules_no_update = true;
-    $scope.modules.forEach(function(m) {
-      if(m.need_restart) {
-        $scope.modules_no_update = false;
-      }
-    })
-    $scope.auto_update = state.auto_update;
+  socket.on('state', function(state) {
+    $scope.$apply(function() {
+      $scope.modules = state.modules;
+      //console.log('========================================');
+      //console.log(JSON.stringify(state, null, 2));
+      //console.log('----------------------------------------');
+      $scope.modules_no_update = true;
+      $scope.modules.forEach(function(m) {
+        if(m.need_restart) {
+          $scope.modules_no_update = false;
+        }
+      })
+      $scope.about = state.about;
+    });
   });
 
+  /****************************************************************************/
+  /* COMMANDS                                                                  */
+  /****************************************************************************/
   $scope.install = function() {
     async.waterfall([
       function(cb_) {
@@ -105,9 +110,5 @@ function ModuleManagerTopCtrl($scope, $location, $rootScope, $window, $timeout,
     _req.post('/about/install_breach', {}).then(function(data) {
     });
   };
-}
-
-angular.module('breach.directives', []);
-angular.module('breach.filters', []);
-angular.module('breach.services', []);
+};
 

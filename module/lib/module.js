@@ -257,6 +257,9 @@ var module = function(spec, my) {
       return cb_();
     });
     that.expose('kill', function(src, args, cb_) {
+      process.nextTick(function() {
+        process.exit(0);
+      });
       return cb_();
     });
 

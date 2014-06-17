@@ -1,0 +1,46 @@
+.modules {
+  text-align: center;
+}
+
+.modules > .container {
+  display:inline-block;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.modules table {
+  margin-top: 20px;
+  background-color: hsl(0, 0%, 97%);
+  color: black;
+  width: 100%;
+}
+
+.modules table th {
+  border-bottom: 3px solid hsl(0, 0%, 85%);
+  height: 25px;
+  padding-left: 5px;
+  line-height: 25px;
+}
+
+.modules table td {
+  height: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.modules table td.green {
+  color: hsl(100, 80%, 40%);
+}
+.modules table td.orange {
+  color: orange;
+}
+.modules table td.orange a {
+  color: orange;
+}
+.modules table td.red {
+  color: hsl(0, 80%, 40%);
+}
+
+.modules table input.text {
+  width: 400px;
+}
