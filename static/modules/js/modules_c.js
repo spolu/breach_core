@@ -11,13 +11,6 @@
 'use strict';
 
 //
-// ## App Module
-//
-angular.module('breach', ['breach.services', 
-                          'breach.directives', 
-                          'breach.filters']);
-
-//
 // ### ModulesCtrl
 // Controller to manage modules display
 //
@@ -27,33 +20,41 @@ function ModulesCtrl($scope, $location, $rootScope, $window, $timeout, $sce,
   /****************************************************************************/
   /* INITIALIZATION                                                           */
   /****************************************************************************/
-  /* Handhsaking */
+  /* Handhsaking [modules] */
   var socket = io.connect();
   socket.emit('handshake', 'modules');
+  socket.emit('handshake', 'about');
 
-  socket.on('state', function(state) {
+  socket.on('modules', function(state) {
     $scope.$apply(function() {
-      $scope.modules = state.modules;
       //console.log('========================================');
       //console.log(JSON.stringify(state, null, 2));
       //console.log('----------------------------------------');
-      $scope.modules_no_update = true;
-      $scope.modules.forEach(function(m) {
-        if(m.need_restart) {
-          $scope.modules_no_update = false;
-        }
-      })
-      $scope.about = state.about;
+      $scope.modules = state;
     });
   });
+
+  /* Handhsaking [about] */
+  socket.on('about', function(state) {
+    $scope.$apply(function() {
+      //console.log('========================================');
+      //console.log(JSON.stringify(state, null, 2));
+      //console.log('----------------------------------------');
+      $scope.about = state;
+    });
+  });
+
+  $rootScope.title = 'Breach::Modules';
 
   /****************************************************************************/
   /* COMMANDS                                                                  */
   /****************************************************************************/
-  $scope.install = function() {
+  $scope.modules_install = function() {
+    var path = $scope.install_path;
+    $scope.install_path = '';
     async.waterfall([
       function(cb_) {
-        _modules.add($scope.install_path).then(function(data) {
+        _modules.add(path).then(function(data) {
           return cb_(null, data.module);
         });
       },
@@ -71,26 +72,26 @@ function ModulesCtrl($scope, $location, $rootScope, $window, $timeout, $sce,
     });
   };
 
-  $scope.remove = function(path) {
+  $scope.modules_remove = function(path) {
     _modules.remove(path).then(function(data) {
     });
   };
 
-  $scope.update = function(path) {
+  $scope.modules_update = function(path) {
     _modules.update(path).then(function(data) {
     });
   };
 
-  $scope.kill = function(path) {
+  $scope.modules_kill = function(path) {
     _modules.kill(path).then(function(data) {
     });
   };
-  $scope.run = function(path) {
+  $scope.modules_run = function(path) {
     _modules.run(path).then(function(data) {
     });
   };
 
-  $scope.restart = function(path) {
+  $scope.modules_restart = function(path) {
     async.series([
       function(cb_) {
         _modules.kill(path).then(function(data) {
@@ -106,8 +107,8 @@ function ModulesCtrl($scope, $location, $rootScope, $window, $timeout, $sce,
     });
   };
 
-  $scope.install_breach = function() {
-    _req.post('/about/install_breach', {}).then(function(data) {
+  $scope.about_install = function() {
+    _req.post('/about/install', {}).then(function(data) {
     });
   };
 };

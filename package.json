@@ -22,7 +22,8 @@
     "body-parser": "1.0.x",
     "method-override": "1.0.x",
     "socket.io": "1.0.x",
-    "openpgp": "0.6.x"
+    "openpgp": "0.6.x",
+    "tail": "0.3.x"
   },
   "repository" : { 
     "type" :  "git",

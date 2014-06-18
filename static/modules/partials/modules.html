@@ -17,7 +17,7 @@
           need update [v{{about.update.version}}]
         </td>
         <td ng-show="about.update_ready" class="orange">
-          <a href="" ng-click="install_breach()">install &amp; restart</a>
+          <a href="" ng-click="about_install()">install &amp; restart</a>
         </td>
         <td ng-show="about.update_available" class="red">
           install manually
@@ -26,6 +26,7 @@
       </tr>
     </table>
 
+    <br/>
     <table border="0" ng-cloak>
       <tr>
         <th colspan="12">Modules</th>
@@ -33,7 +34,7 @@
       <tr ng-repeat="m in modules" ng-cloak>
         <td>{{m.type}}</td>
         <td><b>{{m.name}}</b></td>
-        <td>{{m.version}}</td>
+        <td>v{{m.version}}</td>
         <td>{{m.owner}}</td>
         <td>{{m.tag}}</td>
         <td ng-show="m.installing" class="orange">
@@ -50,22 +51,22 @@
           up to date
         </td>
         <td ng-show="m.need_restart" class="orange">
-          <a href="" ng-click="restart(m.path)">need restart</a>
+          <a href="" ng-click="modules_restart(m.path)">need restart</a>
         </td>
         <!-- /UPDATE -->
         <td>
-          <a href="" ng-click="kill(m.path)" ng-show="m.running">kill</a>
-          <a href="" ng-click="run(m.path)" ng-hide="m.running">run</a>
+          <a href="" ng-click="modules_kill(m.path)" ng-show="m.running">kill</a>
+          <a href="" ng-click="modules_run(m.path)" ng-hide="m.running">run</a>
         </td>
         <td ng-show="m.running">
-          <a href="" ng-click="restart(m.path)">restart</a>
+          <a href="" ng-click="modules_restart(m.path)">restart</a>
         </td>
         <td>
-          <a href="" ng-click="update(m.path)" 
+          <a href="" ng-click="modules_update(m.path)" 
                      ng-hide="m.need_restart">update</a>
         </td>
         <td>
-          <a href="" ng-click="remove(m.path)">remove</a>
+          <a href="" ng-click="modules_remove(m.path)">remove</a>
         </td>
         <td>
           <a href="#/out/{{m.name}}">out</a>
@@ -79,7 +80,7 @@
       </tr>
       <tr>
         <td>
-          <form ng-submit="install()">
+          <form ng-submit="modules_install()">
             <input type="text" class="text" ng-model="install_path">
             <input type="submit" value="Install">
           </form>
@@ -88,8 +89,7 @@
     </table>
 
     <div style="margin-top: 10px;">
-      You can add `local:` or remote `github:` modules with the Install <br/>
-      input above. The modules available for now are:<br/>
+      Available modules:<br/>
       <div style="color: hsl(72, 4%, 60%);">&nbsp;github:breach/mod_layout</div>
     </div>
 

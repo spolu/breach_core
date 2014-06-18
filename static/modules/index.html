@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-    <title>Breach::Modules</title>
+    <title>{{title}}</title>
     <link rel="shortcut icon" href="/assets/breach.png">
 
     <!-- Styles -->
@@ -12,11 +12,12 @@
     <link rel="stylesheet" href="../css/fonts.css" rel="stylesheet"/>
     <link rel="stylesheet" href="../css/main.css" rel="stylesheet"/>
     <link rel="stylesheet" href="css/modules.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/out.css" rel="stylesheet"/>
   </head>
 
   <body ng-controller="TopCtrl">
 
-    <div ng-view></div>
+    <div ng-view class="view"></div>
 
     <!-- Scripts -->
     <script src="/socket.io/socket.io.js"></script>
@@ -31,9 +32,9 @@
     <script src="js/app.js"></script>
 
     <!-- Services -->
+    <script src="js/modules_s.js"></script>
     <script src="/js/bind_s.js"></script>
     <script src="/js/req_s.js"></script>
-    <script src="/js/modules_s.js"></script>
 
   </body>
 </html>

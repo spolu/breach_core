@@ -29,18 +29,19 @@ function OutCtrl($scope, $location, $rootScope, $window, $timeout, $routeParams,
   /****************************************************************************/
   /* Handhsaking */
   var socket = io.connect();
-  socket.emit('handshake', 'modules');
+  socket.emit('tail', $routeParams.name);
 
-  socket.on('state', function(state) {
+  socket.on('module', function(module) {
     $scope.$apply(function() {
-      //console.log('========================================');
-      //console.log(JSON.stringify(state, null, 2));
-      //console.log('----------------------------------------');
-      state.modules.forEach(function(m) {
-        if(m.name === $routeParams.name) {
-          $scope.module = m;
-        }
-      });
+      $scope.module = module;
+    });
+    $rootScope.title = 'out::' + module.name;
+  });
+
+  $scope.data = '';
+  socket.on('data', function(data) {
+    $scope.$apply(function() {
+      $scope.data += data;
     });
   });
 

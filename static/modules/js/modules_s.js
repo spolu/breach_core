@@ -1,16 +1,14 @@
 /*
- * Breach: [modules] modules_s.js
+ * Breach: [module] modules_s.js
  *
  * Copyright (c) 2014, Stanislas Polu. All rights reserved.
  *
  * @author: spolu
  *
  * @log:
- * - 2014-05-29 spolu  Support for modules output
- * - 2014-05-27 spolu  Enhance semantics to cover add/install/run
- * - 2014-04-17 spolu  Creation
+ * - 2014-06-17 spolu  Creation
  */
-'use strict'
+'use strict';
 
 //
 // ## Module list & commands

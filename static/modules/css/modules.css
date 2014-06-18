@@ -5,7 +5,7 @@
 .modules > .container {
   display:inline-block;
   text-align: left;
-  margin-top: 20px;
+  margin-top: 100px;
 }
 
 .modules table {
@@ -16,6 +16,7 @@
 }
 
 .modules table th {
+  background-color: hsl(72, 4%, 42%);
   border-bottom: 3px solid hsl(0, 0%, 85%);
   height: 25px;
   padding-left: 5px;

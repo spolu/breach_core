@@ -1,0 +1,10 @@
+.out {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  margin-top: -10px;
+}
+
+.out pre {
+  color: hsl(200, 50%, 90%);
+}
