@@ -23,6 +23,10 @@ var async = require('async');
 /* HELPERS */
 /******************************************************************************/
 
+/* This is a hack. But process.nextTick can sleep if there is no event on the */
+/* content API part so we replace it here by a setTimeout that will be called */
+/* TODO(spolu): find a better solution */
+process.nextTick = setTimeout
 
 /******************************************************************************/
 /* MAIN RUN MODES */
