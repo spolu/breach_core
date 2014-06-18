@@ -10,9 +10,15 @@
 
 .modules table {
   margin-top: 20px;
-  background-color: hsl(0, 0%, 97%);
   color: black;
   width: 100%;
+  background-color: hsl(72, 4%, 24%);
+}
+
+.modules table tr.separator {
+}
+.modules table tr.separator td {
+  background-color: hsl(72, 4%, 24%);
 }
 
 .modules table th {
@@ -27,6 +33,7 @@
   height: 25px;
   padding-left: 5px;
   padding-right: 5px;
+  background-color: hsl(0, 0%, 97%);
 }
 
 .modules table td.green {
@@ -43,5 +50,5 @@
 }
 
 .modules table input.text {
-  width: 400px;
+  width: 100%;
 }

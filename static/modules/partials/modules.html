@@ -4,30 +4,33 @@
 
     <table border="0" ng-cloak>
       <tr>
-        <th colspan="5">Core</th>
+        <th colspan="12">Core</th>
       </tr>
       <tr>
-        <td>Breach</td>
-        <td>v{{about.version}}</td>
+        <td colspan="2">Breach</td>
+        <td colspan="3">v{{about.version}}</td>
+        <td colspan="1" class="green">running</td>
         <!-- UPDATE -->
         <td ng-hide="about.update_ready || about.update_available" class="green">
           up to date
         </td>
         <td ng-show="about.update_ready || about.update_available" class="red">
-          need update [v{{about.update.version}}]
+          need update (v{{about.update.version}})
         </td>
-        <td ng-show="about.update_ready" class="orange">
+        <td colspan="5" ng-show="about.update_ready" class="orange">
           <a href="" ng-click="about_install()">install &amp; restart</a>
         </td>
-        <td ng-show="about.update_available" class="red">
+        <td colspan="5" ng-show="about.update_available" class="red">
           install manually
         </td>
+        <td colspan="5" ng-hide="about.update_ready || about.update_available"></td>
         <!-- /UPDATE -->
       </tr>
-    </table>
 
-    <br/>
-    <table border="0" ng-cloak>
+      <tr class="separator" style="height: 45px;">
+        <td colspan="12"></td>
+      </tr>
+
       <tr>
         <th colspan="12">Modules</th>
       </tr>
@@ -72,18 +75,22 @@
           <a href="#/out/{{m.name}}">out</a>
         </td>
       </tr>
-    </table>
 
-    <table border="0" ng-cloak>
+      <tr class="separator">
+        <td colspan="12"></td>
+      </tr>
+
       <tr>
         <th colspan="12">Install Modules</th>
       </tr>
       <tr>
-        <td>
+        <td colspan="7">
           <form ng-submit="modules_install()">
             <input type="text" class="text" ng-model="install_path">
-            <input type="submit" value="Install">
           </form>
+        </td>
+        <td colspan="5">
+          <a href="" ng-click="modules_install()">install</a>
         </td>
       </tr>
     </table>
