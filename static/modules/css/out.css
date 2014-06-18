@@ -1,8 +1,24 @@
 .out {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
   background-color: black;
-  height: 100%;
   width: 100%;
-  margin-top: -10px;
+  overflow: scroll;
+}
+
+.out .header {
+  background-color: hsl(0, 0%, 20%);
+  padding: 10px;
+  color: white;
+}
+
+.out .header .module {
+  font-weight: bold;
+}
+
+.out .header .file {
+  font-style: italic;
 }
 
 .out pre {
