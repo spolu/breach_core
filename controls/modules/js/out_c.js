@@ -35,7 +35,7 @@ function OutCtrl($scope, $location, $rootScope, $window, $timeout, $routeParams,
     $scope.$apply(function() {
       $scope.module = module;
     });
-    $rootScope.title = 'out::' + module.name;
+    $window.document.title = 'out::' + module.name;
   });
 
   $scope.data = '';

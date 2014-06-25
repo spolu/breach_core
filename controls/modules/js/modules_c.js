@@ -1,5 +1,5 @@
 /*
- * Breach: [module] modules_c.js
+ * Breach: [modules] modules_c.js
  *
  * Copyright (c) 2014, Stanislas Polu. All rights reserved.
  *
@@ -44,7 +44,7 @@ function ModulesCtrl($scope, $location, $rootScope, $window, $timeout, $sce,
     });
   });
 
-  $rootScope.title = 'Breach::Modules';
+  $window.document.title = 'Breach::Modules';
 
   /****************************************************************************/
   /* COMMANDS                                                                  */

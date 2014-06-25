@@ -1,0 +1,214 @@
+<div class="onboarding step-0">
+
+  <!  STEP 0 ->
+  <div class="step" id="step-0">
+    <div class="wrapper">
+      <div class="header">
+        Welcome!<span class="progress">0/4</span>
+      </div>
+      <div class="body">
+        <img src="/assets/onboarding-step0.png">
+        <p>
+          Breach is a modular browser. All functionalities in Breach are 
+          provided by interchangeable modules.
+        </p>
+        <p>
+          Since you don't have any module running yet, Breach can't do much... So
+          Let's add <span class="path">`mod_layout`</span>, a module that provides 
+          basic tabs and URL box support. 
+        <p>
+          If you're a developer, you can later clone it, hack it or simply 
+          create your own modules from scratch!
+        </p>
+      </div>
+      <div class="footer">
+        <div class="button" ng-click="done_step0()">
+          Add `mod_layout`
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!  STEP 1 ->
+  <div class="step" id="step-1">
+    <div class="wrapper">
+      <div class="header">
+        Adding a module
+        <span class="progress">1/4</span>
+      </div>
+      <div class="body">
+        <div class="loading">
+          <table border="0" ng-hide="step1_error">
+            <tr>
+              <td class="action">Adding module...</td>
+              <td>
+                <span class="ok" ng-show="step1_add_done">[OK]</span>
+              </td>
+            </tr>
+            <tr ng-show="step1_add_done">
+              <td class="action">Downloading `mod_layout`...</td>
+              <td>
+                <span class="ok" ng-show="step1_download_done">[OK]</span>
+              </td>
+            </tr>
+            <tr ng-show="step1_download_done">
+              <td class="action">Installing dependencies...</td>
+              <td>
+                <span class="ok" ng-show="step1_dependencies_done">[OK]</span>
+              </td>
+            </tr>
+            <tr ng-show="step1_dependencies_done">
+              <td class="action">Running...</td>
+              <td>
+                <span class="ok" ng-show="step1_run_done">[OK]</span>
+              </td>
+            </tr>
+          </table>
+
+          <div class="error" ng-show="step1_error">
+            Damn! An error occurred.
+            <div class="details">
+              {{step1_error}}
+            </div>
+          </div>
+        </div>
+        <p>
+          Adding <span class="path">`github:breach/mod_layout`</span>. This may take 
+          a few seconds.
+        </p>
+        <p>
+        <i>(Breach is downloading the module from GitHub and installing all its 
+          required nodeJS dependencies)</i>
+        </p>
+        <p>
+        FYI: Breach modules can be addressed by: <br/>
+        - a github repository: <span class="path">`github:breach/mod_layout`</span> <br/>
+        - a local directory path: <span class="path">`local:~/src/spolu/mod_test`</span>
+        </p>
+      </div>
+      <div class="footer">
+        <div class="button" 
+          ng-click="done_step1()" ng-show="step1_run_done">
+          Done! Let's Get Started
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!  STEP 2 ->
+  <div class="step" id="step-2">
+    <div class="wrapper">
+      <div class="header">
+        Usage statistics
+        <span class="progress">2/4</span>
+      </div>
+      <div class="body">
+        <img src="/assets/onboarding-step2.png">
+        <p>
+          First, we have to ask: Breach is in early alpha, so we need to gather
+          as much data as possible to detect issues and required improvements.
+        </p>
+        <p>
+          &nbsp;&nbsp;<input type="checkbox" ng-model="step2_checkbox"> 
+          <i>I'm cool with sending usage stats</i>
+        </p>
+        <p>
+          Obviously, usage stats aggregation is also provided by a module! You can 
+          opt-out at anytime simply by removing the module 
+          <span class="path">`mod_stats`</span>
+        </p>
+      </div>
+      <div class="footer">
+        <div class="button" 
+          ng-click="done_step2()">
+          Thanks! Continue
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!  STEP 3 ->
+  <div class="step" id="step-3">
+    <div class="wrapper">
+      <div class="header">
+        `mod_layout` functionalties
+        <span class="progress">3/4</span>
+      </div>
+        <div class="body">
+        <p class="top">
+          <span class="path">`mod_layout`</span> comes with a few functionalities
+          we hope you'll enjoy:
+        </p>
+        <p>
+          <b>Stacked Tabs</b>
+          The most recently opened tab is always displayed first to keep you focused 
+          on what you're doing.
+        </p>
+        <img src="/assets/onboarding-step3-box.png">
+        <p>
+          <b>Tab Filtering</b>
+          Whenever you start typing in the URL box, only the tabs matching your query
+          are shown.
+        </p>
+        <img src="/assets/onboarding-step3-tabs.png">
+        <p>
+          <b>Color Sniffing</b>
+          Each tab extracts the color of its webpage... to keep things visual!
+        </p>
+      </div>
+      <div class="footer">
+        <div class="button" 
+          ng-click="done_step3()">
+          Continue
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!  STEP 4 ->
+  <div class="step" id="step-4">
+    <div class="wrapper">
+      <div class="header">
+        Finishing touch
+        <span class="progress">4/4</span>
+      </div>
+      <div class="body">
+        <p>
+          <b>Module management</b> 
+          At anytime you can right click and choose `Configure modules`, to get access
+          to the module manager.
+        </p>
+        <img src="/assets/onboarding-step4-rightclick.png">
+        <p>
+          From there, you can add or remove modules as well as apply updates whenever
+          they are available.
+        </p>
+        <br/><br/><br/>
+        <p>
+          <b>Where are we going with this?</b>
+          We're building a community of developers and users, enjoying building,
+          testing and using new innovative ways to use the Web.
+        </p>
+        <p>
+          <b>Are you a developer?</b>
+          If you want to build your very own perfect browsing experience, please 
+          make sure to visit 
+          <a href="http://breach.cc/hack" target="_blank">breach.cc/hack</a>
+          and let us know what you're building!
+        </p>
+      </div>
+      <div class="footer">
+        <div class="button" 
+          ng-click="done_step4()">
+          Done. Let's kick it!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <span class="support">
+    If you are experiencing any issue, please send us an email to dev@breach.cc
+  </span>
+
+</div>

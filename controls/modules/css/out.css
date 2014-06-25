@@ -13,6 +13,11 @@
   color: white;
 }
 
+.out .header a {
+  color: white;
+  text-decoration: none;
+}
+
 .out .header .module {
   font-weight: bold;
 }
