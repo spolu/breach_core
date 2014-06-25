@@ -23,6 +23,10 @@ var async = require('async');
 /* HELPERS */
 /******************************************************************************/
 
+/* This is a hack. But process.nextTick can sleep if there is no event on the */
+/* content API part so we replace it here by a setTimeout that will be called */
+/* TODO(spolu): find a better solution */
+process.nextTick = setTimeout
 
 /******************************************************************************/
 /* MAIN RUN MODES */
@@ -52,7 +56,7 @@ var breach_start = function() {
   /*
   var fs = require('fs');
   var util = require('util');
-  var stdout = fs.createWriteStream('/Users/spolu/breach.stdout.log', { flags: 'a' })
+  var stdout = fs.createWriteStream('/Users/spolu/breach.stdout', { flags: 'a' })
   var fun = console.log;
   console.log = function(d) {
     stdout.write(util.format(d) + '\n');

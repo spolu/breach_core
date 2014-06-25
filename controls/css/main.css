@@ -1,0 +1,16 @@
+html {
+  margin-top: 0px;
+  font-family: 'Gotham Rounded';
+  font-weight: 200;
+  font-size: 12px;
+  color: hsl(72, 4%, 90%);
+  overflow-y: scroll;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: hsl(72, 4%, 24%);
+  height: 100%;
+}
+

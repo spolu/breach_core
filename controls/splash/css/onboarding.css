@@ -1,0 +1,227 @@
+.onboarding {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.onboarding .step {
+  width: 400px;
+  height: 500px;
+
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: hsl(38, 36%, 96%);
+
+  display: none;
+  text-align: center;
+
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.onboarding.step-0 #step-0 {
+  display: block;
+  opacity: 1;
+}
+.onboarding.step-1 #step-1 {
+  display: block;
+  opacity: 1;
+}
+.onboarding.step-2 #step-2 {
+  display: block;
+  opacity: 1;
+}
+.onboarding.step-3 #step-3 {
+  display: block;
+  opacity: 1;
+}
+.onboarding.step-4 #step-4 {
+  display: block;
+  opacity: 1;
+}
+
+.onboarding .step .wrapper {
+  position: absolute;
+  width: 400px;
+}
+
+.onboarding .step .header {
+  position: absolute;
+  top: 0px;
+  height: 40px;
+  width: 360px;
+  text-align: center;
+  line-height: 40px;
+  font-weight: bold;
+  color: white;
+  background-color: hsl(72, 4%, 42%);
+  border-bottom: 3px solid hsl(0, 0%, 85%);
+  padding-left: 40px;
+}
+
+.onboarding .step .header .progress {
+  opacity: 0.5;
+  float: right;
+  margin-right: 15px;
+}
+
+.onboarding .step .body {
+  position: absolute;
+  top: 40px;
+  height: 380px;
+  width: 400px;
+
+  padding-top: 10px;
+}
+
+.onboarding .step .footer {
+  position: absolute;
+  width: 400px;
+  top: 420px;
+  height: 80px;
+}
+
+.onboarding .step img {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 300px;
+}
+
+.onboarding .step p {
+  text-align: justify;
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: black;
+  font-weight: 200;
+  width: 360px;
+}
+
+.onboarding .step .path {
+  background-color: hsl(0, 0%, 90%);
+  font-weight: bold;
+  color: hsl(0, 0%, 20%);
+  padding: 2px;
+  border-radius: 2px;
+}
+
+.onboarding .button {
+  bottom: 20px;
+
+  display: inline-block;
+  height: 30px;
+  background-color: hsl(198, 75%, 52%);
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  font-size: 1.1em;
+  line-height: 30px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  margin-top: 20px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 3px;
+
+  cursor: pointer;
+}
+
+.onboarding .support {
+  display: block;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  font-size: 0.9em;
+  text-align: center;
+  width: 400px;
+}
+
+/******************************************************************************/
+/* STEP 1                                                                     */
+/******************************************************************************/
+.onboarding .step#step-1 .loading {
+  width: 320px;
+
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-size: 1.2em;
+
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 30px;
+
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  text-align: left;
+
+  color: black;
+  min-height: 64px;
+  background-color: hsl(0, 0%, 100%);
+}
+
+.onboarding .step#step-1 .loading .action {
+  width: 250px;
+}
+
+.onboarding .step#step-1 .loading .ok {
+  color: green;
+  font-weight: bold;
+}
+
+.onboarding .step#step-1 .loading .error {
+  color: red;
+  margin-top: 10px;
+  font-size: 0.8em;
+}
+.onboarding .step#step-1 .loading .error .details {
+  margin-top: 10px;
+  color: grey;
+}
+.onboarding .step#step-1 .button {
+  background-color: hsl(79, 99%, 37%);
+}
+
+/******************************************************************************/
+/* STEP 2                                                                     */
+/******************************************************************************/
+.onboarding .step#step-2 .header {
+}
+
+.onboarding .step#step-2 .button {
+  background-color: hsl(205, 13%, 81%);
+  color: hsl(0, 0%, 20%);
+}
+
+/******************************************************************************/
+/* STEP 3                                                                     */
+/******************************************************************************/
+.onboarding .step#step-3 img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+.onboarding .step#step-3 .top {
+  margin-bottom: 20px;
+}
+
+
+
+/******************************************************************************/
+/* STEP 4                                                                     */
+/******************************************************************************/
+.onboarding .step#step-4 img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+.onboarding .step#step-4 .button {
+  background-color: hsl(79, 99%, 37%);
+}

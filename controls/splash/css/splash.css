@@ -1,0 +1,46 @@
+.splash {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.splash .modules {
+  position:absolute; 
+  bottom: 15px; 
+  width: 100%; 
+  text-align: right;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.splash .modules a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  opacity: 0.5;
+}
+
+.splash .modules a:hover {
+  opacity: 1;
+}
+
+.splash .wrapper {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  top: 43%;
+}
+
+.splash .wrapper .logo {
+  background-size: cover;
+  background-image: url('../../assets/breach.png');
+  display:inline-block;
+  width: 50px;
+  height: 50px;
+  opacity: 0.8;
+}
+
+.splash .wrapper .logo:hover {
+  opacity: 1;
+}
+

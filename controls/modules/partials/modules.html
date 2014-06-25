@@ -1,0 +1,106 @@
+<div class="modules">
+
+  <div class="container">
+
+    <table border="0" ng-cloak>
+      <tr>
+        <th colspan="12">Core</th>
+      </tr>
+      <tr>
+        <td colspan="2">Breach</td>
+        <td colspan="3">v{{about.version}}</td>
+        <td colspan="1" class="green">running</td>
+        <!-- UPDATE -->
+        <td ng-hide="about.update_ready || about.update_available" class="green">
+          up to date
+        </td>
+        <td ng-show="about.update_ready || about.update_available" class="red">
+          need update (v{{about.update.version}})
+        </td>
+        <td colspan="5" ng-show="about.update_ready" class="orange">
+          <a href="" ng-click="about_install()">install &amp; restart</a>
+        </td>
+        <td colspan="5" ng-show="about.update_available" class="red">
+          install manually
+        </td>
+        <td colspan="5" ng-hide="about.update_ready || about.update_available"></td>
+        <!-- /UPDATE -->
+      </tr>
+
+      <tr class="separator" style="height: 45px;">
+        <td colspan="12"></td>
+      </tr>
+
+      <tr>
+        <th colspan="12">Modules</th>
+      </tr>
+      <tr ng-repeat="m in modules" ng-cloak>
+        <td>{{m.type}}</td>
+        <td><b>{{m.name}}</b></td>
+        <td>v{{m.version}}</td>
+        <td>{{m.owner}}</td>
+        <td>{{m.tag}}</td>
+        <td ng-show="m.installing" class="orange">
+          installing
+        </td>
+        <td ng-show="m.running" class="green">
+          running
+        </td>
+        <td ng-hide="m.running || m.installing" class="red">
+          stopped
+        </td>
+        <!-- UPDATE -->
+        <td ng-hide="m.need_restart" class="green">
+          up to date
+        </td>
+        <td ng-show="m.need_restart" class="orange">
+          <a href="" ng-click="modules_restart(m.path)">need restart</a>
+        </td>
+        <!-- /UPDATE -->
+        <td>
+          <a href="" ng-click="modules_kill(m.path)" ng-show="m.running">kill</a>
+          <a href="" ng-click="modules_run(m.path)" ng-hide="m.running">run</a>
+        </td>
+        <td ng-show="m.running">
+          <a href="" ng-click="modules_restart(m.path)">restart</a>
+        </td>
+        <td>
+          <a href="" ng-click="modules_update(m.path)" 
+                     ng-hide="m.need_restart">update</a>
+        </td>
+        <td>
+          <a href="" ng-click="modules_remove(m.path)">remove</a>
+        </td>
+        <td>
+          <a href="#/out/{{m.name}}">out</a>
+        </td>
+      </tr>
+
+      <tr class="separator">
+        <td colspan="12"></td>
+      </tr>
+
+      <tr>
+        <th colspan="12">Install Modules</th>
+      </tr>
+      <tr>
+        <td colspan="7">
+          <form ng-submit="modules_install()">
+            <input type="text" class="text" ng-model="install_path">
+          </form>
+        </td>
+        <td colspan="5">
+          <a href="" ng-click="modules_install()">install</a>
+        </td>
+      </tr>
+    </table>
+
+    <div style="margin-top: 10px;">
+      Available modules:<br/>
+      <div style="color: hsl(72, 4%, 60%);">&nbsp;github:breach/mod_layout</div>
+    </div>
+
+  </div> <!-- /container -->
+</div> <!-- /modules -->
+
+
