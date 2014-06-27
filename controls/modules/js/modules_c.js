@@ -15,34 +15,29 @@
 // Controller to manage modules display
 //
 function ModulesCtrl($scope, $location, $rootScope, $window, $timeout, $sce, 
-                     _bind, _modules, _req) {
+                     _bind, _modules, _req, _socket) {
 
   /****************************************************************************/
   /* INITIALIZATION                                                           */
   /****************************************************************************/
   /* Handhsaking [modules] */
-  var socket = io.connect();
-  socket.emit('handshake', 'modules');
-  socket.emit('handshake', 'about');
-
-  socket.on('modules', function(state) {
-    $scope.$apply(function() {
-      //console.log('========================================');
-      //console.log(JSON.stringify(state, null, 2));
-      //console.log('----------------------------------------');
-      $scope.modules = state;
-    });
+  _socket.on('modules', function(state) {
+    //console.log('========================================');
+    //console.log(JSON.stringify(state, null, 2));
+    //console.log('----------------------------------------');
+    $scope.modules = state;
   });
 
   /* Handhsaking [about] */
-  socket.on('about', function(state) {
-    $scope.$apply(function() {
-      //console.log('========================================');
-      //console.log(JSON.stringify(state, null, 2));
-      //console.log('----------------------------------------');
-      $scope.about = state;
-    });
+  _socket.on('about', function(state) {
+    //console.log('========================================');
+    //console.log(JSON.stringify(state, null, 2));
+    //console.log('----------------------------------------');
+    $scope.about = state;
   });
+
+  _socket.emit('handshake', 'modules');
+  _socket.emit('handshake', 'about');
 
   $window.document.title = 'Breach::Modules';
 

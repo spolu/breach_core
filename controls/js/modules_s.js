@@ -1,5 +1,5 @@
 /*
- * Breach: [module] modules_s.js
+ * Breach: modules_s.js
  *
  * Copyright (c) 2014, Stanislas Polu. All rights reserved.
  *

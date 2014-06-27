@@ -22,27 +22,22 @@ angular.module('breach', ['breach.services',
 // Controller to manage modules display
 //
 function OutCtrl($scope, $location, $rootScope, $window, $timeout, $routeParams,
-                 _bind, _modules, _req) {
+                 _bind, _modules, _req, _socket) {
 
   /****************************************************************************/
   /* INITIALIZATION                                                           */
   /****************************************************************************/
   /* Handhsaking */
-  var socket = io.connect();
-  socket.emit('tail', $routeParams.name);
+  _socket.emit('tail', $routeParams.name);
 
-  socket.on('module', function(module) {
-    $scope.$apply(function() {
-      $scope.module = module;
-    });
+  _socket.on('module', function(module) {
+    $scope.module = module;
     $window.document.title = 'out::' + module.name;
   });
 
   $scope.data = '';
-  socket.on('data', function(data) {
-    $scope.$apply(function() {
-      $scope.data += data;
-    });
+  _socket.on('data', function(data) {
+    $scope.data += data;
   });
 
   /****************************************************************************/

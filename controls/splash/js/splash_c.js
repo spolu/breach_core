@@ -15,39 +15,34 @@
 // Controller to manage the splash screen
 //
 function SplashCtrl($scope, $location, $rootScope, $window, $timeout, $sce, 
-                    _bind, _req) {
+                    _bind, _req, _socket) {
 
   /****************************************************************************/
   /* INITIALIZATION                                                           */
   /****************************************************************************/
   /* Handhsaking [modules] */
-  var socket = io.connect();
-  socket.emit('handshake', 'splash');
-  socket.emit('handshake', 'modules');
+  _socket.emit('handshake', 'splash');
+  _socket.emit('handshake', 'modules');
 
   /* Handhsaking [splash] */
-  socket.on('splash', function(state) {
-    $scope.$apply(function() {
-      //console.log('========================================');
-      //console.log(JSON.stringify(state, null, 2));
-      //console.log('----------------------------------------');
-      $scope.splash = state;
-    });
+  _socket.on('splash', function(state) {
+    //console.log('========================================');
+    //console.log(JSON.stringify(state, null, 2));
+    //console.log('----------------------------------------');
+    $scope.splash = state;
   });
 
-  socket.on('modules', function(state) {
-    $scope.$apply(function() {
-      //console.log('========================================');
-      //console.log(JSON.stringify(state, null, 2));
-      //console.log('----------------------------------------');
-      $scope.modules = state;
-      if($scope.modules.length === 0) {
-        $location.path("/onboarding");
-      }
-      else {
-        $('.splash').css({ opacity: 1 });
-      }
-    });
+  _socket.on('modules', function(state) {
+    //console.log('========================================');
+    //console.log(JSON.stringify(state, null, 2));
+    //console.log('----------------------------------------');
+    $scope.modules = state;
+    if($scope.modules.length === 0) {
+      $location.path("/onboarding");
+    }
+    else {
+      $('.splash').css({ opacity: 1 });
+    }
   });
 
 };

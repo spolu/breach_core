@@ -15,41 +15,38 @@
 // Controller to manage the splash screen
 //
 function OnBoardingCtrl($scope, $location, $rootScope, $window, $timeout, $sce, 
-                        _bind, _req, _modules) {
+                        _bind, _req, _modules, _socket) {
 
   /****************************************************************************/
   /* INITIALIZATION                                                           */
   /****************************************************************************/
   /* Handhsaking [modules] */
-  var socket = io.connect();
-  socket.emit('handshake', 'modules');
+  _socket.emit('handshake', 'modules');
 
   $scope.step1_status = 'add';
   $scope.step1_error = null;
 
   $scope.step2_checkbox = true;
 
-  socket.on('modules', function(state) {
-    $scope.$apply(function() {
+  _socket.on('modules', function(state) {
       //console.log('========================================');
       //console.log(JSON.stringify(state, null, 2));
       //console.log('----------------------------------------');
-      $scope.modules = state;
-      if($scope.modules && $scope.modules.length > 0) {
-        $scope.modules.forEach(function(m) {
-          if(m.name === 'mod_layout') {
-            if(m.installing) {
-              $scope.step1_add_done = true;
-              if(m.install_status === 'dependencies') {
-                $scope.step1_download_done = true;
-              }
-              console.log(m.install_status);
-              $scope.step1_status = m.install_status;
+    $scope.modules = state;
+    if($scope.modules && $scope.modules.length > 0) {
+      $scope.modules.forEach(function(m) {
+        if(m.name === 'mod_layout') {
+          if(m.installing) {
+            $scope.step1_add_done = true;
+            if(m.install_status === 'dependencies') {
+              $scope.step1_download_done = true;
             }
+            console.log(m.install_status);
+            $scope.step1_status = m.install_status;
           }
-        });
-      }
-    });
+        }
+      });
+    }
   });
 
   $scope.done_step0 = function() {
