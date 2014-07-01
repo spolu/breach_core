@@ -35,8 +35,8 @@ process.nextTick = setTimeout
 //
 // Starts breach and its modules for the local session
 var breach_start = function() {
-  common.log.out('[Breach v' + require('./package.json').version + 
-                 '] Starting...');
+  common.log.out('[index] Breach v' + require('./package.json').version + 
+                 ' Starting...');
 
   var args = process.argv;
   args.forEach(function(a) {
@@ -86,7 +86,7 @@ var breach_start = function() {
     if(err) {
       common.fatal(err);
     }
-    common.log.out('Startup Complete');
+    common.log.out('[index] Startup Complete');
   });
 };
 
