@@ -1,0 +1,29 @@
+#hero {
+  background: url(../assets/images/hero.jpg) no-repeat bottom center #3e3f3a;
+  color: #fff;
+  text-align: center;
+
+  padding-top: 2.4em;
+
+  h1 {
+    font-size: 2.4em;
+    font-weight: 400;
+  }
+
+  h2 {
+    font-size: 1.6em;
+    font-weight: normal;
+    margin-bottom: 2em;
+  }
+
+  figure {
+    width: 760px;
+    margin: 0 auto;
+
+    img {
+      display: block;
+      width: 100%;
+      margin: 0;
+    }
+  }
+}

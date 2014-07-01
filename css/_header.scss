@@ -1,20 +1,25 @@
-#hero {
-	background: url(../images/hero.jpg) no-repeat bottom center #3e3f3a;
+#header {
+
+  background: #3e3f3a;
   color: #fff;
-  text-align: center;
 
-	#logo {
-		width: 150px;
-		display: block;
+  a {
+    color: #fff;
+  }
 
-		img {
-			width: 150px;
-		}
-	}
+  header {
 
-	header {
-		@include display-flex;
-		@include flex-props(row wrap, space-between, space-between, center);
+    #logo {
+      width: 150px;
+      display: block;
+
+      img {
+        width: 150px;
+      }
+    }
+
+    @include display-flex;
+    @include flex-props(row wrap, space-between, space-between, center);
     width: 960px;
     margin: 0 auto;
     padding: 10px 0 0 0;
@@ -38,7 +43,6 @@
       }
 
       a {
-        color: #fff;
         text-decoration: none;
         transition: .15s opacity ease-in-out;
         -moz-transition: .15s opacity ease-in-out;
@@ -62,28 +66,6 @@
           opacity: .6;
         }
       }
-    }
-	}
-
-  h1 {
-    font-size: 2.4em;
-    font-weight: 400;
-  }
-
-  h2 {
-    font-size: 1.6em;
-    font-weight: normal;
-    margin-bottom: 2em;
-  }
-
-  figure {
-    width: 760px;
-    margin: 0 auto;
-
-    img {
-      display: block;
-      width: 100%;
-      margin: 0;
     }
   }
 }

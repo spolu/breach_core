@@ -50,31 +50,28 @@
 
 @font-face {
   font-family: 'Gotham Rounded';
-  src: url("../fonts/GothamRnd-Book.eot");
+  src: url("../assets/fonts/GothamRnd-Book.eot");
   /* IE9 Compat Modes */
-  src: url("../fonts/GothamRnd-Book.eot?#iefix") format("embedded-opentype"), url("../fonts/GothamRnd-Book.woff") format("woff"), url("../fonts/GothamRnd-Book.ttf") format("truetype"), url("../fonts/GothamRnd-Book.svg#21661efc977bfcfec5c6c16307c05ceb") format("svg");
+  src: url("../assets/fonts/GothamRnd-Book.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/GothamRnd-Book.woff") format("woff"), url("../assets/fonts/GothamRnd-Book.ttf") format("truetype"), url("../assets/fonts/GothamRnd-Book.svg#21661efc977bfcfec5c6c16307c05ceb") format("svg");
   /* Legacy iOS */
   font-style: normal;
   font-weight: normal; }
-
 @font-face {
   font-family: 'Gotham Rounded';
-  src: url("../fonts/GothamRnd-Bold.eot");
+  src: url("../assets/fonts/GothamRnd-Bold.eot");
   /* IE9 Compat Modes */
-  src: url("../fonts/GothamRnd-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/GothamRnd-Bold.woff") format("woff"), url("../fonts/GothamRnd-Bold.ttf") format("truetype"), url("../fonts/GothamRnd-Bold.svg#cf294c6136807d0e69a971e863b3cd88") format("svg");
+  src: url("../assets/fonts/GothamRnd-Bold.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/GothamRnd-Bold.woff") format("woff"), url("../assets/fonts/GothamRnd-Bold.ttf") format("truetype"), url("../assets/fonts/GothamRnd-Bold.svg#cf294c6136807d0e69a971e863b3cd88") format("svg");
   /* Legacy iOS */
   font-style: normal;
   font-weight: bold; }
-
 @font-face {
   font-family: 'Gotham Rounded';
-  src: url("../fonts/GothamRnd-Light.eot");
+  src: url("../assets/fonts/GothamRnd-Light.eot");
   /* IE9 Compat Modes */
-  src: url("../fonts/GothamRnd-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/GothamRnd-Light.woff") format("woff"), url("../fonts/GothamRnd-Light.ttf") format("truetype"), url("../fonts/GothamRnd-Light.svg#b3bd5af04c0e7cf2188fad8c1f2958f5") format("svg");
+  src: url("../assets/fonts/GothamRnd-Light.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/GothamRnd-Light.woff") format("woff"), url("../assets/fonts/GothamRnd-Light.ttf") format("truetype"), url("../assets/fonts/GothamRnd-Light.svg#b3bd5af04c0e7cf2188fad8c1f2958f5") format("svg");
   /* Legacy iOS */
   font-style: normal;
   font-weight: 400; }
-
 /*!
  *  Font Awesome 4.0.3 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -83,11 +80,10 @@
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot?v=4.0.3");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.0.3") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff?v=4.0.3") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.0.3") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular") format("svg");
+  src: url("../assets/fonts/fontawesome-webfont.eot?v=4.0.3");
+  src: url("../assets/fonts/fontawesome-webfont.eot?#iefix&v=4.0.3") format("embedded-opentype"), url("../assets/fonts/fontawesome-webfont.woff?v=4.0.3") format("woff"), url("../assets/fonts/fontawesome-webfont.ttf?v=4.0.3") format("truetype"), url("../assets/fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 [class^="fa-"]:before,
 [class*=" fa-"]:before {
   text-decoration: inherit;
@@ -169,35 +165,30 @@
 
   100% {
     -moz-transform: rotate(359deg); } }
-
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg); }
 
   100% {
     -webkit-transform: rotate(359deg); } }
-
 @-o-keyframes spin {
   0% {
     -o-transform: rotate(0deg); }
 
   100% {
     -o-transform: rotate(359deg); } }
-
 @-ms-keyframes spin {
   0% {
     -ms-transform: rotate(0deg); }
 
   100% {
     -ms-transform: rotate(359deg); } }
-
 @keyframes spin {
   0% {
     transform: rotate(0deg); }
 
   100% {
     transform: rotate(359deg); } }
-
 .fa-rotate-90 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
   -webkit-transform: rotate(90deg);
@@ -1453,16 +1444,12 @@ h2, h4 {
     background: #93d801;
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); }
 
-#hero {
-  background: url(../images/hero.jpg) no-repeat bottom center #3e3f3a;
-  color: #fff;
-  text-align: center; }
-  #hero #logo {
-    width: 150px;
-    display: block; }
-    #hero #logo img {
-      width: 150px; }
-  #hero header {
+#header {
+  background: #3e3f3a;
+  color: #fff; }
+  #header a {
+    color: #fff; }
+  #header header {
     display: flex;
     display: -webkit-flex;
     -moz-display: flex;
@@ -1481,7 +1468,12 @@ h2, h4 {
     width: 960px;
     margin: 0 auto;
     padding: 10px 0 0 0; }
-    #hero header li {
+    #header header #logo {
+      width: 150px;
+      display: block; }
+      #header header #logo img {
+        width: 150px; }
+    #header header li {
       list-style: none;
       display: inline-block;
       font-size: 16px;
@@ -1490,30 +1482,35 @@ h2, h4 {
       position: relative;
       margin-left: 15px;
       text-align: left; }
-      #hero header li:first-child {
+      #header header li:first-child {
         margin-left: 0; }
-      #hero header li:last-child {
+      #header header li:last-child {
         margin-left: 60px; }
-      #hero header li a {
-        color: #fff;
+      #header header li a {
         text-decoration: none;
         transition: .15s opacity ease-in-out;
         -moz-transition: .15s opacity ease-in-out;
         -webkit-transition: .15s opacity ease-in-out; }
-        #hero header li a.fa-github:before {
+        #header header li a.fa-github:before {
           position: absolute;
           right: 100%;
           margin-right: 10px;
           bottom: 3px;
           font-size: 36px; }
-        #hero header li a.fa-github:after {
+        #header header li a.fa-github:after {
           content: "Fork me!";
           display: block;
           color: #80bc01;
           font-size: 12px;
           line-height: 10px; }
-        #hero header li a:hover {
+        #header header li a:hover {
           opacity: .6; }
+
+#hero {
+  background: url(../assets/images/hero.jpg) no-repeat bottom center #3e3f3a;
+  color: #fff;
+  text-align: center;
+  padding-top: 2.4em; }
   #hero h1 {
     font-size: 2.4em;
     font-weight: 400; }
@@ -1767,7 +1764,7 @@ h2, h4 {
     font-weight: normal; }
 
 #footer {
-  background: url(../images/footer.jpg) no-repeat top center #3e3f3a;
+  background: url(../assets/images/footer.jpg) no-repeat top center #3e3f3a;
   padding: 4em 0 0 0; }
   #footer h3, #footer h4 {
     font-weight: bold;
@@ -1807,7 +1804,7 @@ h2, h4 {
           content: "";
           width: 25px;
           height: 17px;
-          background: url(../images/illus-envelope.png) no-repeat;
+          background: url(../assets/images/illus-envelope.png) no-repeat;
           -webkit-background-size: 100%;
           background-size: 100%;
           position: absolute;
@@ -1900,7 +1897,7 @@ h2, h4 {
         height: 26px;
         position: absolute;
         left: 50%;
-        background: url(../images/logo-small.png);
+        background: url(../assets/images/logo-small.png);
         -webkit-background-size: 100%;
         background-size: 100%;
         top: -13px;

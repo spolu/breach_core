@@ -1,71 +1,142 @@
 ---
 layout: index
-title: "Breach"
+title: "Breach - A browser for the HTML5 era"
 ---
 
-<div class="hero">
-  <div class="group">
-    <div class="logo"></div>
-    <div class="title"></div>
-  </div>
-  <div class="group right">
-    <div class="tagline">
-      We are a group of enthusiastic developers &amp; designers, <br/>
-      joining forces to build the browser we've always wanted.
+<section id="hero">
+  <article>
+    <div class="animated fadeIn">
+      <h1>A browser for the <strong>HTML5</strong> era</h1>
+      <h2>Entirely written in Javascript. Free. Modular. Hackable.</h2>
+      <a href="https://github.com/breach/breach_core" class="fa-apple btn-main">Download Alpha 0.3</a>
     </div>
-    <div class="subgroup">
-      <div class="signup">
-        <form>
-          <input type="email" id="email" placeholder="Enter your Email">
-          <input type="submit" value="Join forces">
-        </form>
-      </div>
-      <div class="tweet">
-        <a href="https://twitter.com/share" 
-           class="twitter-share-button" 
-           data-url="http://breach.cc"
-           data-count="none"
-           data-related="BreachBrowser"
-           data-text="I just joined forces to build the next generation browser: "
-           data-lang="en">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-      </div>
+
+    <figure class="animated fadeInUp">
+      <img src="{{ site.base_url }}/assets/images/browser.png" alt="much browser">
+    </figure>
+  </article>
+</section>
+
+<section id="features">
+  <article class="col-4-12 wow fadeInDown" data-wow-delay=".3s">
+    <img src="{{ site.base_url }}/assets/images/feature-modular.png" alt="such modular">
+    <div>
+      <h5>Modular</h5>
+      <p>Everything in the browser is a module, a web-app running in its own process.<br>Construct your own browsing experience by selecting the right modules for you.</p>
     </div>
+  </article>
+  <article class="col-4-12 wow fadeInDown" data-wow-delay=".6s">
+    <img src="{{ site.base_url }}/assets/images/feature-hackable.png" alt="very hackable">
+    <div>
+      <h5>Hackable</h5>
+      <p>Want vertical tabs? Write some JS &amp; CSS! Customised autocomplete engine? JS!<br>Every behavior is programmatic and exposed through APIs.</p>
+    </div>
+  </article>
+  <article class="col-4-12 wow fadeInDown" data-wow-delay=".9s">
+    <img src="{{ site.base_url }}/assets/images/feature-opensource.png" alt="so open source">
+    <div>
+      <h5>Open Source</h5>
+      <p>The entire technological stack is opensource.<br>Modify existing modules and create your owns to extend the behavior of Breach.</p>
+    </div>
+  </article>
+</section>
+
+<section id="tech">
+  <header class="wow fadeIn" data-wow-delay=".3s">
+    <h3>How it's built</h3>
+    <h4>A few simple ingredients to make magic happen</h4>
+  </header>
+
+  <div class="layers">
+    <img src="{{ site.base_url }}/assets/images/tech.png" alt="wow">
   </div>
-</div>
 
+  <div class="flex explanation">
+    <article class="html wow fadeInDown" data-wow-offset="200">
+      <img src="{{ site.base_url }}/assets/images/layer-01.png" alt="">
+      <div class="col-4-12">
+        <h5>HTML / JS / CSS</h5>
+        <p>The entire UI is built out of interchangeable modules coded in pure Javascript / HTML5.<br>Each module is a web-app with access to the Breach API.</p>
+      </div>
+    </article>
+    <article class="chromium wow fadeInDown" data-wow-offset="400">
+      <img src="{{ site.base_url }}/assets/images/layer-02.png" alt="wow">
+      <div class="col-3-12">
+        <h5>Chromium</h5>
+        <p>The Chromium Content API is exposed to Node JS through v8 native bindings and multiplexed to modules.<br>Speed and performance is at the heart of the design, each tab and each module run in its own process.</p>
+      </div>
+    </article>
+    <article class="node wow fadeInDown" data-wow-offset="700">
+      <img src="{{ site.base_url }}/assets/images/layer-03.png" alt="wow">
+      <div class="col-4-12">
+        <h5>Node.js</h5>
+        <p>Breach embeds a NodeJS event loop in charge of running the core browser javascript implementation.<br>Each module is run in its own NodeJS process and interacts with the core browser through IPC.</p>
+      </div>
+    </article>
+  </div>
+</section>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script>
-  $(function() {
-    var finalize = function() {
-      $('div.signup').css({
-        display: 'none'
-      });
-      $('div.tweet').css({
-        display: 'block',
-      });
-    };
+<section id="sessions" style="display: none;">
+  <header class="wow fadeInDown" data-wow-delay=".3s">
+    <h3>Multi-Sessions. Any device. Your way.<span>*</span></h3>
+    <h4>Breach comes bundled with a distributed storage system that let's you decide where you data is physically located.</h4>
+  </header>
+  <img src="{{ site.base_url }}/assets/images/illus-multisessions.png" class="multisessions wow bounceIn" data-wow-delay=".3s" alt="">
+  <article>
+    <h4 class="wow fadeInDown" data-wow-delay=".3s">When activated, the entire state of the browser is bundled in sessions.</h4>
+    <div>
+      <figure class="col-3-12 wow fadeInDown" data-wow-delay=".3s">
+        <img src="{{ site.base_url }}/assets/images/illus-switch.png" alt="very switch">
+        <figcaption>You can switch between sessions</figcaption>
+      </figure>
+      <figure class="col-3-12 wow fadeInDown" data-wow-delay=".6s">
+        <img src="{{ site.base_url }}/assets/images/illus-device.png" alt="much device">
+        <figcaption>Run your sessions on any device running Breach.</figcaption>
+      </figure>
+      <figure class="col-3-12 wow fadeInDown" data-wow-delay=".9s">
+        <img src="{{ site.base_url }}/assets/images/illus-sessions.png" alt="so session">
+        <figcaption>Toggle between multiple sessions.</figcaption>
+      </figure>
+      <figure class="col-3-12 wow fadeInDown" data-wow-delay="1.2s">
+        <img src="{{ site.base_url }}/assets/images/illus-control.png" alt="such control">
+        <figcaption>Be in control.</figcaption>
+      </figure>
+    </div>
+  </article>
+  <h5 class="notice">*This feature is not yet available, but will be, very soon :)</h5>
+</section>
 
-    $('.signup form').submit(function(e) {
-      e.preventDefault();
+<section id="footer">
+  <header class="wow fadeInDown">
+    <h3>Wanna get your hands dirty?</h3>
+    <h4>Modify the behaviour of Breach and bend it to your will by building your own module or modifying existing ones.</h4>
+  </header>
+  <div class="wow fadeInDown">
+    <iframe src="http://ghbtns.com/github-btn.html?user=breach&repo=breach_core&type=watch&count=true&size=large"
+      allowtransparency="true" frameborder="0" scrolling="0" width="160" height="30"></iframe>
+    <iframe src="http://ghbtns.com/github-btn.html?user=breach&repo=breach_core&type=fork&count=true&size=large"
+      allowtransparency="true" frameborder="0" scrolling="0" width="160" height="30"></iframe>
+  </div>
+  <footer>
+    <header>
+      <form action="" class="wow fadeInLeft">
+        <label><input type="email" placeholder="Subscribe via email"></label>
+        <button>Join forces</button>
+      </form>
+      <nav class="wow fadeInRight">
+        <ul>
+          <li class="text"><a href="/blog">Blog</a></li>
+          <li class="text"><a href="/hack">Tutorial</a></li>
+          <li class="social"><a href="http://twitter.com/breachbrowser" class="fa-twitter"></a></li>
+          <li class="social"><a href="http://github.com/breach_core" class="fa-github"></a></li>
+        </ul>
+      </nav>
+    </header>
+    <hr class="wow fadeIn">
+    <small class="wow fadeInUp"><strong>&lt;breach&gt;</strong> made by enthusiastic <a href="/contributors">developers &amp; designers</a> from around the world <strong>&lt;/breach&gt;</strong></small>
+  </footer>
+</section>
 
-      var email = $('.signup #email').val().toLowerCase();
-      var email_r = /^[a-z0-9\.\_\-\+\%]+@[a-z0-9\.\-]+\.[a-z]{2,}$/;
-      if(email_r.exec(email)) {
-        var HOST = 'data.breach.cc';
-        var url = 'http://' + HOST + ':4000/auth/join?email=' + 
-                  encodeURIComponent(email) + '&callback=?';
-        $.getJSON(url, function(data) {
-          console.log(data);
-          finalize();
-        });
-      }
-    });
-  });
-</script>
+<script type="text/javascript" src="js/wow.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 
-<div class="footer right">
-  <a href="/blog" class="link">Blog</a>
-  <a href="http://github.com/spolu/breach" class="link">Github</a>
-</div>
