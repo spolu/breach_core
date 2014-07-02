@@ -96,4 +96,4 @@ Of course, I'm nowhere close to having a product (though I already use the Exper
 
 The goal of this post is simply to let you know about my experience building it. Eventually, I also hope I can get you excited about building a new browser, or more precisly, about building new browsers.
 
-*-stan ([@spolu](https://twitter.com/spolu))*
+*-stan ([@spolu](http://github.com/spolu))*

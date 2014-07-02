@@ -28,5 +28,5 @@ We have many exciting plans for the future of Breach (like adding the numerous f
 
 You'll be defining the future of Breach by hacking on it. And we can't wait to see what you come up with.
 
-*-stan ([@spolu](https://twitter.com/spolu))*
+*-stan ([@spolu](http://github.com/spolu))*
 

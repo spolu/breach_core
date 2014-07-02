@@ -94,4 +94,4 @@ You can already build the current development version of the ExoBrowser. Please 
 
 I am currently actively developing the ExoBrowser. I am looking for as much feedback as I can get, as well as developers interested in tinkering with the ExoBrowser concept. Please get in touch on our mailing list: [exobrowser-dev](https://groups.google.com/forum/#!forum/exobrowser-dev) or on IRC (Freenode, #exobrowser).
 
-*-stan ([@spolu](https://twitter.com/spolu))*
+*-stan ([@spolu](http://github.com/spolu))*
