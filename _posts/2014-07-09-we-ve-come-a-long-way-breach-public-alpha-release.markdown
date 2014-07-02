@@ -10,7 +10,7 @@ In particular, Guillermo Rauch ([@guille](http://github.com/guille)) who pushed 
 
 ![Breach Screenshot](http://i.imgur.com/oHslEHv.png)
 
-Since that last blog post, we have designed and entirely coded the Breach API exposed to modules to realize the vision of a fully modular browser where all functionalities are provided by simple and isolated web apps. We merged at least 4 major releases of the Chromium Content API keeping Breach core engine up to date with HTML5 standards (and those are nasty!). We also obviously fixed a gizilion bugs, making Breach stable enough to use it as our main browser. We've done all that on our spare time. At night. Early in the morning. Motivated by the prospect of releasing it to you guys.
+Since that last blog post, we have designed and entirely coded the Breach API exposed to modules to realize the vision of a fully modular browser where all functionalities are provided by simple and isolated web apps. We merged at least 4 major releases of the Chromium Content API keeping Breach core engine up to date with HTML5 standards (and those are nasty!). We also obviously fixed a gizilion bugs, making Breach stable enough to use it as our main browser everyday. We've done all of it on our spare time. At night. Early in the morning. Motivated by the prospect of releasing it to you guys.
 
 We've come a long way, but this is only the beginning.
 
