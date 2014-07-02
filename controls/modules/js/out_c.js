@@ -6,6 +6,7 @@
  * @author: spolu
  *
  * @log:
+ * - 2014-07-02 spolu  Fix mixed module out #48
  * - 2014-06-17 spolu  Creation
  */
 'use strict';
@@ -36,8 +37,11 @@ function OutCtrl($scope, $location, $rootScope, $window, $timeout, $routeParams,
   });
 
   $scope.data = '';
-  _socket.on('data', function(data) {
-    $scope.data += data;
+  _socket.on('chunk', function(chunk) {
+    /* The same socket may receive events from multiple modules. */
+    if($scope.module.name === chunk.module) {
+      $scope.data += chunk.data;
+    }
   });
 
   /****************************************************************************/
