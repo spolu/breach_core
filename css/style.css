@@ -1,5 +1,7 @@
+/* Base */
 @import url(normalize.css);
 @import url(animate.css);
+@import url(syntax.css);
 .col-1-12 {
   width: 80px;
   padding: 0 20px; }
@@ -1402,6 +1404,7 @@
 .fa-plus-square-o:before {
   content: "\f196"; }
 
+/* Default */
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box; }
@@ -1467,7 +1470,7 @@ h2, h4 {
     -moz-align-items: center;
     width: 960px;
     margin: 0 auto;
-    padding: 10px 0 0 0; }
+    padding: 10px 0 10px 0; }
     #header header #logo {
       width: 150px;
       display: block; }
@@ -1506,6 +1509,144 @@ h2, h4 {
         #header header li a:hover {
           opacity: .6; }
 
+#footer footer {
+  background: #fff; }
+  #footer footer header {
+    width: 960px;
+    margin: 0 auto;
+    padding: 2em 0;
+    display: flex;
+    display: -webkit-flex;
+    -moz-display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
+    -webkit-flex-flow: row wrap;
+    -webkit-justify-content: space-between;
+    -webkit-align-content: space-between;
+    -webkit-align-items: center;
+    -moz-flex-flow: row wrap;
+    -moz-justify-content: space-between;
+    -moz-align-content: space-between;
+    -moz-align-items: center; }
+    #footer footer header label {
+      position: relative; }
+      #footer footer header label:before {
+        content: "";
+        width: 25px;
+        height: 17px;
+        background: url(../assets/images/illus-envelope.png) no-repeat;
+        -webkit-background-size: 100%;
+        background-size: 100%;
+        position: absolute;
+        top: -2px;
+        left: 15px; }
+    #footer footer header input {
+      height: 40px;
+      width: 260px;
+      border-radius: 2px;
+      border: 2px solid #c2c2c2;
+      padding: 5px 0 2px 50px;
+      line-height: 24px;
+      font-size: 1em;
+      font-weight: bold;
+      outline: none;
+      -webkit-appearance: none; }
+      #footer footer header input:focus {
+        border-color: #757575; }
+    #footer footer header button {
+      background: #80bc01;
+      font-weight: bold;
+      color: #fff;
+      border: none;
+      height: 40px;
+      padding: 0 20px;
+      border-radius: 20px;
+      margin-left: 10px;
+      transition: .15s background ease-in-out, .15s text-shadow ease-in-out;
+      -moz-transition: .15s background ease-in-out, .15s text-shadow ease-in-out;
+      -webkit-transition: .15s background ease-in-out, .15s text-shadow ease-in-out; }
+      #footer footer header button:hover {
+        background: #93d801;
+        text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); }
+    #footer footer header li {
+      display: inline-block;
+      list-style: none;
+      font-size: 1.2em;
+      font-weight: bold; }
+      #footer footer header li a {
+        color: #c2c2c2;
+        text-decoration: none; }
+        #footer footer header li a:hover {
+          color: #757575; }
+      #footer footer header li.text {
+        margin: 0 15px 0 5px; }
+      #footer footer header li.social {
+        margin-left: 5px; }
+        #footer footer header li.social a {
+          display: block;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background: #000;
+          color: #fff; }
+          #footer footer header li.social a.fa-facebook {
+            text-align: center;
+            line-height: 30px;
+            background: #035d97; }
+          #footer footer header li.social a.fa-twitter {
+            text-align: center;
+            line-height: 30px;
+            background: #00bff3; }
+          #footer footer header li.social a.fa-github {
+            font-size: 36px;
+            line-height: 30px;
+            position: relative;
+            top: 6px;
+            background: none;
+            color: #000; }
+  #footer footer hr {
+    width: 400px;
+    margin: 0 auto;
+    border: none;
+    border-top: 2px solid #c2c2c2;
+    position: relative; }
+    #footer footer hr:before {
+      content: "";
+      z-index: 1;
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      left: 50%;
+      top: -30px;
+      margin-left: -30px;
+      background: #fff; }
+    #footer footer hr:after {
+      content: "";
+      display: block;
+      width: 28px;
+      height: 26px;
+      position: absolute;
+      left: 50%;
+      background: url(../assets/images/logo-small.png);
+      -webkit-background-size: 100%;
+      background-size: 100%;
+      top: -13px;
+      margin-left: -14px;
+      z-index: 2; }
+  #footer footer small {
+    font-size: 1em;
+    text-align: center;
+    display: block;
+    padding: 2.5em 2em 2.5em 2em; }
+    #footer footer small a {
+      color: #80bc01;
+      text-decoration: none; }
+      #footer footer small a:hover {
+        text-decoration: underline; }
+
+/* Index */
 #hero {
   background: url(../assets/images/hero.jpg) no-repeat bottom center #3e3f3a;
   color: #fff;
@@ -1556,11 +1697,11 @@ h2, h4 {
 
 #tech {
   background: #f8f5f0;
-  padding: 4em 0;
+  padding: 2em 0 4em 0;
   position: relative; }
   #tech h3, #tech h4 {
     font-weight: 400;
-    margin: 0;
+    margin-bottom: 0;
     color: #3e3f3a; }
   #tech h4 {
     margin: 1em 0 2em; }
@@ -1763,162 +1904,136 @@ h2, h4 {
     padding: .6em 0;
     font-weight: normal; }
 
-#footer {
+#contribute {
   background: url(../assets/images/footer.jpg) no-repeat top center #3e3f3a;
   padding: 4em 0 0 0; }
-  #footer h3, #footer h4 {
+  #contribute h3, #contribute h4 {
     font-weight: bold;
     margin: 0 auto;
     color: #fff;
     max-width: 960px; }
-  #footer h4 {
+  #contribute h4 {
     font-weight: 400;
     margin: 1em auto 1em; }
-  #footer div {
+  #contribute div {
     text-align: center;
     padding-bottom: 4em; }
-  #footer footer {
-    background: #fff; }
-    #footer footer header {
-      width: 960px;
-      margin: 0 auto;
-      padding: 2em 0;
-      display: flex;
-      display: -webkit-flex;
-      -moz-display: flex;
-      flex-flow: row wrap;
-      justify-content: space-between;
-      align-content: space-between;
-      align-items: center;
-      -webkit-flex-flow: row wrap;
-      -webkit-justify-content: space-between;
-      -webkit-align-content: space-between;
-      -webkit-align-items: center;
-      -moz-flex-flow: row wrap;
-      -moz-justify-content: space-between;
-      -moz-align-content: space-between;
-      -moz-align-items: center; }
-      #footer footer header label {
-        position: relative; }
-        #footer footer header label:before {
-          content: "";
-          width: 25px;
-          height: 17px;
-          background: url(../assets/images/illus-envelope.png) no-repeat;
-          -webkit-background-size: 100%;
-          background-size: 100%;
-          position: absolute;
-          top: -2px;
-          left: 15px; }
-      #footer footer header input {
-        height: 40px;
-        width: 260px;
-        border-radius: 2px;
-        border: 2px solid #c2c2c2;
-        padding: 5px 0 2px 50px;
-        line-height: 24px;
-        font-size: 1em;
-        font-weight: bold;
-        outline: none;
-        -webkit-appearance: none; }
-        #footer footer header input:focus {
-          border-color: #757575; }
-      #footer footer header button {
-        background: #80bc01;
-        font-weight: bold;
-        color: #fff;
-        border: none;
-        height: 40px;
-        padding: 0 20px;
-        border-radius: 20px;
-        margin-left: 10px;
-        transition: .15s background ease-in-out, .15s text-shadow ease-in-out;
-        -moz-transition: .15s background ease-in-out, .15s text-shadow ease-in-out;
-        -webkit-transition: .15s background ease-in-out, .15s text-shadow ease-in-out; }
-        #footer footer header button:hover {
-          background: #93d801;
-          text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); }
-      #footer footer header li {
-        display: inline-block;
-        list-style: none;
-        font-size: 1.2em;
-        font-weight: bold; }
-        #footer footer header li a {
-          color: #c2c2c2;
-          text-decoration: none; }
-          #footer footer header li a:hover {
-            color: #757575; }
-        #footer footer header li.text {
-          margin: 0 15px 0 5px; }
-        #footer footer header li.social {
-          margin-left: 5px; }
-          #footer footer header li.social a {
-            display: block;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: #000;
-            color: #fff; }
-            #footer footer header li.social a.fa-facebook {
-              text-align: center;
-              line-height: 30px;
-              background: #035d97; }
-            #footer footer header li.social a.fa-twitter {
-              text-align: center;
-              line-height: 30px;
-              background: #00bff3; }
-            #footer footer header li.social a.fa-github {
-              font-size: 36px;
-              line-height: 30px;
-              position: relative;
-              top: 6px;
-              background: none;
-              color: #000; }
-    #footer footer hr {
-      width: 400px;
-      margin: 0 auto;
-      border: none;
-      border-top: 2px solid #c2c2c2;
-      position: relative; }
-      #footer footer hr:before {
-        content: "";
-        z-index: 1;
-        width: 60px;
-        height: 60px;
-        position: absolute;
-        left: 50%;
-        top: -30px;
-        margin-left: -30px;
-        background: #fff; }
-      #footer footer hr:after {
-        content: "";
-        display: block;
-        width: 28px;
-        height: 26px;
-        position: absolute;
-        left: 50%;
-        background: url(../assets/images/logo-small.png);
-        -webkit-background-size: 100%;
-        background-size: 100%;
-        top: -13px;
-        margin-left: -14px;
-        z-index: 2; }
-    #footer footer small {
-      font-size: 1em;
-      text-align: center;
-      display: block;
-      padding: 2.5em 2em 2.5em 2em; }
-      #footer footer small a {
-        color: #80bc01;
-        text-decoration: none; }
-        #footer footer small a:hover {
-          text-decoration: underline; }
 
+/* Blog */
+#blog {
+  color: white; }
+  #blog a {
+    color: white;
+    text-decoration: none; }
+  #blog article {
+    width: 960px;
+    margin: 0 auto;
+    padding: 4em 0;
+    padding-top: 5em; }
+    #blog article h1 {
+      color: #aaa;
+      font-size: 1.4em;
+      font-weight: 800;
+      text-align: left;
+      margin: 2em 0; }
+    #blog article .posts {
+      margin-top: 4em; }
+      #blog article .posts span {
+        color: #aaa; }
+
+#post {
+  color: white; }
+  #post a {
+    color: #29abe1;
+    font-weight: bold;
+    text-decoration: none; }
+  #post article {
+    width: 650px;
+    margin: 0 auto;
+    padding: 4em 0;
+    text-align: justify;
+    /* terminal */ }
+    #post article img {
+      width: 100%; }
+    #post article h1, #post article h2, #post article h3, #post article h4 {
+      text-align: left;
+      color: #eee; }
+    #post article h1 {
+      font-size: 1.6em; }
+    #post article h2 {
+      font-size: 1.4em; }
+    #post article h3 {
+      font-size: 1.2em; }
+    #post article h4 {
+      font-size: 1em; }
+    #post article .meta {
+      color: #888;
+      margin-bottom: 2em; }
+    #post article .post pre {
+      border: 1px solid #ddd;
+      background-color: #eef;
+      padding: 0 .4em;
+      color: black;
+      font-family: monospace; }
+    #post article .post ul, #post article .post ol {
+      margin-left: 1.35em; }
+    #post article .post code {
+      border: 1px solid #ddd;
+      background-color: #eef;
+      padding: 0 .2em;
+      color: black;
+      font-family: monospace;
+      font-size: 0.8em; }
+    #post article .post pre code {
+      border: none; }
+    #post article .post pre.terminal {
+      border: 1px solid #000;
+      background-color: #333;
+      color: #FFF; }
+    #post article .post pre.terminal code {
+      background-color: #333; }
+
+/* Repsonsiveness */
 @media (max-width: 960px) {
-  #hero header {
+  #header header {
     width: 100%;
     padding: 1em 2em; }
 
+  #footer footer header {
+    width: 100%;
+    padding: 2em; } }
+@media (max-width: 760px) {
+  #footer footer header {
+    display: block;
+    text-align: center;
+    width: 100%; }
+    #footer footer header ul {
+      padding: 0; } }
+@media (max-width: 480px) {
+  h3 {
+    font-size: 2em;
+    line-height: 1.1em; }
+
+  h4 {
+    font-size: 1.3em; }
+
+  #footer {
+    padding-top: 2em; }
+    #footer header {
+      padding: 0 2em; }
+    #footer div {
+      margin-bottom: 2em;
+      padding-bottom: 0; }
+    #footer footer header input {
+      width: 80%;
+      margin-bottom: 1em; }
+    #footer footer header button {
+      width: 80%;
+      margin-left: 0;
+      margin-bottom: 1em; }
+    #footer footer hr {
+      width: 80%; } }
+@media (max-width: 960px) {
   #features {
     width: 100%;
     padding-left: 2em;
@@ -1980,11 +2095,7 @@ h2, h4 {
               white-space: nowrap;
               margin-left: -35px; }
           #tech .explanation article div:before, #tech .explanation article div:after {
-            display: none !important; }
-
-  #footer footer header {
-    width: 100%;
-    padding: 2em; } }
+            display: none !important; } }
 @media (max-width: 760px) {
   #hero figure {
     width: 90%; }
@@ -2051,22 +2162,8 @@ h2, h4 {
     width: 100%; }
     #sessions article div figure {
       width: 50%;
-      margin-bottom: 2em; }
-
-  #footer footer header {
-    display: block;
-    text-align: center;
-    width: 100%; }
-    #footer footer header ul {
-      padding: 0; } }
+      margin-bottom: 2em; } }
 @media (max-width: 480px) {
-  h3 {
-    font-size: 2em;
-    line-height: 1.1em; }
-
-  h4 {
-    font-size: 1.3em; }
-
   #hero h1 {
     font-size: 2em;
     line-height: 1em; }
@@ -2113,21 +2210,4 @@ h2, h4 {
         margin: 0 0 1.5em; }
       #sessions article div figure {
         width: 100%;
-        margin-bottom: 1.5em; }
-
-  #footer {
-    padding-top: 2em; }
-    #footer header {
-      padding: 0 2em; }
-    #footer div {
-      margin-bottom: 2em;
-      padding-bottom: 0; }
-    #footer footer header input {
-      width: 80%;
-      margin-bottom: 1em; }
-    #footer footer header button {
-      width: 80%;
-      margin-left: 0;
-      margin-bottom: 1em; }
-    #footer footer hr {
-      width: 80%; } }
+        margin-bottom: 1.5em; } }

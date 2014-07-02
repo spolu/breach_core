@@ -1,17 +1,30 @@
+/* Base */
 @import "normalize.css";
 @import "animate.css";
+@import "syntax.css";
 
 @import "_grid.scss";
 @import "_vars.scss";
 @import "_fonts.scss";
 
+/* Default */
 @import "_base.scss";
 @import "_buttons.scss";
 @import "_header.scss";
-@import "_hero.scss";
-@import "_features.scss";
-@import "_tech.scss";
-@import "_sessions.scss";
+
 @import "_footer.scss";
 
+/* Index */
+@import "_index.hero.scss";
+@import "_index.features.scss";
+@import "_index.tech.scss";
+@import "_index.sessions.scss";
+@import "_index.contribute.scss";
+
+/* Blog */
+@import "_blog.blog.scss";
+@import "_blog.post.scss";
+
+/* Repsonsiveness */
 @import "_responsive.scss";
+@import "_index.responsive.scss";

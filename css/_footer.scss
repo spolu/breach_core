@@ -1,32 +1,14 @@
 #footer {
-	background: url(../assets/images/footer.jpg) no-repeat top center #3e3f3a;
-	padding: 4em 0 0 0;
 
-	h3, h4 { 
-		font-weight: bold; 
-		margin: 0 auto; 
-		color: #fff; 
-		max-width: 960px;
-	}
-	h4 {
-		font-weight: 400; 
-		margin: 1em auto 1em;
-	}
+  footer {
+    background: #fff;
 
-	div {
-		text-align: center;
-		padding-bottom: 4em;
-	}
-
-	footer {
-		background: #fff;
-
-		header {
-			width: 960px;
-			margin: 0 auto;
+    header {
+      width: 960px;
+      margin: 0 auto;
       padding: 2em 0;
-			@include display-flex;
-			@include flex-props(row wrap, space-between, space-between, center);
+      @include display-flex;
+      @include flex-props(row wrap, space-between, space-between, center);
 
       label {
         position: relative;
@@ -80,65 +62,65 @@
         }
       }
 
-			li {
-				display: inline-block;
-				list-style: none;
-				font-size: 1.2em;
-				font-weight: bold;
+      li {
+        display: inline-block;
+        list-style: none;
+        font-size: 1.2em;
+        font-weight: bold;
 
-				a {
-					color: #c2c2c2;
-					text-decoration: none;
+        a {
+          color: #c2c2c2;
+          text-decoration: none;
           &:hover {
             color: #757575;
           }
-				}
+        }
 
-				&.text {
-					margin: 0 15px 0 5px;
-				}
+        &.text {
+          margin: 0 15px 0 5px;
+        }
 
-				&.social {
-					margin-left: 5px;
+        &.social {
+          margin-left: 5px;
 
-					a {
-						display: block;
-						width: 30px;
-						height: 30px;
-						border-radius: 50%;
-						background: #000;
-						color: #fff;
+          a {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #000;
+            color: #fff;
 
-						&.fa-facebook {
-							text-align: center;
-							line-height: 30px;
-							background: #035d97;
-						}
-						&.fa-twitter {
-							text-align: center;
-							line-height: 30px;
-							background: #00bff3;
-						}
-						&.fa-github {
-							font-size: 36px;
-							line-height: 30px;
-							position: relative;
-							top: 6px;
-							background: none;
-							color: #000;
-						}
-					}
-				}
-			}
-		}
+            &.fa-facebook {
+              text-align: center;
+              line-height: 30px;
+              background: #035d97;
+            }
+            &.fa-twitter {
+              text-align: center;
+              line-height: 30px;
+              background: #00bff3;
+            }
+            &.fa-github {
+              font-size: 36px;
+              line-height: 30px;
+              position: relative;
+              top: 6px;
+              background: none;
+              color: #000;
+            }
+          }
+        }
+      }
+    }
 
-		hr {
-			width: 400px;
-			margin: 0 auto;
-			border: none;
-			border-top: 2px solid #c2c2c2;
+    hr {
+      width: 400px;
+      margin: 0 auto;
+      border: none;
+      border-top: 2px solid #c2c2c2;
       position: relative;
-      
+
       &:before {
         content: "";
         z-index: 1;
@@ -164,13 +146,13 @@
         margin-left: -14px;
         z-index: 2;
       }
-		}
+    }
 
-		small {
-			font-size: 1em;
-			text-align: center;
-			display: block;
-			padding: 2.5em 2em 2.5em 2em;
+    small {
+      font-size: 1em;
+      text-align: center;
+      display: block;
+      padding: 2.5em 2em 2.5em 2em;
 
       a {
         color: #80bc01;
@@ -179,6 +161,6 @@
           text-decoration: underline;
         }
       }
-		}
-	}
+    }
+  }
 }

@@ -1,15 +1,15 @@
 #tech {
-	background: #f8f5f0;
-	padding: 4em 0;
+  background: #f8f5f0;
+  padding: 2em 0 4em 0;
   position: relative;
 
-	h3, h4 { font-weight: 400; margin: 0; color: #3e3f3a; }
-	h4 {
-		margin: 1em 0 2em;
-	}
+  h3, h4 { font-weight: 400; margin-bottom: 0; color: #3e3f3a; }
+  h4 {
+    margin: 1em 0 2em;
+  }
 
-	.layers {
-		width: 90%;
+  .layers {
+    width: 90%;
     max-width: 480px;
     margin: 0 auto;
     pointer-events: none;
@@ -18,7 +18,7 @@
     img {
       width: 100%;
     }
-	}
+  }
 
   .explanation {
     width: 960px;

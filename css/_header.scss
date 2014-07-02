@@ -1,8 +1,8 @@
 #header {
 
   background: #3e3f3a;
-  color: #fff;
 
+  color: #fff;
   a {
     color: #fff;
   }
@@ -22,7 +22,7 @@
     @include flex-props(row wrap, space-between, space-between, center);
     width: 960px;
     margin: 0 auto;
-    padding: 10px 0 0 0;
+    padding: 10px 0 10px 0;
 
     li {
       list-style: none;

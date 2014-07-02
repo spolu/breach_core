@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <!--script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="js/site.js"></script-->
+  <title>Breach - A browser for the HTML5 era</title>
+  <link rel="shortcut icon" href="images/logo.png">
+</head>
+<body>
+
+  <section id="hero">
+  	<header class="animated fadeIn">
+  		<a href="" id="logo"><img src="images/logo.svg" alt=""></a>
+
+  		<nav>
+  			<ul>
+  				<li><a href="/blog">Blog</a></li>
+  				<li><a href="/hack">Tutorial</a></li>
+  				<li><a href="http://github.com/breach" class="fa-github">Github</a></li>
+  			</ul>
+  		</nav>
+  	</header>
+
+    <article>
+      <div class="animated fadeIn">
+        <h1>A browser for the <strong>HTML5</strong> era</h1>
+        <h2>Entirely written in Javascript. Free. Modular. Hackable.</h2>
+        <a href="https://github.com/breach/breach_core" target="_blank" class="fa-apple btn-main">Download Alpha 0.3</a>
+      </div>
+
+      <figure class="animated fadeInUp">
+        <img src="images/browser.png" alt="much browser">
+      </figure>
+    </article>
+  </section>
+
+  <section id="features">
+    <article class="col-4-12 wow fadeInDown" data-wow-delay=".3s">
+      <img src="images/feature-modular.png" alt="such modular">
+      <div>
+        <h5>Modular</h5>
+        <p>Everything in the browser is a module, a web-app running in its own process.<br>Construct your own browsing experience by selecting the right modules for you.</p>
+      </div>
+    </article>
+    <article class="col-4-12 wow fadeInDown" data-wow-delay=".6s">
+      <img src="images/feature-hackable.png" alt="very hackable">
+      <div>
+        <h5>Hackable</h5>
+        <p>Want vertical tabs? Write some JS &amp; CSS! Customised autocomplete engine? JS!<br>Every behavior is programmatic and exposed through APIs.</p>
+      </div>
+    </article>
+    <article class="col-4-12 wow fadeInDown" data-wow-delay=".9s">
+      <img src="images/feature-opensource.png" alt="so open source">
+      <div>
+        <h5>Open Source</h5>
+        <p>The entire technological stack is opensource.<br>Modify existing modules and create your owns to extend the behavior of Breach.</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="tech">
+    <header class="wow fadeIn" data-wow-delay=".3s">
+      <h3>How it's built</h3>
+      <h4>A few simple ingredients to make magic happen</h4>
+    </header>
+
+    <div class="layers">
+      <img src="images/tech.png" alt="wow">
+    </div>
+    
+    <div class="flex explanation">
+      <article class="html wow fadeInDown" data-wow-offset="200">
+        <img src="images/layer-01.png" alt="">
+        <div class="col-4-12">
+          <h5>HTML / JS / CSS</h5>
+          <p>The entire UI is built out of interchangeable modules coded in pure Javascript / HTML5.<br>Each module is a web-app with access to the Breach API.</p>
+        </div>
+      </article>
+      <article class="chromium wow fadeInDown" data-wow-offset="400">
+        <img src="images/layer-02.png" alt="wow">
+        <div class="col-3-12">
+          <h5>Chromium</h5>
+          <p>The Chromium Content API is exposed to Node JS through v8 native bindings and multiplexed to modules.<br>Security and performance is at the heart of the design, tabs and modules run in separate processes.</p>
+        </div>
+      </article>
+      <article class="node wow fadeInDown" data-wow-offset="700">
+        <img src="images/layer-03.png" alt="wow">
+        <div class="col-4-12">
+          <h5>Node.js</h5>
+          <p>Breach embeds a NodeJS event loop in charge of running the core browser javascript implementation.<br>Each module is run in its own NodeJS process and interacts with the core browser through IPC.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="sessions" style="display: none;">
+    <header class="wow fadeInDown" data-wow-delay=".3s">
+      <h3>Multi-Sessions. Any device. Your way.<span>*</span></h3>
+      <h4>Breach comes bundled with a distributed storage system that let's you decide where you data is physically located.</h4>
+    </header>
+    <img src="images/illus-multisessions.png" class="multisessions wow bounceIn" data-wow-delay=".3s" alt="">
+    <article>
+      <h4 class="wow fadeInDown" data-wow-delay=".3s">When activated, the entire state of the browser is bundled in sessions.</h4>
+      <div>
+        <figure class="col-3-12 wow fadeInDown" data-wow-delay=".3s">
+          <img src="images/illus-switch.png" alt="very switch">
+          <figcaption>You can switch between sessions</figcaption>
+        </figure>
+        <figure class="col-3-12 wow fadeInDown" data-wow-delay=".6s">
+          <img src="images/illus-device.png" alt="much device">
+          <figcaption>Run your sessions on any device running Breach.</figcaption>
+        </figure>
+        <figure class="col-3-12 wow fadeInDown" data-wow-delay=".9s">
+          <img src="images/illus-sessions.png" alt="so session">
+          <figcaption>Toggle between multiple sessions.</figcaption>
+        </figure>
+        <figure class="col-3-12 wow fadeInDown" data-wow-delay="1.2s">
+          <img src="images/illus-control.png" alt="such control">
+          <figcaption>Be in control.</figcaption>
+        </figure>
+      </div>
+    </article>
+    <h5 class="notice">*This feature is not yet available, but will be, very soon :)</h5>
+  </section>
+
+  <section id="footer">
+    <header class="wow fadeInDown">
+      <h3>Wanna get your hands dirty?</h3>
+      <h4>Modify the behaviour of Breach and bend it to your will by building your own module or modifying existing ones.</h4>
+    </header>
+    <div class="wow fadeInDown">
+      <iframe src="http://ghbtns.com/github-btn.html?user=breach&repo=breach_core&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="160" height="30"></iframe>
+  <iframe src="http://ghbtns.com/github-btn.html?user=breach&repo=breach_core&type=fork&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="160" height="30"></iframe>
+    </div>
+    <footer>
+      <header>
+        <form action="" class="wow fadeInLeft">
+          <label><input type="email" placeholder="Subscribe via email"></label>
+          <button>Join forces</button>
+        </form>
+        <nav class="wow fadeInRight">
+          <ul>
+            <li class="text"><a href="/blog">Blog</a></li>
+            <li class="text"><a href="/hack">Tutorial</a></li>
+            <li class="social"><a href="http://twitter.com/breachbrowser" target="_blank" class="fa-twitter"></a></li>
+            <li class="social"><a href="http://github.com/breach" target="_blank" class="fa-github"></a></li>
+          </ul>
+        </nav>
+      </header>
+      <hr class="wow fadeIn">
+      <small class="wow fadeInUp"><strong>&lt;breach&gt;</strong> made by enthusiastic <a href="/contributors">developers &amp; designers</a> from around the world <strong>&lt;/breach&gt;</strong></small>
+    </footer>
+  </section>
+
+  <script type="text/javascript" src="js/wow.min.js"></script>
+  <script type="text/javascript" src="js/site.js"></script>
+
+</body>
+</html>
