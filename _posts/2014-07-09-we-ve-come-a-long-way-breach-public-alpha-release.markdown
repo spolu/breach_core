@@ -16,7 +16,7 @@ We've come a long way, but this is only the beginning.
 
 Although it is still *very young*, we believe that Breach is ready for an initial public alpha release. Breach will empower its users to hack and modify its behaviour and come up with new interesting ways to browse the web.
 
-As you'll see we've been trying a few fun features with `mod_layout` (the default modules installed at onboarding):
+As you'll see we've been trying a few fun features with `mod_layout` (the default module installed at onboarding):
 
 - Tabs are FIFO
 - Tabs sniff the color of the page (well to be honest the favicon)
