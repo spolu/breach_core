@@ -1926,9 +1926,9 @@ h2, h4 {
     color: white;
     text-decoration: none; }
   #blog article {
-    width: 960px;
+    max-width: 960px;
     margin: 0 auto;
-    padding: 4em 0;
+    padding: 4em 1em;
     padding-top: 5em; }
     #blog article h1 {
       color: #aaa;
@@ -1948,9 +1948,9 @@ h2, h4 {
     font-weight: bold;
     text-decoration: none; }
   #post article {
-    width: 650px;
+    max-width: 650px;
     margin: 0 auto;
-    padding: 4em 0;
+    padding: 4em 1em;
     text-align: justify;
     /* terminal */ }
     #post article img {
@@ -2010,12 +2010,18 @@ h2, h4 {
     #footer footer header ul {
       padding: 0; } }
 @media (max-width: 480px) {
+  .btn-main {
+    font-size: 1em; }
+
   h3 {
     font-size: 2em;
     line-height: 1.1em; }
 
   h4 {
     font-size: 1.3em; }
+
+  #header ul {
+    padding-left: 20px; }
 
   #footer {
     padding-top: 2em; }
