@@ -20,7 +20,7 @@ As you'll see we've been trying a few fun features with `mod_layout` (the defaul
 
 - Tabs are FIFO
 - Tabs sniff the color of the page (well to be honest, the favicon)
-- Typing in the URL bar let's you search/filter them 
+- Typing in the URL bar let's you interactively filter tabs
 
 These experimental features provide a rather enjoyable browsing experience. But this is really up to you to like it or not. And we won't blame you if you don't, but contrary to other browsers out there, with Breach, you have the freedom to entirely modify its aspect and behaviour and more importantly extend it. So we really want you to go look at the code and modify it so that you can create your own perfect browsing experience or try the modules that other deveopers may come up with.
 
