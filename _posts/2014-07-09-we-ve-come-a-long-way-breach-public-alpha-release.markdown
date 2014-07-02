@@ -22,7 +22,7 @@ As you'll see we've been trying a few fun features with `mod_layout` (the defaul
 - Tabs sniff the color of the page (well to be honest, the favicon)
 - Typing in the URL bar let's you interactively filter tabs
 
-These experimental features provide a rather enjoyable browsing experience. But this is really up to you to like it or not. And we won't blame you if you don't, but contrary to other browsers out there, with Breach, you have the freedom to entirely modify its aspect and behaviour and more importantly extend it. So we really want you to go look at the code and modify it so that you can create your own perfect browsing experience or try the modules that other deveopers may come up with.
+These experimental features provide a rather enjoyable browsing experience. But this is really up to you to like it or not. And we won't blame you if you don't, but contrary to other browsers out there, with Breach, you have the freedom to entirely modify its aspect and behaviour and more importantly extend it. So we really want you to go look at the code and modify it so that you can create your own perfect browsing experience or try the modules that other developers may come up with.
 
 We have many exciting plans for the future of Breach (like adding the numerous features and API still missing (duh?!) as well as other much more ambitious ideas that have yet to be laid down on GitHub). But we want to put it in your hands first, because we believe that no matter how many great plans we might have for it, the only thing that really matters is what you're going to do with it.
 
