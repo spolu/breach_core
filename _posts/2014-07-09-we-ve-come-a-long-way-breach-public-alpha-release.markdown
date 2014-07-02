@@ -26,7 +26,7 @@ These experimental features provide a rather enjoyable browsing experience. But 
 
 We have many exciting plans for the future of Breach (like adding the numerous features and API still missing (duh?!) as well as other much more ambitious ideas that have yet to be laid down on GitHub). But we want to put it in your hands first, because we believe that no matter how many great plans we might have for it, the only thing that really matters is what you're going to do with it.
 
-You'll be defining the future of Breach by hacking. And we can't wait to see what you come up with.
+You'll be defining the future of Breach by hacking on it. And we can't wait to see what you come up with.
 
 *-stan ([@spolu](https://twitter.com/spolu))*
 
