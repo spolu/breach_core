@@ -47,5 +47,21 @@ function OutCtrl($scope, $location, $rootScope, $window, $timeout, $routeParams,
   /****************************************************************************/
   /* COMMANDS                                                                  */
   /****************************************************************************/
+
+  $scope.modules_restart = function(path) {
+    async.series([
+      function(cb_) {
+        _modules.kill(path).then(function(data) {
+          return cb_();
+        });
+      },
+      function(cb_) {
+        _modules.run(path).then(function(data) {
+          return cb_();
+        });
+      },
+    ], function(err) {
+    });
+  };
 };
 
