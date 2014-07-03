@@ -17,7 +17,7 @@
           Let's add <span class="path">`mod_layout`</span>, a module that provides 
           basic tabs and URL box support. 
         <p>
-          If you're a developer, you can later clone it, hack it or simply 
+          If you're a developer, you can later on clone it, hack it or simply 
           create your own modules from scratch!
         </p>
       </div>
@@ -105,23 +105,23 @@
       <div class="body">
         <img src="/assets/onboarding-step2.png">
         <p>
-          First, we have to ask: Breach is in early alpha, so we need to gather
-          as much data as possible to detect issues and required improvements.
+        By default, Breach will be gathering and sending anonymized usage 
+        statistics to help us detect issues and required improvements. 
         </p>
         <p>
-          &nbsp;&nbsp;<input type="checkbox" ng-model="step2_checkbox"> 
-          <i>I'm cool with sending usage stats</i>
+           The stats only include generic event types (no URL, no personnal data)
+           and they are sent to Google Analytics.
         </p>
         <p>
           Obviously, usage stats aggregation is also provided by a module! You can 
-          opt-out at anytime simply by removing the module 
-          <span class="path">`mod_stats`</span>
+          opt-in/opt-out at anytime simply by adding or removing the module 
+          <span class="path">`breach/mod_stats`</span>
         </p>
       </div>
       <div class="footer">
         <div class="button" 
           ng-click="done_step2()">
-          Thanks! Continue
+          Alright! Continue
         </div>
       </div>
     </div>
@@ -132,13 +132,13 @@
   <div class="step" id="step-3">
     <div class="wrapper">
       <div class="header">
-        `mod_layout` functionalties
+        About `mod_layout`
         <span class="progress">3/4</span>
       </div>
         <div class="body">
         <p class="top">
-          <span class="path">`mod_layout`</span> comes with a few functionalities
-          we hope you'll enjoy:
+          <span class="path">`mod_layout`</span> comes with a few experimental 
+          features we hope you'll enjoy:
         </p>
         <p>
           <b>Stacked Tabs</b>
@@ -170,13 +170,13 @@
   <div class="step" id="step-4">
     <div class="wrapper">
       <div class="header">
-        Finishing touch
+        Finishing touches
         <span class="progress">4/4</span>
       </div>
       <div class="body">
         <p>
           <b>Module management</b> 
-          At anytime you can right click and choose `Configure modules`, to get access
+          At anytime you can right click and choose `Configure modules` to get access
           to the module manager.
         </p>
         <img src="/assets/onboarding-step4-rightclick.png">
@@ -184,17 +184,18 @@
           From there, you can add or remove modules as well as apply updates whenever
           they are available.
         </p>
-        <br/><br/><br/>
+        <br/><br/>
         <p>
-          <b>Where are we going with this?</b>
-          We're building a community of developers and users, enjoying building,
-          testing and using new innovative ways to use the Web.
+          <b>It's only the beginning.</b>
+          We hope to build around Breach a community of developers and users
+          enjoying crafting, testing and using new innovative ways to browse the 
+          Web. <br/><br/>
+          You'll be defining the future of Breach by trying out new modules
+          and hacking on it.
         </p>
         <p>
-          <b>Are you a developer?</b>
-          If you want to build your very own perfect browsing experience, please 
-          make sure to visit 
-          <a href="http://breach.cc/hack" target="_blank">breach.cc/hack</a>
+          <b>Developer or designer?</b>
+          Make sure to visit <a href="http://breach.cc/hack" target="_blank">breach.cc/hack</a>
           and let us know what you're building!
         </p>
       </div>

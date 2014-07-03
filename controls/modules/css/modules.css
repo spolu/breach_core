@@ -56,3 +56,18 @@
 .modules table input.text {
   width: 100%;
 }
+
+.modules .footer {
+  margin-top: 20px;
+}
+
+.modules .footer .path {
+  color: hsl(72, 4%, 60%);
+}
+
+.modules .footer .onboarding {
+  float: right;
+  color: hsl(198, 75%, 35%);
+  text-decoration: none;
+}
+

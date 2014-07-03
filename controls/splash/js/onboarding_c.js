@@ -23,11 +23,6 @@ function OnBoardingCtrl($scope, $location, $rootScope, $window, $timeout, $sce,
   /* Handhsaking [modules] */
   _socket.emit('handshake', 'modules');
 
-  $scope.step1_status = 'add';
-  $scope.step1_error = null;
-
-  $scope.step2_checkbox = true;
-
   _socket.on('modules', function(state) {
       //console.log('========================================');
       //console.log(JSON.stringify(state, null, 2));
@@ -37,63 +32,73 @@ function OnBoardingCtrl($scope, $location, $rootScope, $window, $timeout, $sce,
       $scope.modules.forEach(function(m) {
         if(m.name === 'mod_layout') {
           if(m.installing) {
-            $scope.step1_add_done = true;
             if(m.install_status === 'dependencies') {
               $scope.step1_download_done = true;
             }
-            console.log(m.install_status);
-            $scope.step1_status = m.install_status;
           }
         }
       });
     }
   });
 
+  /****************************************************************************/
+  /* STEPS                                                                    */
+  /****************************************************************************/
   $scope.done_step0 = function() {
-    var skip_add = false;
-    var skip_running = false;
-    var module = null;
+
+    $scope.step1_error = null;
+    var to_install = ['mod_layout', 'mod_stats'];
+
+    /* Detection of current state. */
+    var module = {};
+
     if($scope.modules && $scope.modules.length > 0) {
       $scope.modules.forEach(function(m) {
-        if(m.name === 'mod_layout') {
-          skip_add = true;
-          module = m;
-          if(m.running) {
-            skip_running = true;
-          }
+        if(to_install.indexOf(m.name) !== -1) {
+          module[m.name] = m;
         }
       });
     }
 
+    /* Install to_install modules */
     async.series([
       function(cb_) {
-        if(skip_add) {
-          return cb_();
-        }
-        _modules.add('github:breach/mod_layout').then(function(data) {
-          module = data.module;
-          return cb_();
-        }, function(reason) { return cb_(reason); });
+        async.each(to_install, function(m, cb_) {
+          if(module[m]) {
+            return cb_();
+          }
+          _modules.add('github:breach/' + m).then(function(data) {
+            module[m] = data.module;
+            return cb_();
+          }, function(reason) { return cb_(reason); });
+        }, cb_);
       },
       function(cb_) {
-        _modules.install(module.path).then(function(data) {
-          $scope.step1_dependencies_done = true;
-          return cb_();
-        }, function(reason) { return cb_(reason); });
+        $scope.step1_add_done = true;
+        async.each(to_install, function(m, cb_) {
+          _modules.install(module[m].path).then(function(data) {
+            return cb_();
+          }, function(reason) { return cb_(reason); });
+        }, cb_);
       },
       function(cb_) {
-        if(skip_running) {
-          return cb_();
-        }
-        _modules.run(module.path).then(function(data) {
-          return cb_();
-        }, function(reason) { return cb_(reason); });
+        $scope.step1_dependencies_done = true;
+        async.each(to_install, function(m, cb_) {
+          if(module[m].running) {
+            return cb_();
+          }
+          _modules.run(module[m].path).then(function(data) {
+            return cb_();
+          }, function(reason) { return cb_(reason); });
+        }, cb_);
       }
     ], function(err) {
       if(err) {
         $scope.step1_error = err.split(' at')[0];
       }
-      $scope.step1_run_done = true;
+      else {
+        $scope.step1_run_done = true;
+      }
     });
 
     $('.onboarding').addClass('step-1');

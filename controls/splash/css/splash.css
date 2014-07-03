@@ -44,3 +44,14 @@
   opacity: 1;
 }
 
+.splash .meta {
+  position:absolute; 
+  bottom: 15px; 
+  left: 20px;
+}
+
+.splash .meta a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.5;
+}
