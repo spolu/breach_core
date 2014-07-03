@@ -43,9 +43,12 @@ function OutCtrl($scope, $location, $rootScope, $window, $timeout, $routeParams,
     if($scope.module.name === chunk.module) {
       $scope.data += chunk.data;
     }
-    $timeout(function() {
-      $('.wrapper').scrollTop($('.wrapper')[0].scrollHeight);
-    });
+    /* Basically the socket stays open. TODO(spolu): FixMe */
+    if($timeout && $('.wrapper')) {
+      $timeout(function() {
+        $('.wrapper').scrollTop($('.wrapper')[0].scrollHeight);
+      });
+    }
   });
 
   /****************************************************************************/
