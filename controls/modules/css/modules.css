@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.modules a {
+  color: hsl(198, 65%, 25%);
+}
+
 .modules > .container {
   display:inline-block;
   text-align: left;

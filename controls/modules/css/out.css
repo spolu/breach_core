@@ -1,17 +1,25 @@
 .out {
   position: absolute;
   background-color: black;
-  width: 100%;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
 }
 
 .out .header {
+  position: absolute;
   background-color: hsl(0, 0%, 20%);
-  padding: 10px;
   color: white;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 10px;
+  height: 15px;
 }
 
 .out .header a {
-  color: white;
+  color: hsl(198, 75%, 55%);
   text-decoration: none;
 }
 
@@ -23,6 +31,15 @@
   font-style: italic;
 }
 
-.out pre {
+.out .wrapper {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 35px;
+  bottom: 0px;
+  overflow-y: scroll;
+}
+
+.out .wrapper pre {
   color: hsl(200, 50%, 90%);
 }

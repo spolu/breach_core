@@ -6,6 +6,7 @@
  * @author: spolu
  *
  * @log:
+ * - 2014-07-03 spolu  Scroll to bottom + cleaer on restart #49
  * - 2014-07-02 spolu  Fix mixed module out #48
  * - 2014-06-17 spolu  Creation
  */
@@ -42,6 +43,9 @@ function OutCtrl($scope, $location, $rootScope, $window, $timeout, $routeParams,
     if($scope.module.name === chunk.module) {
       $scope.data += chunk.data;
     }
+    $timeout(function() {
+      $('.wrapper').scrollTop($('.wrapper')[0].scrollHeight);
+    });
   });
 
   /****************************************************************************/
@@ -49,6 +53,8 @@ function OutCtrl($scope, $location, $rootScope, $window, $timeout, $routeParams,
   /****************************************************************************/
 
   $scope.modules_restart = function(path) {
+    /* On restart we clear the log buffer. */
+    $scope.data = '';
     async.series([
       function(cb_) {
         _modules.kill(path).then(function(data) {
