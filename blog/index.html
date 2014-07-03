@@ -12,8 +12,18 @@ title: "Breach Blog"
   <article>
     <ul class="posts">
       {% for post in site.posts %}
+      
+      {% if post == site.posts.first %}
+      <h1>Latest Post:</h1>
+      {% endif %}
+
       <li><span>{{ post.date | date_to_string }}</span> &raquo; 
       <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+
+      {% if post == site.posts.first %}
+      <h1>Older Posts:</h1>
+      {% endif %}
+
       {% endfor %}
     </ul>
   </article>
