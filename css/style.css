@@ -1439,6 +1439,9 @@ h2, h4 {
   transition: .15s background ease-in-out, .15s text-shadow ease-in-out;
   -moz-transition: .15s background ease-in-out, .15s text-shadow ease-in-out;
   -webkit-transition: .15s background ease-in-out, .15s text-shadow ease-in-out; }
+  .btn-main span.fa {
+    font-size: 1.4em;
+    vertical-align: middle; }
   .btn-main:before {
     font-size: 1.4em;
     vertical-align: middle;
@@ -1926,9 +1929,9 @@ h2, h4 {
     color: white;
     text-decoration: none; }
   #blog article {
-    max-width: 960px;
+    width: 960px;
     margin: 0 auto;
-    padding: 4em 1em;
+    padding: 4em 0;
     padding-top: 5em; }
     #blog article h1 {
       color: #aaa;
@@ -1937,7 +1940,7 @@ h2, h4 {
       text-align: left;
       margin: 2em 0; }
     #blog article .posts {
-      margin-top: 4em; }
+      margin-top: 2em; }
       #blog article .posts span {
         color: #aaa; }
 

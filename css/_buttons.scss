@@ -14,6 +14,11 @@
   -moz-transition: .15s background ease-in-out, .15s text-shadow ease-in-out;
   -webkit-transition: .15s background ease-in-out, .15s text-shadow ease-in-out;
 
+  span.fa {
+    font-size: 1.4em;
+    vertical-align: middle;
+  }
+
   &:before {
     font-size: 1.4em;
     vertical-align: middle;
