@@ -1545,7 +1545,7 @@ h2, h4 {
         position: absolute;
         top: -2px;
         left: 15px; }
-    #footer footer header input {
+    #footer footer header input[type="email"] {
       height: 40px;
       width: 260px;
       border-radius: 2px;
@@ -1556,9 +1556,10 @@ h2, h4 {
       font-weight: bold;
       outline: none;
       -webkit-appearance: none; }
-      #footer footer header input:focus {
+      #footer footer header input[type="email"]:focus {
         border-color: #757575; }
-    #footer footer header button {
+    #footer footer header button,
+    #footer footer header input[type="submit"] {
       background: #80bc01;
       font-weight: bold;
       color: #fff;
@@ -1570,7 +1571,8 @@ h2, h4 {
       transition: .15s background ease-in-out, .15s text-shadow ease-in-out;
       -moz-transition: .15s background ease-in-out, .15s text-shadow ease-in-out;
       -webkit-transition: .15s background ease-in-out, .15s text-shadow ease-in-out; }
-      #footer footer header button:hover {
+      #footer footer header button:hover,
+      #footer footer header input[type="submit"]:hover {
         background: #93d801;
         text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); }
     #footer footer header li {

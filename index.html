@@ -126,9 +126,9 @@ title: "Breach - A browser for the HTML5 era"
 <section id="footer">
   <footer>
     <header>
-      <form action="" class="">
-        <label><input type="email" placeholder="Subscribe via email"></label>
-        <button>Join forces</button>
+      <form>
+        <label><input id="email" type="email" placeholder="Subscribe via email"></label>
+        <input type="submit" value="Join forces"></input>
       </form>
       <nav class="">
         <ul>
@@ -146,4 +146,29 @@ title: "Breach - A browser for the HTML5 era"
 
 <script type="text/javascript" src="js/wow.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+  $(function() {
+    $('#footer form').submit(function(e) {
+      e.preventDefault();
+
+      var email = $('#footer #email').val().toLowerCase();
+      var email_r = /^[a-z0-9\.\_\-\+\%]+@[a-z0-9\.\-]+\.[a-z]{2,}$/;
+      if(email_r.exec(email)) {
+        var HOST = 'data.breach.cc';
+        var url = 'http://' + HOST + ':4000/auth/join?email=' + 
+        encodeURIComponent(email) + '&callback=?';
+        $.getJSON(url, function(data) {
+          console.log(data);
+          $('#footer #email').attr('placeholder', 'Thanks!');
+          $('#footer #email').val('');
+          setTimeout(function() {
+            $('#footer #email').blur();
+          });
+        });
+      }
+    });
+  });
+</script>
 
