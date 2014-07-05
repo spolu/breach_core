@@ -30,7 +30,7 @@ function OnBoardingCtrl($scope, $location, $rootScope, $window, $timeout, $sce,
     $scope.modules = state;
     if($scope.modules && $scope.modules.length > 0) {
       $scope.modules.forEach(function(m) {
-        if(m.name === 'mod_layout') {
+        if(m.name === 'mod_strip') {
           if(m.installing) {
             if(m.install_status === 'dependencies') {
               $scope.step1_download_done = true;
@@ -47,7 +47,7 @@ function OnBoardingCtrl($scope, $location, $rootScope, $window, $timeout, $sce,
   $scope.done_step0 = function() {
 
     $scope.step1_error = null;
-    var to_install = ['mod_layout', 'mod_stats'];
+    var to_install = ['mod_strip', 'mod_stats'];
 
     /* Detection of current state. */
     var module = {};
