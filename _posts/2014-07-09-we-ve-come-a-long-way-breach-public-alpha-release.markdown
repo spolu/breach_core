@@ -6,7 +6,7 @@ date:   2014-07-09 10:00:00
 
 Last time I took the time to write down a blog post here, Breach as a name did not exist, and the whole project was barely taking off the ground. Let me tell you, we've come a long way! Over the past six months Breach became more than just an idea or a prototype. It became real through the exceptional contributions of a couple enthusiastic developers and designers!
 
-In particular, Guillermo Rauch ([@guille](http://github.com/guille)) who pushed for the powerful modular model, and introduced me to Alejandro Vizio ([@alevizio](http://github.com/alevizio)) who designed the beautiful landing page as well as the global appearance of `mod_layout` (helped by [@heyimjuani](http://github.com/heyimjuani) and [@abadfederico](http://github.com/abadfederico)).
+In particular, Guillermo Rauch ([@guille](http://github.com/guille)) who pushed for the powerful modular model, and introduced me to Alejandro Vizio ([@alevizio](http://github.com/alevizio)) who designed the beautiful landing page as well as the global appearance of `mod_strip` (helped by [@heyimjuani](http://github.com/heyimjuani) and [@abadfederico](http://github.com/abadfederico)).
 
 ![Breach Screenshot](http://i.imgur.com/oHslEHv.png)
 
@@ -16,7 +16,7 @@ We've come a long way, but this is only the beginning.
 
 Although it is still *very young*, we believe that Breach is ready for an initial public alpha release. Breach will empower its users to hack and modify its behaviour and come up with new interesting ways to browse the web.
 
-As you'll see we've been trying a few fun features with `mod_layout` (the default module installed at onboarding):
+As you'll see we've been trying a few fun features with `mod_strip` (the default module installed at onboarding):
 
 - Tabs are FIFO
 - Tabs sniff the color of the page (well to be honest, the favicon)
