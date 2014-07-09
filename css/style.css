@@ -1560,9 +1560,11 @@ h2, h4 {
         border-color: #757575; }
     #footer footer header button,
     #footer footer header input[type="submit"] {
-      background: #80bc01;
+      position: relative;
+      top: -1px;
+      background: #c9d0d5;
+      color: #5d6163;
       font-weight: bold;
-      color: #fff;
       border: none;
       height: 40px;
       padding: 0 20px;
@@ -1573,8 +1575,8 @@ h2, h4 {
       -webkit-transition: .15s background ease-in-out, .15s text-shadow ease-in-out; }
       #footer footer header button:hover,
       #footer footer header input[type="submit"]:hover {
-        background: #93d801;
-        text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); }
+        background: #5d6163;
+        color: white; }
     #footer footer header li {
       display: inline-block;
       list-style: none;
@@ -1659,7 +1661,8 @@ h2, h4 {
   padding-top: 2.4em; }
   #hero h1 {
     font-size: 2.4em;
-    font-weight: 400; }
+    font-weight: 400;
+    padding: 0em 1em; }
   #hero h2 {
     font-size: 1.6em;
     font-weight: normal;
@@ -1921,8 +1924,7 @@ h2, h4 {
     font-weight: 400;
     margin: 1em auto 1em; }
   #contribute div {
-    text-align: center;
-    padding-bottom: 4em; }
+    text-align: center; }
 
 /* Blog */
 #blog {
@@ -1931,9 +1933,9 @@ h2, h4 {
     color: white;
     text-decoration: none; }
   #blog article {
-    width: 960px;
+    max-width: 960px;
     margin: 0 auto;
-    padding: 4em 0;
+    padding: 4em 1em;
     padding-top: 5em; }
     #blog article h1 {
       color: #aaa;
@@ -1996,6 +1998,59 @@ h2, h4 {
       background-color: #333;
       color: #FFF; }
     #post article .post pre.terminal code {
+      background-color: #333; }
+
+/* Hack */
+#hack {
+  color: white; }
+  #hack a {
+    color: #29abe1;
+    font-weight: bold;
+    text-decoration: none; }
+  #hack article {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 4em 1em;
+    text-align: justify;
+    /* terminal */ }
+    #hack article img {
+      width: 100%; }
+    #hack article h1, #hack article h2, #hack article h3, #hack article h4 {
+      text-align: left;
+      color: #eee; }
+    #hack article h1 {
+      font-size: 1.6em; }
+    #hack article h2 {
+      font-size: 1.4em; }
+    #hack article h3 {
+      font-size: 1.2em; }
+    #hack article h4 {
+      font-size: 1em; }
+    #hack article .meta {
+      color: #888;
+      margin-bottom: 2em; }
+    #hack article .hack pre {
+      border: 1px solid #ddd;
+      background-color: #eef;
+      padding: 0 .4em;
+      color: black;
+      font-family: monospace; }
+    #hack article .hack ul, #hack article .hack ol {
+      margin-left: 1.35em; }
+    #hack article .hack code {
+      border: 1px solid #ddd;
+      background-color: #eef;
+      padding: 0 .2em;
+      color: black;
+      font-family: monospace;
+      font-size: 0.8em; }
+    #hack article .hack pre code {
+      border: none; }
+    #hack article .hack pre.terminal {
+      border: 1px solid #000;
+      background-color: #333;
+      color: #FFF; }
+    #hack article .hack pre.terminal code {
       background-color: #333; }
 
 /* Repsonsiveness */
