@@ -136,12 +136,13 @@ var module = function(spec, my) {
 
   var module;         /* module(name); */
 
+  var init;           /* init(cb_); */
+
   //
   // #### _private_
   //
   var send_message;   /* send_message(msg); */
   var handle_message; /* handle_message(msg); */
-  var init;           /* init(); */
 
   //
   // ### _that_
@@ -245,36 +246,6 @@ var module = function(spec, my) {
   };
 
   /****************************************************************************/
-  /* INITIALIZATION */                       
-  /****************************************************************************/
-  // ### init
-  //
-  // Inits the module system and handles
-  init = function() {
-    /* Dummy `init` and `kill` procedures that should be overritten by the */
-    /* module implementation.                                              */
-    that.expose('init', function(src, args, cb_) {
-      return cb_();
-    });
-    that.expose('kill', function(src, args, cb_) {
-      process.nextTick(function() {
-        process.exit(0);
-      });
-      return cb_();
-    });
-
-    process.on('message', function(msg) {
-      handle_message(msg);
-    });
-
-    process.nextTick(function() {
-      that.emit('internal:ready', {
-        ver: my.VERSION
-      });
-    });
-  };
-
-  /****************************************************************************/
   /* PUBLIC METHODS */
   /****************************************************************************/
   // ### emit
@@ -371,6 +342,41 @@ var module = function(spec, my) {
     return my.proxies[name];
   };
 
+  // ### init
+  //
+  // Inits the module system. Must be call before registering the `init` proc
+  // which must be registered within the callback of that method. This lets the
+  // module perform some work before installing the `init` proc.
+  // ```
+  // @cb_ {function(err)}
+  // ```
+  init = function(cb_) {
+    /* Dummy `init` and `kill` procedures that should be overritten by the */
+    /* module implementation.                                              */
+    that.expose('init', function(src, args, cb_) {
+      return cb_();
+    });
+    that.expose('kill', function(src, args, cb_) {
+      process.nextTick(function() {
+        process.exit(0);
+      });
+      return cb_();
+    });
+
+    process.on('message', function(msg) {
+      handle_message(msg);
+    });
+
+    process.nextTick(function() {
+      that.emit('internal:ready', {
+        ver: my.VERSION
+      });
+    });
+
+    return cb_();
+  };
+
+
   common.method(that, 'emit', emit, _super);
 
   common.method(that, 'register', register, _super);
@@ -381,8 +387,7 @@ var module = function(spec, my) {
 
   common.method(that, 'module', module, _super);
 
-  /* We call init right away */
-  init();
+  common.method(that, 'init', init, _super);
 
   return that;
 };
