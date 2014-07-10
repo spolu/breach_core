@@ -91,6 +91,10 @@ async.series([
             path.join(tmp_dist_path, 
                       'Breach.app', 'Contents', 'Resources', 'shell'), cb_);
   },
+  function(cb_) {
+    fs.remove(path.join(tmp_dist_path, 
+                        'Breach.app', 'Contents', 'Resources', 'shell', '.git'), cb_);
+  },
 
   /* Update app.icns */
   function(cb_) {

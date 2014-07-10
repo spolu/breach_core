@@ -62,6 +62,9 @@ async.series([
             path.join(tmp_dist_path, '__AUTO_UPDATE_BUNDLE__', 'breach_core'), cb_);
   },
   function(cb_) {
+    fs.remove(path.join(tmp_dist_path, '__AUTO_UPDATE_BUNDLE__', 'breach_core', '.git'), cb_);
+  },
+  function(cb_) {
     mkdirp(path.join(tmp_dist_path, '__AUTO_UPDATE_BUNDLE__', 'exo_browser'), cb_);
   },
 
