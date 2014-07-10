@@ -8,11 +8,7 @@ title: "Breach - A browser for the HTML5 era"
     <div class="animated fadeIn">
       <h1>A browser for the <strong>HTML5</strong> era</h1>
       <h2>Entirely written in Javascript. Free. Modular. Hackable.</h2>
-      <a href="https://github.com/breach/breach_core" class="btn-main">
-        <span class="fa fa-apple"></span> / <span class="fa fa-linux"></span>
-         &nbsp;&nbsp;Alpha release on 7/10/2014
-        <!--Download Breach Alpha 0.3-->
-      </a>
+      <a href="" id="download" class="btn-main"></a>
     </div>
 
     <figure class="animated fadeInUp">
@@ -113,7 +109,7 @@ title: "Breach - A browser for the HTML5 era"
 <section id="contribute">
   <header class="">
     <h3>Contribute!</h3>
-    <h4>Build your own module or modifying existing ones.</h4>
+    <h4>Build your own modules or modify existing ones.</h4>
   </header>
   <div class="">
     <a href="/hack" class="btn-main">
@@ -168,6 +164,26 @@ title: "Breach - A browser for the HTML5 era"
         });
       }
     });
+
+    var platform = "unknown";
+    if(navigator.appVersion.indexOf("Win")!=-1) platform="win";
+    if(navigator.appVersion.indexOf("Mac")!=-1) platform="darwin";
+    if(navigator.appVersion.indexOf("X11")!=-1) platform="linux";
+    if(navigator.appVersion.indexOf("Linux")!=-1) platform="linux";
+
+    if(platform === 'darwin') {
+      $('#download').html('<span class="fa fa-apple"></span>&nbsp;&nbsp; Download Breach Alpha v0.3');
+      $('#download').attr('href', 'http://apple.com');
+    }
+    else if(platform === 'linux') {
+      $('#download').html('<span class="fa fa-linux"></span>&nbsp;&nbsp; Download Breach Alpha v0.3');
+      $('#download').attr('href', 'http://ubuntu.com');
+    }
+    else {
+      $('#download').html('Only available on &nbsp;&nbsp;<span class="fa fa-apple"></span> / <span class="fa fa-linux"></span>');
+      $('#download').attr('href', '#');
+    }
+
   });
 </script>
 
