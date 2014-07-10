@@ -2034,7 +2034,8 @@ h2, h4 {
       background-color: #ccc;
       padding: 0 .4em;
       color: black;
-      font-family: monospace; }
+      font-family: monospace;
+      line-height: 0.9em; }
     #hack article .hack ul, #hack article .hack ol {
       margin-left: 1.35em; }
     #hack article .hack code {

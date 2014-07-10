@@ -72,23 +72,23 @@ From this screen you have access to the file where the log of the module is dump
 
 Now you can edit the file `mod_strip/lib/box.js`. More specifically, you can add in the function `socket_submit`, the following line:
 
-```
+{% highlight javascript %}
 console.log('BOX: ' + JSON.stringify(data));
-```
+{% endhighlight %}
 
 Once the file is saved, you can restart the module, open a new URL and check that you properly see the log in the module manager's module output.
 
 At the very begining of that function, you can as an example intercept the string `:q` and close the tab in that case:
 
-```
+{% highlight javascript %}
 socket_submit = function(data) { 
   console.log('BOX: ' + JSON.stringify(data));
   if(data.input === ':q') {
     common._.tabs.action_close();
     return;
   }
-[...]
-```
+  // ...
+{% endhighlight %}
 
 You can restart the module, create a new tab, and type `:q` in the URL bar. The tab should close. You can explore the implementation of the `common._.tabs` object in `mod_strip/lib/tabs.js`. Make sure to check the initialization of the module as well in `mod_strip/index.js`.
 
@@ -98,8 +98,105 @@ Additionally, there is a hidden dark them for mod_strip. You can edit the file `
 
 ### Understanding Breach architecture <a name="understanding-breach-architecture"></a>
 
-To better understand how Breach is structured, you can refer to the wiki page [Building Breach from Source](https://github.com/breach/breach_core/wiki/Building-Breach-from-Source). It wil walks you through the different steps needed to build the entire Breach stack from sources.
+Breach is composed of `breach_core` the core Javascript implementation that runs on top of the [ExoBrowser](https://github.com/breach/exo_browser). The ExoBrowser embeds the Chromium Content Module and exposes its API directly in a NodeJS context throught V8 native bindings. Breach running on top of the ExoBrowser is basically in charge of multiplexing that API (really the Chromium Content Module API) among an arbitrary number of pure javascript modules running in separate isolated processes. 
+
+Breach is designed to be entirely modular, meaning that Breach does not expose *any* functionality if no module is running (except for the module manager and the onboarding).
+
+To better understand how Breach is structured, you can refer to the wiki page [Building Breach from Source](https://github.com/breach/breach_core/wiki/Building-Breach-from-Source). It will walk you through the different steps needed to build the entire Breach stack from sources.
 
 ### Building your own new tab page module <a name="building-your-own-new-tab-page-module"></a>
 
+Please refer to the wiki page [Creating a new module](https://github.com/breach/breach_core/wiki/Creating-a-new-module) to set up the basic structure of your new module. We'll assume here that this new module is called `mod_newtab`.
 
+Since the goal of the module is to expose a new tab page, it will have to be able to serve such a page locally. For that purpose, we add `express` to the dependencies of the module:
+
+{% highlight javascript %}
+{
+  "name": "mod_newtab",
+  "version": "0.1.0",
+  "main": "./index.js",
+  "dependencies": {
+    "breach_module": "0.3.x",
+    "async": "0.9.x",
+    "express": "4.0.x",
+    "body-parser": "1.0.x",
+    "method-override": "1.0.x",
+    "request": "2.36.x"
+  }
+}
+{% endhighlight %}
+
+Then we have to create an express app in `index.js`, syncrhonize its creation with the initialization of the module and expose some static content for our new tab:
+
+{% highlight javascript %}
+var express = require('express');
+var http = require('http');
+var async = require('async');
+var breach = require('breach_module');
+
+var bootstrap = function(http_srv) {
+  breach.init(function(cb_) {
+    breach.expose('init', function(src, args, cb_) {
+      return cb_();
+    });
+  
+    breach.expose('kill', function(args, cb_) {
+      process.exit(0);
+    });
+
+    console.log('Exposed: `http://127.0.0.1:' + port + '/newtab`');
+  });
+};
+
+(function setup() {
+  var app = express();
+
+  /* App Configuration */
+  app.use('/', express.static(__dirname + '/controls'));
+  app.use(require('body-parser')());
+  app.use(require('method-override')())
+
+  /* Listen locally only */
+  var http_srv = http.createServer(app).listen(0, '127.0.0.1');
+
+  http_srv.on('listening', function() {
+    var port = http_srv.address().port;
+    return bootstrap(port);
+  });
+})();
+
+{% endhighlight %}
+
+You can create an html file `mod_newtab/controls/newtab/index.html` containing a first implementation of your new tab:
+
+
+{% highlight javascript %}
+<html>
+  <body style="background-color: black; color: white;">
+    Foo Bar!
+  </body>
+</html?>
+{% endhighlight %}
+
+If your run the module as is, after executing `npm install`, the module will simply expose the page on a local URL once initialized. You can retrieve the URL in the log of the module and check that the page is indeed accesible.
+
+Last step is to instruct to Breach to use this page instead of the default one as a new tab page. This is done through the `tabs_new_tab_url` procedure exposed by the core_module. We can replace our exposed `init` procedure by the following:
+
+{% highlight javascript %}
+    breach.expose('init', function(src, args, cb_) {
+      breach.module('core').call('tabs_new_tab_url', { 
+        url: 'http://127.0.0.1:' + port + '/newtab'
+      }, function(err) {
+        console.log('New tab page set! [' + err + ']');
+      });
+      return cb_();
+    });
+{% endhighlight %}
+
+You can then restart the module and check that your new tab page has replaced the default one. Congrats! :)
+
+The full source code for this dummy new tab module is available here: [mod_newtab](https://github.com/breach/mod_newtab)
+
+### Conclusion
+
+We'll come back with more advanced tutorials soon (especially one to create your own tabbing system). In the meantime you can of course start exploring the code of [mod_strip](https://github.com/breach/mod_strip) and [mod_strip](https://github.com/breach/mod_strip) to get examples of how to implement full browser experience using Breach.
