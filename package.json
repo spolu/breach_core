@@ -6,7 +6,7 @@
     "email": "polu.stanislas@gmail.com",
     "url": "http://github.com/spolu" 
   },
-  "version": "0.3.19-alpha.4",
+  "version": "0.3.20-alpha.5",
   "dependencies": {
     "exo_browser": "0.6.x",
     "gig.fs": "0.2.x",
