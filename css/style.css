@@ -1985,13 +1985,15 @@ h2, h4 {
     #post article .post ul, #post article .post ol {
       margin-left: 1.35em; }
     #post article .post code {
-      border: 1px solid #ccc;
-      background-color: #ccc;
+      border: 1px solid #444;
+      background-color: #444;
       padding: 0 .2em;
-      color: black;
+      color: white;
       font-family: monospace;
       font-size: 0.8em; }
     #post article .post pre code {
+      background-color: #ccc;
+      color: black;
       border: none; }
     #post article .post pre.terminal {
       border: 1px solid #000;
@@ -2039,13 +2041,15 @@ h2, h4 {
     #hack article .hack ul, #hack article .hack ol {
       margin-left: 1.35em; }
     #hack article .hack code {
-      border: 1px solid #ccc;
-      background-color: #ccc;
+      border: 1px solid #444;
+      background-color: #444;
       padding: 0 .2em;
-      color: black;
+      color: white;
       font-family: monospace;
       font-size: 0.8em; }
     #hack article .hack pre code {
+      background-color: #ccc;
+      color: black;
       border: none; }
     #hack article .hack pre.terminal {
       border: 1px solid #000;

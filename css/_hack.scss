@@ -55,15 +55,17 @@
     }
 
     .hack code {
-      border: 1px solid #ccc;
-      background-color: #ccc;
+      border: 1px solid #444;
+      background-color: #444;
       padding: 0 .2em;
-      color: black;
+      color: white;
       font-family: monospace;
       font-size: 0.8em;
     }
 
     .hack pre code {
+      background-color: #ccc;
+      color: black;
       border: none;
     }
 
