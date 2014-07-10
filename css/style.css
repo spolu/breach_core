@@ -1915,8 +1915,19 @@ h2, h4 {
 #contribute {
   background: url(../assets/images/footer.jpg) no-repeat top center #3e3f3a;
   padding: 4em 0 0 0; }
+  #contribute h1 {
+    color: #fff;
+    font-size: 2.4em;
+    font-weight: 400;
+    max-width: 960px; }
+  #contribute h2 {
+    color: #fff;
+    font-size: 1.6em;
+    font-weight: normal;
+    margin-bottom: 2em;
+    max-width: 960px; }
   #contribute h3, #contribute h4 {
-    font-weight: bold;
+    font-weight: 400;
     margin: 0 auto;
     color: #fff;
     max-width: 960px; }
@@ -1925,6 +1936,8 @@ h2, h4 {
     margin: 1em auto 1em; }
   #contribute div {
     text-align: center; }
+  #contribute .btn-main {
+    margin-top: 1.1em; }
 
 /* Blog */
 #blog {
