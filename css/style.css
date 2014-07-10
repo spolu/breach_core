@@ -2099,7 +2099,19 @@ h2, h4 {
     font-size: 1.3em; }
 
   #header ul {
-    padding-left: 20px; }
+    padding-left: 0;
+    margin-bottom: 0;
+    text-align: center; }
+  #header nav {
+    padding-bottom: 0;
+    width: 100%; }
+  #header header {
+    padding-top: 2em; }
+  #header #logo {
+    margin: 0 auto; }
+
+  #hero {
+    padding-top: 1.5em; }
 
   #footer {
     padding-top: 2em; }
