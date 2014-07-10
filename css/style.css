@@ -1977,16 +1977,16 @@ h2, h4 {
       color: #888;
       margin-bottom: 2em; }
     #post article .post pre {
-      border: 1px solid #ddd;
-      background-color: #eef;
+      border: 1px solid #ccc;
+      background-color: #ccc;
       padding: 0 .4em;
       color: black;
       font-family: monospace; }
     #post article .post ul, #post article .post ol {
       margin-left: 1.35em; }
     #post article .post code {
-      border: 1px solid #ddd;
-      background-color: #eef;
+      border: 1px solid #ccc;
+      background-color: #ccc;
       padding: 0 .2em;
       color: black;
       font-family: monospace;
@@ -2030,16 +2030,16 @@ h2, h4 {
       color: #888;
       margin-bottom: 2em; }
     #hack article .hack pre {
-      border: 1px solid #ddd;
-      background-color: #eef;
+      border: 1px solid #ccc;
+      background-color: #ccc;
       padding: 0 .4em;
       color: black;
       font-family: monospace; }
     #hack article .hack ul, #hack article .hack ol {
       margin-left: 1.35em; }
     #hack article .hack code {
-      border: 1px solid #ddd;
-      background-color: #eef;
+      border: 1px solid #ccc;
+      background-color: #ccc;
       padding: 0 .2em;
       color: black;
       font-family: monospace;
