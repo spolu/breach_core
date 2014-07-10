@@ -4,16 +4,12 @@ title:  "Hacking Breach"
 date:   2014-07-09 10:00:00
 ---
 
-- [Introduction](#introduction)
 - [Resources](#resources)
+- [Introduction](#introduction)
 - [How to inspect a module](#how-to-inspect-a-module)
 - [How to hack a module](#how-to-hack-a-module)
 - [Understanding Breach architecture](#understanding-breach-architecture)
 - [Building your own new tab page module](#building-your-own-new-tab-page-module)
-
-
-### Introduction <a name="introduction"></a>
-
 
 
 ### Resources <a name="resources"></a>
@@ -23,6 +19,24 @@ date:   2014-07-09 10:00:00
 - Breach Core [Wiki](https://github.com/breach/breach_core/wiki)
 
 Breach is still an early project and therefore lacks a lot of documentation and in particular a Reference API (ew!). To get a sense of the APIs exposed to Breach modules, you can for now have a look at the file [core_module.js](https://github.com/breach/breach_core/blob/master/lib/core_module.js#L486). Of course, we're working on a proper Reference API page as we speak!
+
+### Introduction <a name="introduction"></a>
+
+The initial motivation to create Breach was to create a browser whose state (tabs, cookies, extensions, etc...) would be complety untangled from the machine it runs on, so that users could project that state on any machine running Breach easily. The idea was to let users get control of any machine around them transparently by making it very easy for them to push their state onto these machines. Think of it as tab syncing as seen in Chrome, Firefox, Safari, on steroids and built to be used on machines you don't necessarily own (which is a strong limitation in existing systems).
+
+Now how do build an entire new browser from scratch without it taking you the next 10 years of your life. Chromium on top of the [Content Module](http://www.chromium.org/developers/content-module) (their multi-process architecture on top of Blink) is already 2m loc of C++ with a good chunk of it being platform specific code. This is clearly untractable, even for a couple of developers working on an opensource side-project.
+
+Looking for a solution to that major showstopper, we realized that a shortcut was possible. What if instead of building the browser with platform specific C++ code, we attempted to build it using solely its very own technology stack, namely a rendering engine (blink in the case of Chrome) and a Javascript Engine (v8 here). That's how we ended up embedding a NodeJS thread within the Content Module and exposed the Content Module API directly into NodeJS through v8 native bindings.
+
+The result is an executable exposing a NodeJS REPL with a special API to control browser windows and frames direclty from Javascript. Some people will note the resemblance with node-webkit. Well, the building blocks are very similar but the overall architecture is fundamentally different: here we expose the Content API into a NodeJS context to have the necesary semantics and security model to build a browser using only Javascript code. Node-webkit, on the contrary, exposes nodeJS API within the renderer of a trivial browser (one window, one webcontents view) to make it super easy to build native apps using Javascript code.
+
+This platform we came up with to build Breach is called the [ExoBrowser](http://github.com/breach/exo_browser). Having it available, we then decided to take Breach in a different direction. Instead of building a specific browser, why not build an entirely modular one that would let its user leverage this architecture to easily add functionalities through simple Javascript modules. That's exactly what Breach is today, a modular browser that does not expose any internal functionalities but an API for developers to build modules that can be added, removed, and interchanged very easily. In other words, Breach multiplexes the ExoBrowser API for modules to expose new functionalities. 
+
+Oh, and by the way, Breach core is only 8k loc of JS... Easier to maintain than 2m loc of C++ heh!
+
+Finally, building Breach, we kept in mind our initial vision. As you explore the code, you'll realize that the state of the Browser is very well compartimented. Today we release Breach as a modular browser so that you can leverage it to create new interesting browsing experiences that better suits you than the one size fits all of mainstream browsers. Want to have a modal, keyboard-only controlled browser with no UI at all? Be my guest!
+
+This page will provide you with pointers on how to get started with Breach and build your very first module. This project is still quite young, so a lot of documentation is missing, but we'll be more than happy to answer any question you might have on IRC or over email! Have fun!
 
 ### How to inspect a module <a name="how-to-inspect-a-module"></a>
 
@@ -199,4 +213,4 @@ The full source code for this dummy new tab module is available here: [mod_newta
 
 ### Conclusion
 
-We'll come back with more advanced tutorials soon (especially one to create your own tabbing system). In the meantime you can of course start exploring the code of [mod_strip](https://github.com/breach/mod_strip) and [mod_strip](https://github.com/breach/mod_strip) to get examples of how to implement full browser experience using Breach.
+We'll come back with more advanced tutorials soon (especially one to create your own tabbing system). In the meantime you can of course start exploring the code of [mod_strip](https://github.com/breach/mod_strip) and [mod_stats](https://github.com/breach/mod_stats) to get examples of how to implement full browser experience using Breach.
