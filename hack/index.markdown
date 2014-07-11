@@ -108,7 +108,7 @@ You can restart the module, create a new tab, and type `:q` in the URL bar. The 
 
 #### Changing the CSS style of mod_strip
 
-Additionally, there is a hidden dark theme for mod_strip. You can edit the file `mod_strip/controls/strip/index.html` and change the CSS class from `light` to `dark` on ligne 19, as well as file `mod_strip/controls/box/index.html` on the same ligne. Once edited, you don't need to restart the module as it impacts only client side code. You can see the update by right-clicking the tab strip and requesting a Reload.
+Additionally, there is a hidden dark theme for mod_strip. You can edit the file `mod_strip/controls/strip/index.html` and change the CSS class from `light` to `dark` on line 19, as well as file `mod_strip/controls/box/index.html` on the same line. Once edited, you don't need to restart the module as it impacts only client side code. You can see the update by right-clicking the tab strip and requesting a Reload.
 
 ### Understanding Breach architecture <a name="understanding-breach-architecture"></a>
 
