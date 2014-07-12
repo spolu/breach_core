@@ -74,7 +74,7 @@ exports.setter = function(that, name, obj, prop) {
 
 // ### responds
 //
-// Tests wether the object responds to the given method name
+// Tests whether the object responds to the given method name
 // ```
 // @that {object} object to test
 // @name {string} the method/getter/setter name
@@ -194,7 +194,7 @@ exports.DEBUG = false;
 
 // ### log
 //
-// Loging helpers. Object based on the `log` function including 4 logging
+// Logging helpers. Object based on the `log` function including 4 logging
 // functions: `out`, `error`, `debug`, `info`
 // ```
 // @str {string|error} the string or error to log
