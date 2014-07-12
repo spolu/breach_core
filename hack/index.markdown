@@ -22,13 +22,13 @@ Breach is still an early project and therefore lacks a lot of documentation and 
 
 ### Introduction <a name="introduction"></a>
 
-The initial motivation to create Breach was to create a browser whose state (tabs, cookies, extensions, etc...) would be complety untangled from the machine it runs on, so that users could project that state on any machine running Breach easily. The idea was to let users get control of any machine around them transparently by making it very easy for them to push their state onto these machines. Think of it as tab syncing as seen in Chrome, Firefox, Safari, on steroids and built to be used on machines you don't necessarily own (which is a strong limitation in existing systems).
+The initial motivation to create Breach was to create a browser whose state (tabs, cookies, extensions, etc...) would be completely untangled from the machine it runs on, so that users could project that state on any machine running Breach easily. The idea was to let users get control of any machine around them transparently by making it very easy for them to push their state onto these machines. Think of it as tab syncing as seen in Chrome, Firefox, Safari, on steroids and built to be used on machines you don't necessarily own (which is a strong limitation in existing systems).
 
 Now how do build an entire new browser from scratch without it taking you the next 10 years of your life. Chromium on top of the [Content Module](http://www.chromium.org/developers/content-module) (their multi-process architecture on top of Blink) is already 2m loc of C++ with a good chunk of it being platform specific code. This is clearly untractable, even for a couple of developers working on an opensource side-project.
 
 Looking for a solution to that major showstopper, we realized that a shortcut was possible. What if instead of building the browser with platform specific C++ code, we attempted to build it using solely its very own technology stack, namely a rendering engine (blink in the case of Chrome) and a Javascript Engine (v8 here). That's how we ended up embedding a NodeJS thread within the Content Module and exposed the Content Module API directly into NodeJS through v8 native bindings.
 
-The result is an executable exposing a NodeJS REPL with a special API to control browser windows and frames direclty from Javascript. Some people will note the resemblance with node-webkit. Well, the building blocks are very similar but the overall architecture is fundamentally different: here we expose the Content API into a NodeJS context to have the necesary semantics and security model to build a browser using only Javascript code. Node-webkit, on the contrary, exposes nodeJS API within the renderer of a trivial browser (one window, one webcontents view) to make it super easy to build native apps using Javascript code.
+The result is an executable exposing a NodeJS REPL with a special API to control browser windows and frames directly from Javascript. Some people will note the resemblance with node-webkit. Well, the building blocks are very similar but the overall architecture is fundamentally different: here we expose the Content API into a NodeJS context to have the necessary semantics and security model to build a browser using only Javascript code. Node-webkit, on the contrary, exposes nodeJS API within the renderer of a trivial browser (one window, one webcontents view) to make it super easy to build native apps using Javascript code.
 
 This platform we came up with to build Breach is called the [ExoBrowser](http://github.com/breach/exo_browser). Having it available, we then decided to take Breach in a different direction. Instead of building a specific browser, why not build an entirely modular one that would let its user leverage this architecture to easily add functionalities through simple Javascript modules. That's exactly what Breach is today, a modular browser that does not expose any internal functionalities but an API for developers to build modules that can be added, removed, and interchanged very easily. In other words, Breach multiplexes the ExoBrowser API for modules to expose new functionalities. 
 
@@ -68,7 +68,7 @@ First step is to clone the module code locally and install its dependencies:
 ~/src$ cd mod_strip
 ~/src$ npm install
 ```
-Once the depdencies are installed, you can open the module manager within Breach by navigating to the URL `breach://modules`.
+Once the dependencies are installed, you can open the module manager within Breach by navigating to the URL `breach://modules`.
 
 ![Breach Module Manager](http://i.imgur.com/foIjPJ3.png)
 
@@ -92,7 +92,7 @@ console.log('BOX: ' + JSON.stringify(data));
 
 Once the file is saved, you can restart the module, open a new URL and check that you properly see the log in the module manager's module output.
 
-At the very begining of that function, you can as an example intercept the string `:q` and close the tab in that case:
+At the very beginning of that function, you can as an example intercept the string `:q` and close the tab in that case:
 
 {% highlight javascript %}
 socket_submit = function(data) { 
@@ -112,7 +112,7 @@ Additionally, there is a hidden dark theme for mod_strip. You can edit the file 
 
 ### Understanding Breach architecture <a name="understanding-breach-architecture"></a>
 
-Breach is composed of `breach_core` the core Javascript implementation that runs on top of the [ExoBrowser](https://github.com/breach/exo_browser). The ExoBrowser embeds the Chromium Content Module and exposes its API directly in a NodeJS context throught V8 native bindings. Breach running on top of the ExoBrowser is basically in charge of multiplexing that API (really the Chromium Content Module API) among an arbitrary number of pure javascript modules running in separate isolated processes. 
+Breach is composed of `breach_core` the core Javascript implementation that runs on top of the [ExoBrowser](https://github.com/breach/exo_browser). The ExoBrowser embeds the Chromium Content Module and exposes its API directly in a NodeJS context through V8 native bindings. Breach running on top of the ExoBrowser is basically in charge of multiplexing that API (really the Chromium Content Module API) among an arbitrary number of pure javascript modules running in separate isolated processes.
 
 Breach is designed to be entirely modular, meaning that Breach does not expose *any* functionality if no module is running (except for the module manager and the onboarding).
 
@@ -140,7 +140,7 @@ Since the goal of the module is to expose a new tab page, it will have to be abl
 }
 {% endhighlight %}
 
-Then we have to create an express app in `index.js`, syncrhonize its creation with the initialization of the module and expose some static content for our new tab:
+Then we have to create an express app in `index.js`, synchronize its creation with the initialization of the module and expose some static content for our new tab:
 
 {% highlight javascript %}
 var express = require('express');
@@ -192,7 +192,7 @@ You can create an html file `mod_newtab/controls/newtab/index.html` containing a
 </html?>
 {% endhighlight %}
 
-If your run the module as is, after executing `npm install`, the module will simply expose the page on a local URL once initialized. You can retrieve the URL in the log of the module and check that the page is indeed accesible.
+If your run the module as is, after executing `npm install`, the module will simply expose the page on a local URL once initialized. You can retrieve the URL in the log of the module and check that the page is indeed accessible.
 
 Last step is to instruct to Breach to use this page instead of the default one as a new tab page. This is done through the `tabs_new_tab_url` procedure exposed by the core_module. We can replace our exposed `init` procedure by the following:
 
