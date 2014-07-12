@@ -52,7 +52,7 @@ var module_proxy = function(spec, my) {
   // Method called when an `rpc_reply` message is received.
   // ```
   // @oid {number} original message id for the `rpc_call`
-  // @err {Error} Javascript error if an error occured
+  // @err {Error} Javascript error if an error occurred
   // @res {object} JSON serializable result object
   // ```
   rpc_reply = function(oid, err, res) {
@@ -150,7 +150,7 @@ var module = function(spec, my) {
   var that = {};
 
   /****************************************************************************/
-  /* MESAGE HANDLING */                      
+  /* MESSAGE HANDLING */
   /****************************************************************************/
   // ### handle_message
   //
@@ -351,7 +351,7 @@ var module = function(spec, my) {
   // @cb_ {function(err)}
   // ```
   init = function(cb_) {
-    /* Dummy `init` and `kill` procedures that should be overritten by the */
+    /* Dummy `init` and `kill` procedures that should be overwritten by the */
     /* module implementation.                                              */
     that.expose('init', function(src, args, cb_) {
       return cb_();
