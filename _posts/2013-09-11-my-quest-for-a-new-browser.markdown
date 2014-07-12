@@ -20,7 +20,7 @@ Today, our computers are always on, never restarted, always connected. As a resu
 
 As an example, I feel like I spend way too much time curating my tabs everyday. It makes no sense for me that I can't easily search through the tabs I've closed. My intuition tells me that somehow the browsing history should be exposed more directly to the user and that opened tabs should become a much fuzzier concept; but that's just a guess.
 
-Worse still (yet not as annoying), we use the web for almost anyting, all of our data is online (in the cloud, or some connected devices), and yet there is no good way for us to use any computer transparently. We're stuck with *our own* computer. Anytime I try to accomplish a task on a computer I don't own, I just feel like I want to kill myself out of frustration. My browsing state is lost, my preferences are lost, my credentials are lost, and I generally end up realizing that I forgot to update the phone number associated with my Google account's 2-step verification process.
+Worse still (yet not as annoying), we use the web for almost anything, all of our data is online (in the cloud, or some connected devices), and yet there is no good way for us to use any computer transparently. We're stuck with *our own* computer. Anytime I try to accomplish a task on a computer I don't own, I just feel like I want to kill myself out of frustration. My browsing state is lost, my preferences are lost, my credentials are lost, and I generally end up realizing that I forgot to update the phone number associated with my Google account's 2-step verification process.
 
 As my data moves online, I expect to be able to grab any computer around me and use it as my own. There are a bunch of way to provide that, but I've grown convinced that it ought to be solved at the browser level.
 
@@ -52,7 +52,7 @@ Next thing you need, is a native container to display those WebContents and a cr
 
 From there, I just needed a way to serve web pages from my v8 context in order to point these "controls" WebContents to some local pages I could communicate with. That was what was needed for me to build my UI entirely in HTML.
 
-Conveniently enough this technology is already available: it's exactly what Node.JS is. So instead of embedding a v8 Context, I simply embedded a Node.JS Context in my extra thread. I even got package & library management as well as  filesystem and netoworking APIs for free.
+Conveniently enough this technology is already available: it's exactly what Node.JS is. So instead of embedding a v8 Context, I simply embedded a Node.JS Context in my extra thread. I even got package & library management as well as  filesystem and networking APIs for free.
 
 Here's a diagram of the ExoBrowser architecture compared to the Chromium architecture:
 
@@ -86,7 +86,7 @@ That's pretty much the state of the ExoBrowser right now. The ExoBrowser C++ imp
 
 Using the ExoBrowser, I was able to come up with a first experimental browser implementation. This first implementation focuses on a new "stacked Navigation" you can try out today. It is 3849 lines of Javascript with some HTML/CSS. It uses socket.io and AngularJS to render and communicate with the UI ("control" WebContents). 3k lines of code is definitely not *nothing*, but it is cross-platform (OSX, Linux for now) out of the box and requires probably at least an order of magnitude less code than what would have been required just to make something similar run on OSX only.
 
-[For the experts: I won't enter in the specifics, but the ExoBrowser architecture is quite different from AppJS' and node-webkit's. Additionaly the API it exposes is much deeper so that I can build a working browser entirely out of JS]
+[For the experts: I won't enter in the specifics, but the ExoBrowser architecture is quite different from AppJS' and node-webkit's. Additionally the API it exposes is much deeper so that I can build a working browser entirely out of JS]
 
 ### What's next?
 
@@ -94,6 +94,6 @@ I'm very pleased with the ExoBrowser and how it has let me build a browser using
 
 Of course, I'm nowhere close to having a product (though I already use the Experiment based on the ExoBrowser for most of my activities online, such as writing this post). My quest is only beginning, and I definitely want to experiment with many more concepts (Additional navigation models, Synchronized Sessions, etc...)
 
-The goal of this post is simply to let you know about my experience building it. Eventually, I also hope I can get you excited about building a new browser, or more precisly, about building new browsers.
+The goal of this post is simply to let you know about my experience building it. Eventually, I also hope I can get you excited about building a new browser, or more precisely, about building new browsers.
 
 *-stan ([@spolu](http://github.com/spolu))*
