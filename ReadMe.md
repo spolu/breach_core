@@ -21,4 +21,7 @@ Modify existing modules and create your owns to extend the behavior of Breach.
 
 ### Support
 
-<script id='fbunfr0'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=breach&button=compact&url='+encodeURIComponent(document.URL);f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbunfr0');</script>
+
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=breach&url=http://github.com/breach/breach_core&title=breach_core&language=GH_PROJECT_PROG_LANGUAGE&tags=github&category=software)
+
+DogeCoin address: D5yw7dP4XqE2vEDVwwRxyH6VtuTdCHEwGP
