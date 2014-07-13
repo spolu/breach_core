@@ -23,5 +23,4 @@ Modify existing modules and create your owns to extend the behavior of Breach.
 
 
 [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=breach&url=http://github.com/breach/breach_core&title=breach_core&language=GH_PROJECT_PROG_LANGUAGE&tags=github&category=software)
-
-DogeCoin address: D5yw7dP4XqE2vEDVwwRxyH6VtuTdCHEwGP
+DogeCoin address: `D5yw7dP4XqE2vEDVwwRxyH6VtuTdCHEwGP`
