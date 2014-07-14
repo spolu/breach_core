@@ -8,9 +8,9 @@ Construct your own browsing experience by selecting the right modules for you.
 Want vertical tabs? Write some JS & CSS! Customised autocomplete engine? JS!
 Every behavior is programmatic and exposed through APIs.
 
-**OpenSource**
-The entire technological stack is opensource.
-Modify existing modules and create your owns to extend the behavior of Breach.
+**Open source**
+The entire technology stack is open source.
+Modify existing modules and create your own to extend the behavior of Breach.
 
 
 ### Getting Involved
