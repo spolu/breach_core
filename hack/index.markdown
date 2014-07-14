@@ -10,6 +10,7 @@ date:   2014-07-09 10:00:00
 - [How to hack a module](#how-to-hack-a-module)
 - [Understanding Breach architecture](#understanding-breach-architecture)
 - [Building your own new tab page module](#building-your-own-new-tab-page-module)
+- [Community Modules](#community-modules)
 
 
 ### Resources <a name="resources"></a>
@@ -209,13 +210,11 @@ Last step is to instruct to Breach to use this page instead of the default one a
 
 You can then restart the module and check that your new tab page has replaced the default one. Congrats! :)
 
-The full source code for this dummy new tab module is available here: [mod_newtab](https://github.com/breach/mod_newtab)
+The full source code for this dummy new tab module is available here: [mod_newtab](https://github.com/breach/mod_newtab). If you want to see a fully functional new tab module, check out [New Tab Clock Page](https://github.com/RobinMalfait/mod_newtab_clock).
 
-### Community Modules
+### Community Modules <a name="community-modules"></a>
 
-Here is a [list of modules](https://github.com/breach/breach_core/wiki/List-of-modules) made by the community. If you want to make a module, make sure to add it to the list of _in progress_ modules so we don't have duplicates.
-
-If you want to see a full functional module, check out this one: [New Tab Clock Page](https://github.com/RobinMalfait/mod_newtab_clock)
+Here is a [list of modules](https://github.com/breach/breach_core/wiki/List-of-modules) made by the community. If you want to create your onwn module, make sure to add it to the list of _in progress_ modules so we don't have duplicates.
 
 ### Conclusion
 
