@@ -19,7 +19,7 @@ Modify existing modules and create your owns to extend the behavior of Breach.
 - Mailing list: [breach-dev@googlegroups.com](https://groups.google.com/d/forum/breach-dev)
 - IRC Channel: #breach on Freenode
 
-### Support
+### Support the fun
 
 
 DogeCoin: `D5yw7dP4XqE2vEDVwwRxyH6VtuTdCHEwGP`
