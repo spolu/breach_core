@@ -1,37 +1,43 @@
 @font-face {
-  font-family: 'Gotham Rounded';
-  src: url('../assets/fonts/GothamRnd-Book.eot'); /* IE9 Compat Modes */
-  src: url('../assets/fonts/GothamRnd-Book.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../assets/fonts/GothamRnd-Book.woff') format('woff'), /* Modern Browsers */
-       url('../assets/fonts/GothamRnd-Book.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../assets/fonts/GothamRnd-Book.svg#21661efc977bfcfec5c6c16307c05ceb') format('svg'); /* Legacy iOS */
-       
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Regular.ttf')  format('truetype');
   font-style:   normal;
   font-weight:  normal;
 }
 
 @font-face {
-  font-family: 'Gotham Rounded';
-  src: url('../assets/fonts/GothamRnd-Bold.eot'); /* IE9 Compat Modes */
-  src: url('../assets/fonts/GothamRnd-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../assets/fonts/GothamRnd-Bold.woff') format('woff'), /* Modern Browsers */
-       url('../assets/fonts/GothamRnd-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../assets/fonts/GothamRnd-Bold.svg#cf294c6136807d0e69a971e863b3cd88') format('svg'); /* Legacy iOS */
-       
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Medium.ttf')  format('truetype');
+  font-style:   normal;
+  font-weight:  500;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Bold.ttf')  format('truetype');
   font-style:   normal;
   font-weight:  bold;
 }
 
 @font-face {
-  font-family: 'Gotham Rounded';
-  src: url('../assets/fonts/GothamRnd-Light.eot'); /* IE9 Compat Modes */
-  src: url('../assets/fonts/GothamRnd-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../assets/fonts/GothamRnd-Light.woff') format('woff'), /* Modern Browsers */
-       url('../assets/fonts/GothamRnd-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../assets/fonts/GothamRnd-Light.svg#b3bd5af04c0e7cf2188fad8c1f2958f5') format('svg'); /* Legacy iOS */
-       
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Black.ttf')  format('truetype');
   font-style:   normal;
-  font-weight:  200;
+  font-weight:  900;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Light.ttf')  format('truetype');
+  font-style:   normal;
+  font-weight:  300;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Thin.ttf')  format('truetype');
+  font-style:   normal;
+  font-weight:  100;
 }
 
 
