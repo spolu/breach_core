@@ -211,6 +211,12 @@ You can then restart the module and check that your new tab page has replaced th
 
 The full source code for this dummy new tab module is available here: [mod_newtab](https://github.com/breach/mod_newtab)
 
+### Community Modules
+
+Let me show you some modules the community made:
+
+ - [New Tab Clock](https://github.com/RobinMalfait/mod_newtab_clock) by Robin Malfait ![](http://d.pr/i/KVOQ+)
+
 ### Conclusion
 
 We'll come back with more advanced tutorials soon (especially one to create your own tabbing system). In the meantime you can of course start exploring the code of [mod_strip](https://github.com/breach/mod_strip) and [mod_stats](https://github.com/breach/mod_stats) to get examples of how to implement full browser experience using Breach.
