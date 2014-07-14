@@ -186,7 +186,7 @@ var module = function(spec, my) {
       /* a local procedure previously exposed.                                */
       case 'rpc_call': {
         /* This is an helper function to reply to an `rpc_call` message. It */
-        /* setps up the headers and store the error or result.              */
+        /* sets up the headers and store the error or result.              */
         var rpc_reply = function(err, result) {
           msg.oid = msg.hdr.mid; delete msg.hdr.mid;
           msg.hdr.typ = 'rpc_reply';
