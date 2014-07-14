@@ -213,9 +213,9 @@ The full source code for this dummy new tab module is available here: [mod_newta
 
 ### Community Modules
 
-Let me show you some modules the community made:
+Here is a [list of modules](https://github.com/breach/breach_core/wiki/List-of-modules) made by the community. If you want to make a module, make sure to add it to the list of _in progress_ modules so we don't have duplicates.
 
- - [New Tab Clock](https://github.com/RobinMalfait/mod_newtab_clock) by Robin Malfait ![](http://d.pr/i/KVOQ+)
+If you want to see a full functional module, check out this one: [New Tab Clock Page](https://github.com/RobinMalfait/mod_newtab_clock)
 
 ### Conclusion
 
