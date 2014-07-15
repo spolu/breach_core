@@ -1,4 +1,4 @@
-#post {
+#hack {
 
   color: white;
 
@@ -41,19 +41,20 @@
       margin-bottom: 2em;
     }
 
-    .post pre {
+    .hack pre {
       border: 1px solid #ccc;
       background-color: #ccc;
       padding: 0 .4em;
       color: black;
       font-family: monospace;
+      line-height: 0.9em;
     }
 
-    .post ul, .post ol {
+    .hack ul, .hack ol {
       margin-left: 1.35em;
     }
 
-    .post code {
+    .hack code {
       border: 1px solid #444;
       background-color: #444;
       padding: 0 .2em;
@@ -62,20 +63,20 @@
       font-size: 0.8em;
     }
 
-    .post pre code {
+    .hack pre code {
       background-color: #ccc;
       color: black;
       border: none;
     }
 
     /* terminal */
-    .post pre.terminal {
+    .hack pre.terminal {
       border: 1px solid #000;
       background-color: #333;
       color: #FFF;
     }
 
-    .post pre.terminal code {
+    .hack pre.terminal code {
       background-color: #333;
     }
   }

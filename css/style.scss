@@ -25,6 +25,9 @@
 @import "_blog.blog.scss";
 @import "_blog.post.scss";
 
+/* Hack */
+@import "_hack.scss";
+
 /* Repsonsiveness */
 @import "_responsive.scss";
 @import "_index.responsive.scss";

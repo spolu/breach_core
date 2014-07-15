@@ -8,7 +8,7 @@ title: "Breach - A browser for the HTML5 era"
     <div class="animated fadeIn">
       <h1>A browser for the <strong>HTML5</strong> era</h1>
       <h2>Entirely written in Javascript. Free. Modular. Hackable.</h2>
-      <a href="https://github.com/breach/breach_core" class="fa-apple btn-main">Download Breach Alpha 0.3</a>
+      <a href="" id="download" class="btn-main"></a>
     </div>
 
     <figure class="animated fadeInUp">
@@ -44,7 +44,7 @@ title: "Breach - A browser for the HTML5 era"
 <section id="tech">
   <header class="wow fadeIn" data-wow-delay=".3s">
     <h3>How it's built</h3>
-    <h4>A few simple ingredients to make magic happen</h4>
+    <h4>A few simple ingredients to make magic happen.</h4>
   </header>
 
   <div class="layers">
@@ -108,30 +108,29 @@ title: "Breach - A browser for the HTML5 era"
 
 <section id="contribute">
   <header class="">
-    <h3>Wanna get your hands dirty?</h3>
-    <h4>Modify the behaviour of Breach and bend it to your will by building your own module or modifying existing ones.</h4>
+    <h3>Contribute!</h3>
+    <h4>Build your own modules or modify existing ones.</h4>
   </header>
   <div class="">
-    <iframe src="http://ghbtns.com/github-btn.html?user=breach&repo=breach_core&type=watch&count=true&size=large"
-      allowtransparency="true" frameborder="0" scrolling="0" width="160" height="30"></iframe>
-    <iframe src="http://ghbtns.com/github-btn.html?user=breach&repo=breach_core&type=fork&count=true&size=large"
-      allowtransparency="true" frameborder="0" scrolling="0" width="160" height="30"></iframe>
+    <a href="/hack" class="btn-main">
+      Learn & Hack
+    </a>
   </div>
 </section>
 
 <section id="footer">
   <footer>
     <header>
-      <form action="" class="">
-        <label><input type="email" placeholder="Subscribe via email"></label>
-        <button>Join forces</button>
+      <form>
+        <label><input id="email" type="email" placeholder="Subscribe via email" required></label>
+        <input type="submit" value="Join forces">
       </form>
       <nav class="">
         <ul>
           <li class="text"><a href="/blog">Blog</a></li>
-          <li class="text"><a href="/hack">Tutorial</a></li>
+          <li class="text"><a href="/hack">Hack</a></li>
           <li class="social"><a href="http://twitter.com/breachbrowser" class="fa-twitter"></a></li>
-          <li class="social"><a href="http://github.com/breach_core" class="fa-github"></a></li>
+          <li class="social"><a href="http://github.com/breach/breach_core" class="fa-github"></a></li>
         </ul>
       </nav>
     </header>
@@ -142,4 +141,49 @@ title: "Breach - A browser for the HTML5 era"
 
 <script type="text/javascript" src="js/wow.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+  $(function() {
+    $('#footer form').submit(function(e) {
+      e.preventDefault();
+
+      var email = $('#footer #email').val().toLowerCase();
+      var email_r = /^[a-z0-9\.\_\-\+\%]+@[a-z0-9\.\-]+\.[a-z]{2,}$/;
+      if(email_r.exec(email)) {
+        var HOST = 'data.breach.cc';
+        var url = 'http://' + HOST + ':4000/auth/join?email=' + 
+        encodeURIComponent(email) + '&callback=?';
+        $.getJSON(url, function(data) {
+          console.log(data);
+          $('#footer #email').attr('placeholder', 'Thanks!');
+          $('#footer #email').val('');
+          setTimeout(function() {
+            $('#footer #email').blur();
+          });
+        });
+      }
+    });
+
+    var platform = "unknown";
+    if(navigator.appVersion.indexOf("Win")!=-1) platform="win";
+    if(navigator.appVersion.indexOf("Mac")!=-1) platform="darwin";
+    if(navigator.appVersion.indexOf("X11")!=-1) platform="linux";
+    if(navigator.appVersion.indexOf("Linux")!=-1) platform="linux";
+
+    if(platform === 'darwin') {
+      $('#download').html('<span class="fa fa-apple"></span>&nbsp;&nbsp; Download Breach Alpha v0.3');
+      $('#download').attr('href', 'http://bit.ly/1sVqDDw');
+    }
+    else if(platform === 'linux') {
+      $('#download').html('<span class="fa fa-linux"></span>&nbsp;&nbsp; Download Breach Alpha v0.3');
+      $('#download').attr('href', 'http://bit.ly/1kWWjmF');
+    }
+    else {
+      $('#download').html('Available on &nbsp;&nbsp;<span class="fa fa-apple"></span> / <span class="fa fa-linux"></span>');
+      $('#download').attr('href', '#');
+    }
+
+  });
+</script>
 

@@ -51,29 +51,35 @@
   padding: 0 20px; }
 
 @font-face {
-  font-family: 'Gotham Rounded';
-  src: url("../assets/fonts/GothamRnd-Book.eot");
-  /* IE9 Compat Modes */
-  src: url("../assets/fonts/GothamRnd-Book.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/GothamRnd-Book.woff") format("woff"), url("../assets/fonts/GothamRnd-Book.ttf") format("truetype"), url("../assets/fonts/GothamRnd-Book.svg#21661efc977bfcfec5c6c16307c05ceb") format("svg");
-  /* Legacy iOS */
+  font-family: 'Roboto';
+  src: url("../assets/fonts/Roboto-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: normal; }
 @font-face {
-  font-family: 'Gotham Rounded';
-  src: url("../assets/fonts/GothamRnd-Bold.eot");
-  /* IE9 Compat Modes */
-  src: url("../assets/fonts/GothamRnd-Bold.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/GothamRnd-Bold.woff") format("woff"), url("../assets/fonts/GothamRnd-Bold.ttf") format("truetype"), url("../assets/fonts/GothamRnd-Bold.svg#cf294c6136807d0e69a971e863b3cd88") format("svg");
-  /* Legacy iOS */
+  font-family: 'Roboto';
+  src: url("../assets/fonts/Roboto-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500; }
+@font-face {
+  font-family: 'Roboto';
+  src: url("../assets/fonts/Roboto-Bold.ttf") format("truetype");
   font-style: normal;
   font-weight: bold; }
 @font-face {
-  font-family: 'Gotham Rounded';
-  src: url("../assets/fonts/GothamRnd-Light.eot");
-  /* IE9 Compat Modes */
-  src: url("../assets/fonts/GothamRnd-Light.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/GothamRnd-Light.woff") format("woff"), url("../assets/fonts/GothamRnd-Light.ttf") format("truetype"), url("../assets/fonts/GothamRnd-Light.svg#b3bd5af04c0e7cf2188fad8c1f2958f5") format("svg");
-  /* Legacy iOS */
+  font-family: 'Roboto';
+  src: url("../assets/fonts/Roboto-Black.ttf") format("truetype");
   font-style: normal;
-  font-weight: 400; }
+  font-weight: 900; }
+@font-face {
+  font-family: 'Roboto';
+  src: url("../assets/fonts/Roboto-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300; }
+@font-face {
+  font-family: 'Roboto';
+  src: url("../assets/fonts/Roboto-Thin.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100; }
 /*!
  *  Font Awesome 4.0.3 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -1410,7 +1416,7 @@
   -moz-box-sizing: border-box; }
 
 body {
-  font-family: "Gotham Rounded", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 15px;
   line-height: 24px;
   color: #757575; }
@@ -1439,6 +1445,9 @@ h2, h4 {
   transition: .15s background ease-in-out, .15s text-shadow ease-in-out;
   -moz-transition: .15s background ease-in-out, .15s text-shadow ease-in-out;
   -webkit-transition: .15s background ease-in-out, .15s text-shadow ease-in-out; }
+  .btn-main span.fa {
+    font-size: 1.4em;
+    vertical-align: middle; }
   .btn-main:before {
     font-size: 1.4em;
     vertical-align: middle;
@@ -1542,7 +1551,7 @@ h2, h4 {
         position: absolute;
         top: -2px;
         left: 15px; }
-    #footer footer header input {
+    #footer footer header input[type="email"] {
       height: 40px;
       width: 260px;
       border-radius: 2px;
@@ -1553,12 +1562,15 @@ h2, h4 {
       font-weight: bold;
       outline: none;
       -webkit-appearance: none; }
-      #footer footer header input:focus {
+      #footer footer header input[type="email"]:focus {
         border-color: #757575; }
-    #footer footer header button {
-      background: #80bc01;
+    #footer footer header button,
+    #footer footer header input[type="submit"] {
+      position: relative;
+      top: -1px;
+      background: #c9d0d5;
+      color: #5d6163;
       font-weight: bold;
-      color: #fff;
       border: none;
       height: 40px;
       padding: 0 20px;
@@ -1567,9 +1579,10 @@ h2, h4 {
       transition: .15s background ease-in-out, .15s text-shadow ease-in-out;
       -moz-transition: .15s background ease-in-out, .15s text-shadow ease-in-out;
       -webkit-transition: .15s background ease-in-out, .15s text-shadow ease-in-out; }
-      #footer footer header button:hover {
-        background: #93d801;
-        text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); }
+      #footer footer header button:hover,
+      #footer footer header input[type="submit"]:hover {
+        background: #5d6163;
+        color: white; }
     #footer footer header li {
       display: inline-block;
       list-style: none;
@@ -1654,7 +1667,8 @@ h2, h4 {
   padding-top: 2.4em; }
   #hero h1 {
     font-size: 2.4em;
-    font-weight: 400; }
+    font-weight: 100;
+    padding: 0em 1em; }
   #hero h2 {
     font-size: 1.6em;
     font-weight: normal;
@@ -1703,6 +1717,8 @@ h2, h4 {
     font-weight: 400;
     margin-bottom: 0;
     color: #3e3f3a; }
+  #tech h3 {
+    font-weight: 100; }
   #tech h4 {
     margin: 1em 0 2em; }
   #tech .layers {
@@ -1907,8 +1923,19 @@ h2, h4 {
 #contribute {
   background: url(../assets/images/footer.jpg) no-repeat top center #3e3f3a;
   padding: 4em 0 0 0; }
+  #contribute h1 {
+    color: #fff;
+    font-size: 2.4em;
+    font-weight: 400;
+    max-width: 960px; }
+  #contribute h2 {
+    color: #fff;
+    font-size: 1.6em;
+    font-weight: normal;
+    margin-bottom: 2em;
+    max-width: 960px; }
   #contribute h3, #contribute h4 {
-    font-weight: bold;
+    font-weight: 100;
     margin: 0 auto;
     color: #fff;
     max-width: 960px; }
@@ -1916,8 +1943,9 @@ h2, h4 {
     font-weight: 400;
     margin: 1em auto 1em; }
   #contribute div {
-    text-align: center;
-    padding-bottom: 4em; }
+    text-align: center; }
+  #contribute .btn-main {
+    margin-top: 1.1em; }
 
 /* Blog */
 #blog {
@@ -1937,7 +1965,7 @@ h2, h4 {
       text-align: left;
       margin: 2em 0; }
     #blog article .posts {
-      margin-top: 4em; }
+      margin-top: 2em; }
       #blog article .posts span {
         color: #aaa; }
 
@@ -1970,27 +1998,85 @@ h2, h4 {
       color: #888;
       margin-bottom: 2em; }
     #post article .post pre {
-      border: 1px solid #ddd;
-      background-color: #eef;
+      border: 1px solid #ccc;
+      background-color: #ccc;
       padding: 0 .4em;
       color: black;
       font-family: monospace; }
     #post article .post ul, #post article .post ol {
       margin-left: 1.35em; }
     #post article .post code {
-      border: 1px solid #ddd;
-      background-color: #eef;
+      border: 1px solid #444;
+      background-color: #444;
       padding: 0 .2em;
-      color: black;
+      color: white;
       font-family: monospace;
       font-size: 0.8em; }
     #post article .post pre code {
+      background-color: #ccc;
+      color: black;
       border: none; }
     #post article .post pre.terminal {
       border: 1px solid #000;
       background-color: #333;
       color: #FFF; }
     #post article .post pre.terminal code {
+      background-color: #333; }
+
+/* Hack */
+#hack {
+  color: white; }
+  #hack a {
+    color: #29abe1;
+    font-weight: bold;
+    text-decoration: none; }
+  #hack article {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 4em 1em;
+    text-align: justify;
+    /* terminal */ }
+    #hack article img {
+      width: 100%; }
+    #hack article h1, #hack article h2, #hack article h3, #hack article h4 {
+      text-align: left;
+      color: #eee; }
+    #hack article h1 {
+      font-size: 1.6em; }
+    #hack article h2 {
+      font-size: 1.4em; }
+    #hack article h3 {
+      font-size: 1.2em; }
+    #hack article h4 {
+      font-size: 1em; }
+    #hack article .meta {
+      color: #888;
+      margin-bottom: 2em; }
+    #hack article .hack pre {
+      border: 1px solid #ccc;
+      background-color: #ccc;
+      padding: 0 .4em;
+      color: black;
+      font-family: monospace;
+      line-height: 0.9em; }
+    #hack article .hack ul, #hack article .hack ol {
+      margin-left: 1.35em; }
+    #hack article .hack code {
+      border: 1px solid #444;
+      background-color: #444;
+      padding: 0 .2em;
+      color: white;
+      font-family: monospace;
+      font-size: 0.8em; }
+    #hack article .hack pre code {
+      background-color: #ccc;
+      color: black;
+      border: none; }
+    #hack article .hack pre.terminal {
+      border: 1px solid #000;
+      background-color: #333;
+      color: #FFF; }
+    #hack article .hack pre.terminal code {
       background-color: #333; }
 
 /* Repsonsiveness */
@@ -2021,7 +2107,19 @@ h2, h4 {
     font-size: 1.3em; }
 
   #header ul {
-    padding-left: 20px; }
+    padding-left: 0;
+    margin-bottom: 0;
+    text-align: center; }
+  #header nav {
+    padding-bottom: 0;
+    width: 100%; }
+  #header header {
+    padding-top: 2em; }
+  #header #logo {
+    margin: 0 auto; }
+
+  #hero {
+    padding-top: 1.5em; }
 
   #footer {
     padding-top: 2em; }
