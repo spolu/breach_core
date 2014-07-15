@@ -1970,7 +1970,8 @@ h2, h4 {
         color: #aaa; }
 
 #post {
-  color: white; }
+  color: white;
+  font-weight: 100; }
   #post a {
     color: #29abe1;
     font-weight: bold;
@@ -2025,7 +2026,8 @@ h2, h4 {
 
 /* Hack */
 #hack {
-  color: white; }
+  color: white;
+  font-weight: 100; }
   #hack a {
     color: #29abe1;
     font-weight: bold;

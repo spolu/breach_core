@@ -12,7 +12,7 @@ Started working thinking about bundling a nodeJS thread within the Chromium even
 
 > 2/ *In your team, as i read, 3 or 4 people. But who is writing most of code? Only you?*
 
-Before 7/10 mostly one coder, myself, with occasional contributions from @moin_anthony and @deian, help and direction from @guille and a lot of help with the design of the landing and UI of m od_strip from @alevizio (all accounts are github accounts!)
+Before 7/10 mostly one coder, myself, with occasional contributions from @n1t0 and @deian, help and direction from @guille and a lot of help with the design of the landing and UI of m od_strip from @alevizio (all accounts are GitHub accounts!)
 
 Now we have more contributors getting involved with the project and at least a couple ones working on rather substantial projects within Breach! Yay!
 
