@@ -1,13 +1,12 @@
 <div class="modules">
-
   <div class="container">
-
-    <table border="0" ng-cloak>
+    <table ng-cloak>
       <thead>
         <tr>
           <th colspan="12">Core</th>
         </tr>
       </thead>
+
       <tbody>
         <tr>
           <td colspan="2">Breach</td>
@@ -21,7 +20,7 @@
             need update (v{{about.update.version}})
           </td>
           <td colspan="5" ng-show="about.update_ready" class="orange">
-            <a href="" ng-click="about_install()">install &amp; restart</a>
+            <a ng-click="about_install()">install &amp; restart</a>
           </td>
           <td colspan="5" ng-show="about.update_available" class="red">
             install manually
@@ -32,12 +31,13 @@
       </tbody>
     </table>
 
-    <table border="0" ng-cloak>
+    <table ng-cloak>
       <thead>
         <tr>
           <th colspan="12">Modules</th>
         </tr>
       </thead>
+
       <tbody>
         <tr ng-repeat="m in modules" ng-cloak>
           <td>{{m.type}}</td>
@@ -59,36 +59,36 @@
             up to date
           </td>
           <td ng-show="m.need_restart" class="orange">
-            <a href="" ng-click="modules_restart(m.path)">need restart</a>
+            <a ng-click="modules_restart(m.path)">need restart</a>
           </td>
           <!-- /UPDATE -->
           <td>
-            <a href="" ng-click="modules_kill(m.path)" ng-show="m.running">kill</a>
-            <a href="" ng-click="modules_run(m.path)" ng-hide="m.running">run</a>
+            <a ng-click="modules_kill(m.path)" ng-show="m.running">kill</a>
+            <a ng-click="modules_run(m.path)" ng-hide="m.running">run</a>
           </td>
           <td ng-show="m.running">
-            <a href="" ng-click="modules_restart(m.path)">restart</a>
+            <a ng-click="modules_restart(m.path)">restart</a>
           </td>
           <td>
-            <a href="" ng-click="modules_update(m.path)" 
-                       ng-hide="m.need_restart">update</a>
+            <a ng-click="modules_update(m.path)" ng-hide="m.need_restart">update</a>
           </td>
           <td>
-            <a href="" ng-click="modules_remove(m.path)">remove</a>
+            <a ng-click="modules_remove(m.path)">remove</a>
           </td>
           <td>
-            <a href="#/out/{{m.name}}">debug</a>
+            <a href="#/out/{{m.name}}">output</a>
           </td>
         </tr>
       </tbody>
     </table>
 
-    <table border="0" ng-cloak>
+    <table ng-cloak>
       <thead>
         <tr>
           <th colspan="12">Install Modules</th>
         </tr>
       </thead>
+
       <tbody>
         <tr>
           <td colspan="7">
@@ -109,11 +109,5 @@
       <div class="path">&nbsp;github:breach/mod_strip</div>
       <div class="path">&nbsp;github:breach/mod_stats</div>
     </div>
-
-    <div style="margin-top: 10px;">
-    </div>
-
   </div> <!-- /container -->
 </div> <!-- /modules -->
-
-

@@ -6,6 +6,10 @@
   color: hsl(198, 65%, 25%);
 }
 
+.modules a[ng-click] (
+  cursor: pointer;
+)
+
 .modules > .container {
   display:inline-block;
   text-align: left;
@@ -17,6 +21,7 @@
   color: black;
   width: 100%;
   background-color: hsl(72, 4%, 24%);
+  border: 0;
 }
 
 .modules table tr.separator {
@@ -59,6 +64,7 @@
 
 .modules .footer {
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .modules .footer .path {
