@@ -4,30 +4,31 @@
   "author": {
     "name": "Stanislas Polu",
     "email": "polu.stanislas@gmail.com",
-    "url": "http://github.com/spolu" 
+    "url": "http://github.com/spolu"
   },
   "version": "0.3.20-alpha.5",
   "dependencies": {
-    "exo_browser": "0.6.x",
-    "gig.fs": "0.2.x",
     "async": "0.9.x",
-    "mkdirp": "0.3.x",
-    "octonode": "0.6.x",
-    "fs-extra": "0.8.x",
-    "npm": "1.4.x",
-    "semver": "2.2.x",
-    "tar": "0.1.x",
-    "request": "2.36.x",
-    "express": "4.0.x",
     "body-parser": "1.0.x",
+    "exo_browser": "0.6.x",
+    "express": "4.0.x",
+    "fs-extra": "0.8.x",
+    "gig.fs": "0.2.x",
     "method-override": "1.0.x",
-    "socket.io": "1.0.x",
+    "mkdirp": "0.3.x",
+    "npm": "1.4.x",
+    "npm-normalize": "^0.2.3",
+    "octonode": "0.6.x",
     "openpgp": "0.6.x",
-    "tail": "0.3.x"
+    "request": "2.36.x",
+    "semver": "2.2.x",
+    "socket.io": "1.0.x",
+    "tail": "0.3.x",
+    "tar": "0.1.x"
   },
-  "repository" : { 
-    "type" :  "git",
-    "url" :   "http://github.com/breach/breach_core.git" 
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/breach/breach_core.git"
   },
   "bugs": {
     "url": "https://github.com/breach/breach_core/issues"
