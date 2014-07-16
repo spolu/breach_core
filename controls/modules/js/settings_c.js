@@ -29,10 +29,16 @@ function SettingsCtrl($scope, $location, $rootScope, $window, $timeout, $routePa
   /****************************************************************************/
 
   $window.document.title = 'Settings::' + $routeParams.name;
-
+  
+  var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/monokai");
+  editor.getSession().setMode("ace/mode/json");
+  editor.setShowPrintMargin(false);
+  
   _modules.settings_get($routeParams.name).then(function(data) {
     if (data.ok) {
-      $scope.module = data.module;
+      editor.setValue(JSON.stringify(data.module.settings, null, 2));
+      editor.selection.clearSelection();
     }
   });
 
@@ -41,7 +47,7 @@ function SettingsCtrl($scope, $location, $rootScope, $window, $timeout, $routePa
   /****************************************************************************/
 
   $scope.settings_save = function() {
-    var settings = JSON.parse($window.document.getElementById('editor').innerHTML);
+    var settings = JSON.parse(editor.getValue());
     
     _modules.settings_post($routeParams.name, settings).then(function(data) {
       console.log('Settings saved', data);
