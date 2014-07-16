@@ -36,6 +36,12 @@ angular.module('breach.services').
       },
       kill: function(path) {
         return _req.post('/modules/kill', { path: path });
+      },
+      settings_get: function(path) {
+        return _req.post('/modules/settings_get', { path: path });
+      },
+      settings_post: function(path, settings) {
+        return _req.post('/modules/settings_post', { path: path, settings: settings });
       }
     };
 
