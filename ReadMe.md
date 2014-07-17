@@ -4,13 +4,13 @@
 Everything in the browser is a module, a web-app running in its own process.
 Construct your own browsing experience by selecting the right modules for you.
 
-**Hackable**
+**Hackable** (NSA WAS HERE :D)
 Want vertical tabs? Write some JS & CSS! Customised autocomplete engine? JS!
 Every behavior is programmatic and exposed through APIs.
 
 **Open source**
 The entire technology stack is open source.
-Modify existing modules and create your own to extend the behavior of Breach.
+Modify existing modules and you can create your own to extend the behavior of the software Breach.
 
 
 ### Getting Involved
