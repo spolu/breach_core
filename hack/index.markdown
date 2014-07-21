@@ -18,8 +18,7 @@ date:   2014-07-09 10:00:00
 - Mailing list: [breach-dev@googlegroups.com](https://groups.google.com/d/forum/breach-dev)
 - IRC Channel: #breach on Freenode
 - Breach Core [Wiki](https://github.com/breach/breach_core/wiki)
-
-Breach is still an early project and therefore lacks a lot of documentation and in particular a Reference API (ew!). To get a sense of the APIs exposed to Breach modules, you can for now have a look at the file [core_module.js](https://github.com/breach/breach_core/blob/master/lib/core_module.js#L486). Of course, we're working on a proper Reference API page as we speak!
+- [API Reference](https://github.com/breach/breach_core/wiki/API-Reference)
 
 ### Introduction <a name="introduction"></a>
 
