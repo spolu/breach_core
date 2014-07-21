@@ -100,6 +100,11 @@ async.series([
   function(cb_) {
     fs.chmod(path.join(tmp_dist_path, 'breach'), '755', cb_);
   },
+  /* Copy linux README. */
+  function(cb_) {
+    fs.copy(path.join(__dirname, './LINUX_README'), 
+            path.join(tmp_dist_path, 'README'), cb_);
+  },
 
   /* copy. */
   function(cb_) {
