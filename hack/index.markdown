@@ -19,6 +19,7 @@ date:   2014-07-09 10:00:00
 - IRC Channel: #breach on Freenode
 - Breach Core [Wiki](https://github.com/breach/breach_core/wiki)
 - [API Reference](https://github.com/breach/breach_core/wiki/API-Reference)
+- Modules availble or under developement: [List of Modules](https://github.com/breach/breach_core/wiki/List-of-modules)
 
 ### Introduction <a name="introduction"></a>
 
