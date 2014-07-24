@@ -4,13 +4,13 @@ title:  "Hacking Breach"
 date:   2014-07-09 10:00:00
 ---
 
-- [Resources](#resources)
-- [Introduction](#introduction)
-- [How to inspect a module](#how-to-inspect-a-module)
-- [How to hack a module](#how-to-hack-a-module)
-- [Understanding Breach architecture](#understanding-breach-architecture)
-- [Building your own new tab page module](#building-your-own-new-tab-page-module)
-- [Community Modules](#community-modules)
+- [Resources](/hack#resources)
+- [Introduction](/hack#introduction)
+- [How to inspect a module](/hack#how-to-inspect-a-module)
+- [How to hack a module](/hack#how-to-hack-a-module)
+- [Understanding Breach architecture](/hack#understanding-breach-architecture)
+- [Building your own new tab page module](/hack#building-your-own-new-tab-page-module)
+- [Community Modules](/hack#community-modules)
 
 
 ### Resources <a name="resources"></a>
