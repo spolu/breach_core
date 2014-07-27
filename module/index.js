@@ -1,6 +1,7 @@
 var common = require('./lib/common.js');
 
 module.exports = require('./lib/module.js').module({});
+module.exports.common = common;
 
 // SAFETY NET (kills the process and the spawns)
 process.on('uncaughtException', function (err) {
