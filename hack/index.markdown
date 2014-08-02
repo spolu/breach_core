@@ -18,7 +18,7 @@ date:   2014-07-09 10:00:00
 - Mailing list: [breach-dev@googlegroups.com](https://groups.google.com/d/forum/breach-dev)
 - IRC Channel: #breach on Freenode
 - Breach Core [Wiki](https://github.com/breach/breach_core/wiki)
-- [API Reference](https://github.com/breach/breach_core/wiki/API-Reference)
+- [API Reference](https://github.com/breach/breach_core/wiki/API-Reference-v0.3)
 - Modules availble or under developement: [List of Modules](https://github.com/breach/breach_core/wiki/List-of-modules)
 
 ### Introduction <a name="introduction"></a>
