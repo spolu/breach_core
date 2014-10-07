@@ -1,8 +1,6 @@
 html {
   margin-top: 0px;
-  font-family: "Roboto", Arial;
-  font-weight: 300;
-  font-size: 12px;
+  font: 12px 300 "Roboto", Arial;
   color: hsl(72, 4%, 90%);
   height: 100%;
   -webkit-font-smoothing: antialiased;
