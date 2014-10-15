@@ -19,8 +19,6 @@
   background-color: hsl(72, 4%, 24%);
 }
 
-.modules table tr.separator {
-}
 .modules table tr.separator td {
   background-color: hsl(72, 4%, 24%);
 }
@@ -35,20 +33,19 @@
 
 .modules table td {
   height: 25px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: auto 5px;
   background-color: hsl(0, 0%, 97%);
 }
 
 .modules table td.green {
   color: hsl(100, 80%, 40%);
 }
-.modules table td.orange {
-  color: orange;
-}
+
+.modules table td.orange,
 .modules table td.orange a {
   color: orange;
 }
+
 .modules table td.red {
   color: hsl(0, 80%, 40%);
 }
