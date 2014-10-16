@@ -30,11 +30,9 @@ angular.module('breach', ['ngRoute',
       when('/out/:name',
            { templateUrl: '/modules/partials/out.html',
              controller: OutCtrl }).
-      /*
-      when('/:name/config',
-           { templateUrl: '/modules/partials/config.html',
-             controller: ConfigCtrl }).
-      */
+      when('/:name/settings',
+           { templateUrl: '/modules/partials/settings.html',
+             controller: SettingsCtrl }).
       otherwise({ redirectTo: '/' });
 }]);
 
