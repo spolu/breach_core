@@ -18,26 +18,15 @@
   text-align: center;
 
   opacity: 0;
+  -webkit-transition: opacity 1s;
   transition: opacity 1s;
 }
 
-.onboarding.step-0 #step-0 {
-  display: block;
-  opacity: 1;
-}
-.onboarding.step-1 #step-1 {
-  display: block;
-  opacity: 1;
-}
-.onboarding.step-2 #step-2 {
-  display: block;
-  opacity: 1;
-}
-.onboarding.step-3 #step-3 {
-  display: block;
-  opacity: 1;
-}
-.onboarding.step-4 #step-4 {
+.onboarding.step-0 #step-0,
+.onboarding.step-0 #step-1,
+.onboarding.step-0 #step-2,
+.onboarding.step-0 #step-3,
+.onboarding.step-0 #step-4 {
   display: block;
   opacity: 1;
 }
@@ -147,8 +136,7 @@
 .onboarding .step#step-1 .loading {
   width: 320px;
 
-  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-  font-size: 1.2em;
+  font: 1.2em "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
 
   margin-top: 40px;
   margin-bottom: 40px;
@@ -190,8 +178,6 @@
 /******************************************************************************/
 /* STEP 2                                                                     */
 /******************************************************************************/
-.onboarding .step#step-2 .header {
-}
 
 .onboarding .step#step-2 .button {
   background-color: hsl(205, 13%, 81%);
@@ -210,8 +196,6 @@
 .onboarding .step#step-3 .top {
   margin-bottom: 20px;
 }
-
-
 
 /******************************************************************************/
 /* STEP 4                                                                     */
