@@ -1,6 +1,0 @@
-node_modules
-.*.swp
-*~
-npm-debug.log
-out
-.DS_Store
