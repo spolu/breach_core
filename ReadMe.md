@@ -21,7 +21,7 @@ Modify existing modules and you can create your own to extend the behavior of Br
 
 You can find a list of Modules available or under developement here: [List of Modules](https://github.com/breach/breach_core/wiki/List-of-modules)
 
-### Runing Breach on Linux
+### Running Breach on Linux
 
 See instructions here: [Running Breach on Linux](https://github.com/breach/breach_core/wiki/Running-Breach-on-Linux)
 
