@@ -15,7 +15,7 @@ Modify existing modules and you can create your own to extend the behavior of Br
 
 ### Getting Involved
 
-- Homepage: [http://breach.cc](http://breach.cc)
+- Homepage: [http://breach.github.io/breach_core/](http://breach.github.io/breach_core/)
 - Mailing list: [breach-dev@googlegroups.com](https://groups.google.com/d/forum/breach-dev)
 - IRC Channel: #breach on Freenode
 
