@@ -1,4 +1,4 @@
 name: Breach
 markdown: redcarpet
 pygments: true
-baseurl: 'http://breach.github.io/breach_core'
+base_url: 'http://breach.github.io/breach_core'
