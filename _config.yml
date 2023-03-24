@@ -1,4 +1,4 @@
 name: Breach
 markdown: redcarpet
 pygments: true
-baseurl: 'http://spolu.github.io/breach_core'
+baseurl: 'https://spolu.github.io/breach_core'
